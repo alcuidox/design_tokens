@@ -236,35 +236,35 @@
     },
     "spacing": {
       "0": {
+        "5": {
+          "$value": "0.125rem",
+          "$type": "spacing"
+        },
         "$value": "0px",
         "$type": "spacing"
       },
-      "0-5": {
-        "$value": "0.125rem",
-        "$type": "spacing"
-      },
       "1": {
+        "5": {
+          "$value": "0.375rem",
+          "$type": "spacing"
+        },
         "$value": "0.25rem",
         "$type": "spacing"
       },
-      "1-5": {
-        "$value": "0.375rem",
-        "$type": "spacing"
-      },
       "2": {
+        "5": {
+          "$value": "0.625rem",
+          "$type": "spacing"
+        },
         "$value": "0.5rem",
         "$type": "spacing"
       },
-      "2-5": {
-        "$value": "0.625rem",
-        "$type": "spacing"
-      },
       "3": {
+        "5": {
+          "$value": "0.875rem",
+          "$type": "spacing"
+        },
         "$value": "0.75rem",
-        "$type": "spacing"
-      },
-      "3-5": {
-        "$value": "0.875rem",
         "$type": "spacing"
       },
       "4": {
@@ -504,32 +504,6 @@
           "$value": "900",
           "$type": "fontWeight"
         }
-      },
-      "lineHeight": {
-        "none": {
-          "$value": "1",
-          "$type": "lineHeight"
-        },
-        "tight": {
-          "$value": "1.25",
-          "$type": "lineHeight"
-        },
-        "snug": {
-          "$value": "1.375",
-          "$type": "lineHeight"
-        },
-        "normal": {
-          "$value": "1.5",
-          "$type": "lineHeight"
-        },
-        "relaxed": {
-          "$value": "1.625",
-          "$type": "lineHeight"
-        },
-        "loose": {
-          "$value": "2",
-          "$type": "lineHeight"
-        }
       }
     },
     "border": {
@@ -597,196 +571,37 @@
     "effects": {
       "shadow": {
         "2xl": {
-          "$value": {
-            "x": "0",
-            "y": "25",
-            "blur": "50",
-            "spread": "-12",
-            "color": "rgb(0 0 0 / 0.25)",
-            "type": "dropShadow"
-          },
+          "$value": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
           "$type": "boxShadow"
         },
         "sm": {
-          "$value": {
-            "x": "0",
-            "y": "1",
-            "blur": "2",
-            "spread": "0",
-            "color": "rgb(0 0 0 / 0.05)",
-            "type": "dropShadow"
-          },
+          "$value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
           "$type": "boxShadow"
         },
         "default": {
-          "$value": [
-            {
-              "x": "0",
-              "y": "1",
-              "blur": "3",
-              "spread": "0",
-              "color": "rgb(0 0 0 / 0.1)",
-              "type": "dropShadow"
-            },
-            {
-              "x": "0",
-              "y": "1",
-              "blur": "2",
-              "spread": "-1",
-              "color": "rgb(0 0 0 / 0.1)",
-              "type": "dropShadow"
-            }
-          ],
+          "$value": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
           "$type": "boxShadow"
         },
         "md": {
-          "$value": [
-            {
-              "x": "0",
-              "y": "4",
-              "blur": "6",
-              "spread": "-1",
-              "color": "rgb(0 0 0 / 0.1)",
-              "type": "dropShadow"
-            },
-            {
-              "x": "0",
-              "y": "2",
-              "blur": "4",
-              "spread": "-2",
-              "color": "rgb(0 0 0 / 0.1)",
-              "type": "dropShadow"
-            }
-          ],
+          "$value": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
           "$type": "boxShadow"
         },
         "lg": {
-          "$value": [
-            {
-              "x": "0",
-              "y": "10",
-              "blur": "15",
-              "spread": "-3",
-              "color": "rgb(0 0 0 / 0.1)",
-              "type": "dropShadow"
-            },
-            {
-              "x": "0",
-              "y": "4",
-              "blur": "6",
-              "spread": "-4",
-              "color": "rgb(0 0 0 / 0.1)",
-              "type": "dropShadow"
-            }
-          ],
+          "$value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
           "$type": "boxShadow"
         },
         "xl": {
-          "$value": [
-            {
-              "x": "0",
-              "y": "20",
-              "blur": "25",
-              "spread": "-5",
-              "color": "rgb(0 0 0 / 0.1)",
-              "type": "dropShadow"
-            },
-            {
-              "x": "0",
-              "y": "8",
-              "blur": "10",
-              "spread": "-6",
-              "color": "rgb(0 0 0 / 0.1)",
-              "type": "dropShadow"
-            }
-          ],
+          "$value": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
           "$type": "boxShadow"
         },
         "inner": {
-          "$value": {
-            "x": "0",
-            "y": "2",
-            "blur": "4",
-            "spread": "0",
-            "color": "rgb(0 0 0 / 0.05)",
-            "type": "innerShadow"
-          },
+          "$value": "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
           "$type": "boxShadow"
         },
         "none": {
           "$value": "none",
           "$type": "boxShadow"
         }
-      }
-    },
-    "opacity": {
-      "0": {
-        "$value": "0",
-        "$type": "opacity"
-      },
-      "5": {
-        "$value": "0.05",
-        "$type": "opacity"
-      },
-      "8": {
-        "$value": "0.08",
-        "$type": "opacity"
-      },
-      "10": {
-        "$value": "0.1",
-        "$type": "opacity"
-      },
-      "20": {
-        "$value": "0.2",
-        "$type": "opacity"
-      },
-      "25": {
-        "$value": "0.25",
-        "$type": "opacity"
-      },
-      "30": {
-        "$value": "0.3",
-        "$type": "opacity"
-      },
-      "38": {
-        "$value": "0.38",
-        "$type": "opacity"
-      },
-      "40": {
-        "$value": "0.4",
-        "$type": "opacity"
-      },
-      "50": {
-        "$value": "0.5",
-        "$type": "opacity"
-      },
-      "60": {
-        "$value": "0.6",
-        "$type": "opacity"
-      },
-      "70": {
-        "$value": "0.7",
-        "$type": "opacity"
-      },
-      "75": {
-        "$value": "0.75",
-        "$type": "opacity"
-      },
-      "80": {
-        "$value": "0.8",
-        "$type": "opacity"
-      },
-      "90": {
-        "$value": "0.9",
-        "$type": "opacity"
-      },
-      "95": {
-        "$value": "0.95",
-        "$type": "opacity"
-      },
-      "100": {
-        "$value": "1",
-        "$type": "opacity"
       }
     }
   },
@@ -941,7 +756,7 @@
       "overlay": {
         "$value": "{slate.900}",
         "$type": "color",
-        "$description": "Modal scrim — use with semantic.opacity.overlay token"
+        "$description": "Modal scrim — apply at 50% opacity in component"
       },
       "inverse": {
         "$value": "{slate.900}",
@@ -1134,65 +949,6 @@
         "$description": "Text / icons on Amber fills — dark not white for contrast"
       }
     },
-    "info": {
-      "default": {
-        "$value": "{blue.600}",
-        "$type": "color",
-        "$description": "Informational badges and indicators"
-      },
-      "hovered": {
-        "$value": "{blue.700}",
-        "$type": "color",
-        "$description": "Hovered info action"
-      },
-      "pressed": {
-        "$value": "{blue.800}",
-        "$type": "color",
-        "$description": "Pressed info action"
-      },
-      "subtle": {
-        "$value": "{blue.50}",
-        "$type": "color",
-        "$description": "Info alert background"
-      },
-      "subtle-hovered": {
-        "$value": "{blue.100}",
-        "$type": "color",
-        "$description": "Hovered info alert background"
-      },
-      "border": {
-        "$value": "{blue.300}",
-        "$type": "color",
-        "$description": "Info alert border"
-      },
-      "text": {
-        "$value": "{blue.700}",
-        "$type": "color",
-        "$description": "Inline info text on light backgrounds"
-      },
-      "on-info": {
-        "$value": "{white}",
-        "$type": "color",
-        "$description": "Text and icons on blue info fills"
-      }
-    },
-    "opacity": {
-      "overlay": {
-        "$value": "{opacity.50}",
-        "$type": "opacity",
-        "$description": "Modal scrim opacity"
-      },
-      "disabled": {
-        "$value": "{opacity.38}",
-        "$type": "opacity",
-        "$description": "Disabled element opacity"
-      },
-      "subtle": {
-        "$value": "{opacity.8}",
-        "$type": "opacity",
-        "$description": "Subtle tinted backgrounds"
-      }
-    },
     "typography": {
       "fontFamily": {
         "default": {
@@ -1257,28 +1013,6 @@
           "$type": "letterSpacing"
         }
       },
-      "lineHeight": {
-        "body": {
-          "$value": "{typography.lineHeight.normal}",
-          "$type": "lineHeight",
-          "$description": "Line height for body text"
-        },
-        "heading": {
-          "$value": "{typography.lineHeight.tight}",
-          "$type": "lineHeight",
-          "$description": "Line height for headings"
-        },
-        "caption": {
-          "$value": "{typography.lineHeight.normal}",
-          "$type": "lineHeight",
-          "$description": "Line height for captions"
-        },
-        "code": {
-          "$value": "{typography.lineHeight.relaxed}",
-          "$type": "lineHeight",
-          "$description": "Line height for code blocks"
-        }
-      },
       "weight": {
         "regular": {
           "$value": "{typography.fontWeight.normal}",
@@ -1303,8 +1037,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.normal}",
             "fontSize": "{typography.fontSize.base}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$type": "typography",
           "$description": "Body copy — regular"
@@ -1314,8 +1047,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.normal}",
             "fontSize": "{typography.fontSize.xl}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$type": "typography",
           "$description": "Subtitle — regular"
@@ -1325,8 +1057,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.normal}",
             "fontSize": "{typography.fontSize.sm}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$type": "typography",
           "$description": "Caption — regular"
@@ -1336,8 +1067,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.xs}",
-            "letterSpacing": "{typography.letterSpacing.wide}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.wide}"
           },
           "$type": "typography",
           "$description": "Overline — bold"
@@ -1347,8 +1077,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.sm}",
-            "letterSpacing": "{typography.letterSpacing.wide}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.wide}"
           },
           "$type": "typography",
           "$description": "Button text — bold"
@@ -1358,8 +1087,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.4xl}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$type": "typography",
           "$description": "Title H1 — bold"
@@ -1369,8 +1097,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.3xl}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$type": "typography",
           "$description": "Title H2 — bold"
@@ -1380,8 +1107,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.2xl}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$type": "typography",
           "$description": "Title H3 — bold"
@@ -1391,8 +1117,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.xl}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$type": "typography",
           "$description": "Title H4 — bold"
@@ -1402,8 +1127,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.lg}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$type": "typography",
           "$description": "Title H5 — bold"
@@ -1413,8 +1137,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.base}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$type": "typography",
           "$description": "Title H6 — bold"
