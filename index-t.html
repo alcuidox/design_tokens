@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniform Spatial UI Recreation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+   <!-- Tailwind CDN (dev only) -->
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- BASIC TOKEN TEST -->
+
+<!-- 1) Define CSS variables from colour tokens subset -->
+<style id="idox-color-vars">
+  :root {
+    /* brand */
+    --idox-brand-default:     #0A1F8F; /* blue.800 */
+
+    /* interactive */
+    --idox-interactive:        #0A1F8F; /* blue.800 */
+    --idox-interactive-hovered:#1241B2; /* blue.700 */
+    --idox-interactive-pressed:#050F48; /* blue.900 */
+    --idox-interactive-focused:#0A1F8F; /* blue.800 */
+    --idox-interactive-disabled:#F1F5F9; /* slate.100 */
+    --idox-interactive-subtle:#F5F9FE; /* blue.50 */
+    --idox-interactive-subtle-hovered:#ECF3FE; /* blue.100 */
+    --idox-interactive-subtle-border:#9CC2FC; /* blue.300 */
+    --idox-interactive-border-focus:#9CC2FC; /* blue.300 */
+    --idox-on-interactive:     #FFFFFF;
+
+    /* text */
+    --idox-text-primary:   #0F172A; /* slate.900 */
+    --idox-text-secondary: #475569; /* slate.600 */
+    --idox-text-tertiary:  #94A3B8; /* slate.400 */
+    --idox-text-disabled:  #94A3B8; /* slate.400 */
+    --idox-text-inverse:   #F8FAFC; /* slate.50 */
+    --idox-text-brand:     #0A1F8F; /* blue.800 */
+
+    /* surface */
+    --idox-surface-page:    #F8FAFC; /* slate.50 */
+    --idox-surface-default: #FFFFFF;
+     --idox-surface-subtle: #F1F5F9; /* slate.100 */ /* =NEW */
+    --idox-surface-raised:  #F8FAFC; /* slate.50 */
+    --idox-surface-overlay: #0F172A; /* slate.900 */
+    --idox-surface-inverse: #0F172A; /* slate.900 */
+    --idox-surface-disabled:#F1F5F9; /* slate.100 */
+
+    /* borders */
+    --idox-border-default:  #E2E8F0; /* slate.200 */
+    --idox-border-strong:   #94A3B8; /* slate.400 */
+    --idox-border-brand:    #0A1F8F; /* blue.800 */ /* =NEW */ /* reason: dedicated brand border token so border colour can be themed like text/background */
+    --idox-border-disabled: #E2E8F0; /* slate.200 */
+
+    /* statuses */
+    --idox-success: #16A34A; /* green.600 */
+    --idox-danger:  #DC2626; /* red.600 */
+    --idox-warning: #F59E0B; /* amber.500 */
+  }
+</style>
+
+<!-- 2) Map those variables to Tailwind class names -->
+<style type="text/tailwindcss">
+  @layer utilities {
+        /* brand */
+      .bg-brand { background-color: var(--idox-brand-default); } /* blue.800 */
+
+    /* interactive */
+    .bg-interactive { background-color: var(--idox-interactive); } /* blue.800 */
+    .hover\:bg-interactive-hovered:hover { background-color: var(--idox-interactive-hovered); } /* blue.700 */
+    .active\:bg-interactive-pressed:active { background-color: var(--idox-interactive-pressed); } /* blue.900 */
+    .bg-interactive-focused { background-color: var(--idox-interactive-focused); } /* blue.800 */
+    .bg-interactive-disabled { background-color: var(--idox-interactive-disabled); } /* slate.100 */
+    .bg-interactive-subtle { background-color: var(--idox-interactive-subtle); } /* blue.50 */
+    .hover\:bg-interactive-subtle-hovered:hover { background-color: var(--idox-interactive-subtle-hovered); } /* blue.100 */
+    .border-interactive-subtle { border-color: var(--idox-interactive-subtle-border); } /* blue.300 */
+    .ring-border-focus { --tw-ring-color: var(--idox-interactive-border-focus); } /* blue.300 */
+    .text-on-interactive { color: var(--idox-on-interactive); } /* white */
+
+    /* text hierarchy */
+    .text-primary   { color: var(--idox-text-primary); } /* slate.900 */
+    .text-secondary { color: var(--idox-text-secondary); } /* slate.600 */
+    .text-tertiary  { color: var(--idox-text-tertiary); } /* slate.400 */
+    .text-disabled  { color: var(--idox-text-disabled); } /* slate.400 */
+    .text-inverse   { color: var(--idox-text-inverse); } /* slate.50 */
+    .text-brand     { color: var(--idox-text-brand); } /* blue.800 */
+
+    /* surfaces */
+    .bg-surface-page    { background-color: var(--idox-surface-page); } /* slate.50 */
+    .bg-surface-default { background-color: var(--idox-surface-default); } /* white */
+    .bg-surface-subtle  { background-color: var(--idox-surface-subtle); } /* slate.100 */ /* =NEW */
+    .bg-surface-raised  { background-color: var(--idox-surface-raised); } /* slate.50 */
+    .bg-surface-overlay { background-color: var(--idox-surface-overlay); } /* slate.900 */
+    .bg-surface-inverse { background-color: var(--idox-surface-inverse); } /* slate.900 */
+    .bg-surface-disabled { background-color: var(--idox-surface-disabled); } /* slate.100 */
+
+    /* borders */
+    .border-default { border-color: var(--idox-border-default); } /* slate.200 */
+    .border-strong  { border-color: var(--idox-border-strong); } /* slate.400 */
+    .border-brand { border-color: var(--idox-border-brand); } /* blue.800 */ /* =NEW */ /* reason: reusable class for static brand border use */
+    .border-disabled { border-color: var(--idox-border-disabled); } /* slate.200 */
+    
+
+    /* statuses */
+    .bg-success { background-color: var(--idox-success); } /* green.600 */
+    .bg-danger  { background-color: var(--idox-danger); } /* red.600 */
+    .bg-warning { background-color: var(--idox-warning); } /* amber.500 */
+
+  }
+</style>
+
+    
+    <script>
+        function toggleThemeMenu() {
+            document.getElementById('themeMenu').classList.toggle('show');
+        }
+
+        function applyTheme(bgClass, textClass) {
+            const titleBar = document.querySelector('.title-bar');
+            // Remove existing background classes
+            titleBar.className = titleBar.className.replace(/bg-\S+/g, '');
+            // Remove existing text color classes  
+            titleBar.className = titleBar.className.replace(/text-\S+/g, '');
+            // Add new classes
+            titleBar.classList.add(bgClass, textClass);
+            
+            // Check if status bar checkbox is checked
+            const statusBarCheckbox = document.getElementById('statusBarCheck');
+            if (statusBarCheckbox && statusBarCheckbox.checked) {
+                applyToStatusBar(bgClass, textClass);
+            }
+            
+            document.getElementById('themeMenu').classList.remove('show');
+        }
+
+        function applyToStatusBar(bgClass, textClass) {
+            const statusBarOuter = document.querySelector('.status-bar-outer');
+            if (statusBarOuter) {
+                statusBarOuter.className = statusBarOuter.className.replace(/bg-\S+/g, '');
+                statusBarOuter.classList.add(bgClass);
+                // Don't apply text color to outer div to preserve inner div styling
+            }
+        }
+
+        function toggleStatusBarTheme(checkbox) {
+            if (checkbox.checked) {
+                // Get current title bar colors and apply to status bar
+                const titleBar = document.querySelector('.title-bar');
+                const bgClass = Array.from(titleBar.classList).find(c => c.startsWith('bg-')) || 'bg-surface-default';
+                const textClass = Array.from(titleBar.classList).find(c => c.startsWith('text-')) || 'text-slate-800';
+                applyToStatusBar(bgClass, textClass);
+            } else {
+                // Reset status bar to default
+                const statusBarOuter = document.querySelector('.status-bar-outer');
+                if (statusBarOuter) {
+                    statusBarOuter.className = statusBarOuter.className.replace(/bg-\S+/g, '');
+                    statusBarOuter.className = statusBarOuter.className.replace(/text-\S+/g, '');
+                }
+            }
+        }
+
+        function applyBorderRadius(radiusClass) {
+            // Remove existing rounded classes from all buttons and form controls
+            const buttons = document.querySelectorAll('button');
+            const inputs = document.querySelectorAll('.legacy-input, input[type="text"], input[type="checkbox"], select, textarea');
+            
+            [...buttons, ...inputs].forEach(element => {
+                element.className = element.className.replace(/rounded(-\S+)?/g, '');
+                if (radiusClass !== 'rounded-none') {
+                    element.classList.add(radiusClass);
+                } else {
+                    element.classList.add('rounded-none');
+                }
+            });
+        }
+
+        function toggleDarkMode(checkbox) {
+            const root = document.getElementById('mainWrapper');
+            if (checkbox.checked) {
+                root.classList.add('dark-mode');
+            } else {
+                root.classList.remove('dark-mode');
+            }
+        }
+
+        function applyTokenTooltips() {
+            const tokenClassSet = new Set([
+                'bg-brand',
+                'bg-interactive',
+                'hover:bg-interactive-hovered',
+                'active:bg-interactive-pressed',
+                'bg-interactive-focused',
+                'bg-interactive-disabled',
+                'bg-interactive-subtle',
+                'hover:bg-interactive-subtle-hovered',
+                'border-interactive-subtle',
+                'ring-border-focus',
+                'text-on-interactive',
+                'text-primary',
+                'text-secondary',
+                'text-tertiary',
+                'text-disabled',
+                'text-inverse',
+                'text-brand',
+                'bg-surface-page',
+                'bg-surface-default',
+                'bg-surface-subtle',
+                'bg-surface-raised',
+                'bg-surface-overlay',
+                'bg-surface-inverse',
+                'bg-surface-disabled',
+                'border-default',
+                'border-strong',
+                'border-brand',
+                'border-disabled',
+                'bg-success',
+                'bg-danger',
+                'bg-warning'
+            ]);
+
+            const tokenClassAliases = {
+                'text-brand': 'text-brand'
+            };
+
+            const tokenPrefixes = [
+                'bg-brand',
+                'bg-interactive',
+                'hover:bg-interactive',
+                'active:bg-interactive',
+                'border-interactive',
+                'ring-border-focus',
+                'text-on-interactive',
+                'text-primary',
+                'text-secondary',
+                'text-tertiary',
+                'text-disabled',
+                'text-inverse',
+                'text-brand',
+                'bg-surface',
+                'border-default',
+                'border-strong',
+                'border-brand',
+                'border-disabled',
+                'bg-success',
+                'bg-danger',
+                'bg-warning'
+            ];
+
+            const isTokenClass = (className) => {
+                if (tokenClassSet.has(className)) {
+                    return true;
+                }
+
+                return tokenPrefixes.some((prefix) => className === prefix || className.startsWith(`${prefix}-`));
+            };
+
+            const elements = document.querySelectorAll('[class]');
+            elements.forEach((element) => {
+                const matchedTokenClasses = Array.from(new Set(
+                    Array.from(element.classList)
+                        .map((className) => tokenClassAliases[className] || className)
+                        .filter((className) => isTokenClass(className))
+                ));
+                if (matchedTokenClasses.length === 0) {
+                    return;
+                }
+
+                const tokenTooltip = `Design tokens: ${matchedTokenClasses.join(', ')}`;
+                const existingTitle = element.getAttribute('title');
+                let finalTooltip = tokenTooltip;
+
+                if (existingTitle && !existingTitle.includes('Design tokens:')) {
+                    finalTooltip = `${existingTitle} | ${tokenTooltip}`;
+                }
+
+                element.classList.remove('token-tooltip-host');
+                element.removeAttribute('data-token-tooltip');
+                element.setAttribute('title', finalTooltip);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            applyTokenTooltips();
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('themeMenu');
+            const button = document.getElementById('themeButton');
+            if (menu && button && !menu.contains(event.target) && !button.contains(event.target)) {
+                menu.classList.remove('show');
+            }
+        });
+    </script>
+</head>
+<body class="text-xs h-screen flex items-center justify-center p-6 bg-blue-950 text-primary">
+
+    <!-- Main Outer Wrapper -->
+    <div id="mainWrapper" class="w-full h-full flex flex-col overflow-hidden shadow-2xl max-w-7xl">
+        
+        <!-- Top Window Title Bar -->
+        <div class="bg-brand text-white px-2 py-2 flex justify-between items-center border-b border-default">
+            <div class="flex items-center gap-2">
+                <img class="h-4 w-4" src="https://www.idoxgroup.com/wp-content/uploads/2020/08/cropped-NewFavicon-1-32x32.png">
+                <span class="font-medium">Uniform Spatial - D11M2 Database - train5 - [Uniform]</span>
+            </div>
+            <div class="flex gap-4 items-center text-xs pr-1 font-bold">
+               
+                <i class="fa-solid fa-window-minimize px-2 py-0.5"></i>
+                <i class="fa-regular fa-clone px-2 py-0.5"></i>
+                <i class="fa-solid fa-xmark px-2 py-0.5"></i>
+            </div>
+        </div>
+
+        <!-- Ribbon Tabs -->
+        <div class="bg-surface-page px-4 pt-2 justify-between items-end">
+            <div class="flex text-xs gap-4">
+                <div id="homeTab" class="home-tab pt-0.5 pb-1 border-b-2 border-brand font-semibold">Home</div>
+                <div class="px-1 py-0.5 text-secondary cursor-pointer hover:text-brand">Functions</div>
+                <div class="px-1 py-0.5 text-secondary cursor-pointer hover:text-brand">Options</div>
+                <div class="px-1 py-0.5 text-secondary cursor-pointer hover:text-brand">Spatial</div>
+                <div id="helpTab" class="px-1 py-0.5 text-secondary cursor-pointer hover:text-brand">Help</div>
+            </div>
+        </div>
+
+        <div class="bg-surface-page pt-2">
+        <!-- Modern Ribbon Toolbar -->
+        <div id="modernRibbon" class="h-26 bg-surface-default border-t border-default rounded-lg mx-4 mb-1 text-[11px] shadow">
+            <div class="flex h-full items-stretch px-2">
+                <!-- Record Group -->
+                <div class="flex flex-col px-2 py-1 border-r border-default">
+                    <div class="flex gap-3 flex-1 items-center">
+                        <button class="flex flex-col items-center gap-1 px-3 py-2 hover:bg-slate-100 rounded group transition-colors">
+                            <i class="fa-solid fa-check text-green-600 text-2xl"></i>
+                            <span class="">Accept</span>
+                        </button>
+                        <button class="flex flex-col items-center gap-1 px-3 py-2 hover:bg-slate-100 rounded group transition-colors">
+                            <i class="fa-solid fa-xmark text-red-500 text-2xl"></i>
+                            <span class="">Quit</span>
+                        </button>
+                        <div class="flex flex-col">
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-camera text-brand text-sm"></i>
+                                <span>Record</span>
+                            </button>
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-floppy-disk text-purple-600 text-sm"></i>
+                                <span>Save</span>
+                            </button>
+                        </div>
+                        <div class="flex flex-col">
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-trash-can text-red-500 text-sm"></i>
+                                <span>Delete</span>
+                            </button>
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-clock text-stone-500 text-sm"></i>
+                                <span>History</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-center text-secondary">Record</div>
+                </div>
+
+                <!-- Clipboard Group -->
+                <div class="flex flex-col px-2 py-1 border-r border-default">
+                    <div class="flex gap-2 flex-1 items-center">
+                        <button class="flex flex-col items-center gap-1 px-3 py-2 hover:bg-slate-100 rounded transition-colors">
+                            <i class="fa-solid fa-clipboard text-stone-500 text-2xl"></i>
+                            <span class="">Paste</span>
+                        </button>
+                        <div class="flex flex-col">
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-scissors text-orange-600 text-sm"></i>
+                                <span>Cut</span>
+                            </button>
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-copy text-brand text-sm"></i>
+                                <span>Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-center text-secondary">Clipboard</div>
+                </div>
+
+                <!-- View Group -->
+                <div class="flex flex-col px-2 py-1 border-r border-default">
+                    <div class="flex gap-2 flex-1 items-center">
+                        <button class="flex flex-col items-center gap-1 px-3 py-2 hover:bg-slate-100 rounded transition-colors">
+                            <i class="fa-solid fa-magnifying-glass text-brand text-2xl"></i>
+                            <span class="">View</span>
+                        </button>
+                        <div class="flex flex-col">
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-list text-brand text-sm"></i>
+                                <span>Index</span>
+                            </button>
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-gears text-slate-500 text-sm"></i>
+                                <span>Services</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-center text-secondary">DMS</div>
+                </div>
+
+                <!-- Actions Group -->
+                <div class="flex flex-col px-2 py-1">
+                    <div class="flex gap-3 flex-1 items-center">
+                        <div class="flex flex-col">
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-circle-plus text-green-600 text-sm"></i>
+                                <span>Add Field</span>
+                            </button>
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-bolt text-yellow-500 text-sm"></i>
+                                <span>Quick Action</span>
+                            </button>
+                        </div>
+                        <div class="flex flex-col">
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-print text-brand text-sm"></i>
+                                <span>Print</span>
+                            </button>
+                            <button class="flex items-center gap-2 px-2 py-0.5 hover:bg-slate-100 rounded">
+                                <i class="fa-solid fa-envelope text-stone-500 text-sm"></i>
+                                <span>Message</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="text-[10px] text-center text-secondary">General</div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Main Container -->
+        <div class="flex-1 flex overflow-hidden">
+            <!-- Sidebar -->
+            <div class="w-[230px] bg-surface-page border-r border-default flex flex-col">
+                <div class="p-4">
+                    
+                    <h2 class="text-blue-800 text-sm font-semibold mb-3 flex items-center cursor-pointer hover:text-brand"><i class="fa-solid fa-chevron-down text-brand mr-2 text-[10px]"></i>Modules</h2>
+                    
+                    <!-- Tab navigation -->
+                    <div class="flex gap-6 text-xs mb-3">
+                        <div class="pt-0.5 pb-1 border-b-2 border-brand font-semibold">Modules</div>
+                        <div class="pt-0.5 pb-1 text-secondary cursor-pointer hover:text-brand">Maint.</div>
+                        <div class="pt-0.5 pb-1 text-secondary cursor-pointer hover:text-brand">Admin</div>
+                    </div>
+
+                    <!-- Pill Navigation -->
+                    <div class="hidden flex gap-1 text-xs mb-3">
+                        <div class="px-3 py-0.5 bg-blue-100 border border-blue-200 rounded-xl cursor-pointer font-semibold text-brand">Modules</div>
+                        <div class="px-3 py-0.5 bg-surface-default text-slate-700 rounded-xl cursor-pointer hover:bg-slate-100 border border-slate-200">Maint.</div>
+                        <div class="px-3 py-0.5 bg-surface-default text-slate-700 rounded-xl cursor-pointer hover:bg-slate-100 border border-slate-200">Admin</div>
+                        
+                    </div>
+                    
+                    <ul class="flex flex-col mt-2 overflow-y-auto list-none">
+                        <li class="px-1 py-1 cursor-pointer hover:text-brand text-xs"><i class="fa-solid fa-chevron-right text-brand mr-2 text-[9px]"></i>Gazetteer</li>
+                        <li class="px-1 py-1 cursor-pointer hover:text-brand text-xs"><i class="fa-solid fa-chevron-right text-brand mr-2 text-[9px]"></i>Central Modules</li>
+                        <li class="px-1 py-1 cursor-pointer hover:text-brand text-xs"><i class="fa-solid fa-chevron-right text-brand mr-2 text-[9px]"></i>Building Control</li>
+                        <li class="px-1 py-1 cursor-pointer hover:text-brand text-xs"><i class="fa-solid fa-chevron-right text-brand mr-2 text-[9px]"></i>Planning</li>
+                    </ul>
+
+        
+                </div>
+
+                <div class="mt-auto flex flex-col items-start text-secondary text-sm mb-3">
+                    <div class="cursor-pointer hover:text-brand transition-colors w-full px-4 py-2"><i class="fa-solid fa-chevron-right text-brand mr-2 text-[10px]"></i>Quick Search</div>
+                    <div class="cursor-pointer hover:text-brand transition-colors w-full px-4 py-2"><i class="fa-solid fa-chevron-right text-brand mr-2 text-[10px]"></i>History</div>
+                    <div class="cursor-pointer hover:text-brand transition-colors w-full px-4 py-2"><i class="fa-solid fa-chevron-right text-brand mr-2 text-[10px]"></i>Favourites</div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="flex-1 flex flex-col bg-surface-page overflow-hidden">
+                <div class="flex-1 overflow-auto">
+                <!-- Table Section -->
+                <div class="p-6 flex-none overflow-auto max-h-[200px]">
+                  
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="text-secondary">
+                                <th class="w-24 px-2 py-2 font-normal text-left">Date</th>
+                                <th class="w-20 px-2 py-2 font-normal text-left">Time</th>
+                                <th class="w-40 px-2 py-2 font-normal text-left">Occupier</th>
+                                <th class="w-40 px-2 py-2 font-normal text-left">Address</th>
+                                <th class="px-2 py-2 font-normal text-left">Comments</th>
+                                <th class="w-16 px-2 py-2 font-normal text-center">Out</th>
+                                <th class="w-8"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-surface-default">
+                            <tr class="hover:bg-blue-100">
+                                <td class="border border-strong px-2 py-1">17.11.2008</td>
+                                <td class="border border-strong px-2 py-1"></td>
+                                <td class="border border-strong px-2 py-1"><a href="#" class="text-brand hover:underline">Star Bucks</a></td>
+                                <td class="border border-strong px-2 py-1">TTP24647a</td>
+                                <td class="border border-strong px-2 py-1">MONITO - Monitoring</td>
+                                <td class="border border-strong px-2 py-1 text-center align-middle">
+                                    <input type="checkbox" class="h-4 w-4 active:bg-brand align-middle border border-strong rounded bg-surface-default">
+                                </td>
+                                <td class="pl-3 bg-surface-subtle"><button class="bg-slate-200 rounded px-2 py-0.5 hover:bg-slate-300 active:bg-slate-200"><i class="fa-solid fa-angles-right text-brand text-xs"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td class="border border-strong px-2 py-1">17.11.2008</td>
+                                <td class="border border-strong px-2 py-1"></td>
+                                <td class="border border-strong px-2 py-1">Star Bucks</td>
+                                <td class="border border-strong px-2 py-1">TTP24647a</td>
+                                <td class="border border-strong px-2 py-1">MONITO - Monitoring</td>
+                                <td class="border border-strong px-2 py-1 text-center align-middle">
+                                    <input type="checkbox" class="h-4 w-4 accent-text-brand align-middle border border-strong rounded bg-surface-default">
+                                </td>
+                                <td class="pl-3 bg-surface-subtle"><button class="bg-slate-200 rounded px-2 py-0.5 hover:bg-slate-300 active:bg-slate-200"><i class="fa-solid fa-angles-right text-brand text-xs"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td class="border border-strong px-2 py-1">17.11.2008</td>
+                                <td class="border border-strong px-2 py-1"></td>
+                                <td class="border border-strong px-2 py-1">Star Bucks</td>
+                                <td class="border border-strong px-2 py-1">TTP24647a</td>
+                                <td class="border border-strong px-2 py-1">MONITO - Monitoring</td>
+                                <td class="border border-strong px-2 py-1 text-center align-middle">
+                                    <input type="checkbox" checked class="h-4 w-4 accent-text-brand align-middle border border-strong rounded bg-surface-default">
+                                </td>
+                                <td class="pl-3 bg-surface-subtle"><button class="bg-slate-200 rounded px-2 py-0.5 hover:bg-slate-300 active:bg-slate-200"><i class="fa-solid fa-angles-right text-brand text-xs"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- FORM CONTROLS SECTION (As per attachment) -->
+                <div class="p-6 flex gap-16">
+                    <!-- Left Column -->
+                    <div class="flex flex-col gap-2 flex-1">
+                        <div class="grid grid-cols-[120px_minmax(0,1fr)] items-center gap-2">
+                            <label class="legacy-label">App. No</label>
+                            <input type="text" class="legacy-input flex-1 border border-strong bg-surface-default rounded p-1" value="">
+                        </div>
+                        <div class="grid grid-cols-[120px_minmax(0,1fr)] items-center gap-2">
+                            <label class="legacy-label">Application Type</label>
+                            <select class="legacy-input flex-1 border border-strong bg-surface-default rounded appearance-none bg-no-repeat bg-[right_5px_center] p-1" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%226%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23666%22%20stroke-width%3D%221%22%20d%3D%22M1%201l4%204%204-4%22%2F%3E%3C%2Fsvg%3E');">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-[120px_minmax(0,1fr)] items-center gap-2">
+                            <label class="legacy-label">Status</label>
+                            <select class="legacy-input flex-1 border border-strong bg-surface-default rounded appearance-none bg-no-repeat bg-[right_5px_center] p-1" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%226%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23666%22%20stroke-width%3D%221%22%20d%3D%22M1%201l4%204%204-4%22%2F%3E%3C%2Fsvg%3E');">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-[120px_minmax(0,1fr)] items-center gap-2">
+                            <label class="legacy-label">U.P.R.N</label>
+                            <input type="text" class="legacy-input flex-1 border border-strong bg-surface-default rounded p-1">
+                        </div>
+                        <div class="grid grid-cols-[120px_minmax(0,1fr)] items-center gap-2">
+                            <label class="legacy-label">Map Ref (E)</label>
+                            <div class="flex items-center gap-2">
+                                <input type="text" class="legacy-input w-24 border border-strong bg-surface-default rounded p-1">
+                                <span class="text-[10px] text-secondary">(N)</span>
+                                <input type="text" class="legacy-input w-24 border border-strong bg-surface-default rounded p-1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column (Address) -->
+                    <div class="grid grid-cols-[120px_minmax(0,1fr)] gap-2 flex-1 items-start content-start">
+                        <label class="legacy-label pt-1">Address</label>
+                        <textarea class="legacy-input h-[120px] resize-none border border-strong bg-surface-default rounded p-1"></textarea>
+                        <p class="col-start-2 text-tertiary">Tertiary text under a textarea. Too light.</p>
+                    </div>
+                </div>
+
+                <!-- Footer Buttons -->
+                <div class="px-6 pb-6 pt-2 flex justify-between items-end text-xs">
+                    <button class="bg-slate-200 rounded px-3 py-1.5 min-w-[75px] font-semibold hover:bg-slate-300 active:bg-slate-200">
+                        Refresh
+                    </button>
+                    <div class="flex gap-2">
+                        <button class="bg-slate-200 px-3 py-1 min-w-[75px] rounded font-semibold hover:bg-slate-300 active:bg-slate-200">
+                            OK
+                        </button>
+                        <button class="bg-slate-200 px-3 py-1.5 min-w-[75px] rounded font-semibold hover:bg-slate-300 active:bg-slate-200">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Taskbar Tabs -->
+                <div class="border-t border-default p-2 flex items-center gap-4 shrink-0 bg-surface-page">
+                    <i class="fa-solid fa-window-restore text-brand text-sm"></i>
+                    <div class=" pt-0.5 pb-1 cursor-pointer border-b-2 border-brand">
+                        <span class="font-semibold text-xs">My Diary</span>
+                    </div>
+                    <div class="px-3 py-0.5 cursor-pointer hover:bg-slate-50">
+                        <span class="font-normal text-xs">Std Cstl</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Bar Area -->
+        <div class="bg-surface-subtle status-bar-outer border-t border-default flex items-center p-1">
+            <div class="px-1 py-1 w-full flex items-center justify-between">
+                <p>Building Control - Administration of Full Plans and Building Notice Applications and Inspection of Work in Progress</p>
+                <i class="fa-solid fa-chevron-down text-brand"></i>
+            </div>
+        </div>
+    </div> <!-- End Outer Wrapper -->
+
+</body>
+</html>
