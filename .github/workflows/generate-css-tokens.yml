@@ -1,4 +1,4 @@
-name: Generate CSS Tokens
+name: Build Design Tokens
 
 on:
   push:
@@ -6,39 +6,79 @@ on:
       - 'idox-design-system-tokens.json'
     branches:
       - main
+  # Allow manual trigger from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  generate-css-tokens:
+  build-tokens:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      
+      pull-requests: write
+
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          
-      - name: Generate CSS Variables
-        run: node generate-css-variables.js
-        
-      - name: Check for Changes
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build tokens
+        run: npm run build:tokens
+
+      - name: Check for changes
         id: verify-changed-files
         run: |
-          if git diff --quiet; then
+          if git diff --quiet dist/; then
             echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No token changes detected."
           else
             echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Token changes detected:"
+            git diff --stat dist/
           fi
-          
-      - name: Commit and Push Changes
+
+      # Option A: Commit directly to main (simpler, less review)
+      # Swap for Option B below if you prefer a PR-based review flow.
+      - name: Commit and push updated tokens
         if: steps.verify-changed-files.outputs.changed == 'true'
         run: |
           git config --local user.email 'github-actions[bot]@users.noreply.github.com'
           git config --local user.name 'github-actions[bot]'
-          git add tokens.css
-          git commit -m 'chore: regenerate CSS tokens from design system'
+          git add dist/
+          git commit -m 'chore: regenerate design tokens [skip ci]'
           git push origin main
+
+      # Option B: Open a PR for review instead of committing directly.
+      # To use: comment out Option A above, uncomment this block,
+      # and ensure the repo has the 'pull-requests: write' permission above.
+      #
+      # - name: Create pull request
+      #   if: steps.verify-changed-files.outputs.changed == 'true'
+      #   uses: peter-evans/create-pull-request@v6
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     commit-message: 'chore: regenerate design tokens'
+      #     branch: chore/regenerate-tokens
+      #     delete-branch: true
+      #     title: 'chore: regenerate design tokens'
+      #     body: |
+      #       Automated token regeneration triggered by a change to
+      #       `idox-design-system-tokens.json`.
+      #
+      #       **Output files changed:**
+      #       - `dist/tokens.css` — CSS custom properties (semantic layer)
+      #       - `dist/tokens-full.css` — CSS custom properties (all tokens)
+      #       - `dist/tailwind-tokens.mjs` — Tailwind theme extension
+      #       - `dist/tokens-flat.json` — Flat resolved JSON for UNIFACE etc.
+      #     labels: automated, design-tokens
+
+      - name: No changes
+        if: steps.verify-changed-files.outputs.changed == 'false'
+        run: echo "✅ Tokens are already up to date. Nothing to commit."
