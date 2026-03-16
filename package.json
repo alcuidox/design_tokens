@@ -1,0 +1,19 @@
+{
+  "name": "idox-design-tokens",
+  "version": "1.0.0",
+  "description": "Idox Design System — Design Token Pipeline",
+  "type": "module",
+  "scripts": {
+    "build:tokens": "node build-tokens.mjs",
+    "build:tokens:watch": "nodemon --watch idox-design-system-tokens.json --exec 'node build-tokens.mjs'"
+  },
+  "dependencies": {
+    "style-dictionary": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
