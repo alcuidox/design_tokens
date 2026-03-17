@@ -2,28 +2,17 @@
  * Style Dictionary v4 configuration
  * Idox Design System — Token Build Pipeline
  *
- * Outputs:
- *   - dist/tokens.css          CSS custom properties (semantic layer only)
- *   - dist/tokens-full.css     CSS custom properties (primitive + semantic)
- *   - dist/tailwind-tokens.mjs Tailwind theme extension (ESM)
- *   - dist/tokens-flat.json    Flat resolved JSON (for UNIFACE / other platforms)
- *
  * Token file structure:
  *   primitive.json  — raw values, wrapped under a top-level "primitive" key
+ *                     token paths: ['primitive', 'blue', '800']
  *   semantic.json   — purpose-driven aliases, flat at root level
- *
- * Because primitive.json has a "primitive" wrapper, token paths are:
- *   primitive tokens → ['primitive', 'blue', '800']
- *   semantic tokens  → ['interactive', 'default']
- *
- * Semantic tokens reference primitives as {primitive.blue.800} which
- * resolves correctly against the primitive.json structure.
+ *                     token paths: ['interactive', 'default']
  */
 
 import StyleDictionary from 'style-dictionary';
 
 // ---------------------------------------------------------------------------
-// Semantic token top-level keys — used for filtering output to semantic only
+// Semantic token top-level keys — used to filter output to semantic layer only
 // ---------------------------------------------------------------------------
 const SEMANTIC_KEYS = [
   'spacing', 'brand', 'interactive', 'surface', 'border', 'text',
@@ -32,42 +21,12 @@ const SEMANTIC_KEYS = [
 ];
 
 const isSemantic = (token) => SEMANTIC_KEYS.includes(token.path[0]);
-
-// ---------------------------------------------------------------------------
-// Custom transforms
-// ---------------------------------------------------------------------------
-
-/**
- * Fix: half-step spacing keys like "0.5", "1.5" are nested inside their
- * parent key — e.g. spacing.0.5 lives under spacing.0, producing a path
- * of ['primitive', 'spacing', '0', '5']. We merge the last two numeric
- * segments with '_' to produce safe CSS variable names: spacing-0_5 etc.
- */
-StyleDictionary.registerTransform({
-  name: 'name/halfstep-fix',
-  type: 'name',
-  filter: (token) => {
-    const path = token.path;
-    const last = path[path.length - 1];
-    const secondLast = path[path.length - 2];
-    return /^\d+$/.test(last) && /^\d+$/.test(secondLast);
-  },
-  transform: (token) => {
-    const path = [...token.path];
-    const last = path.pop();
-    const secondLast = path.pop();
-    return [...path, `${secondLast}_${last}`].join('-');
-  },
-});
+const isNotComposite = (token) => typeof token.value !== 'object';
 
 // ---------------------------------------------------------------------------
 // Custom formats
 // ---------------------------------------------------------------------------
 
-/**
- * CSS variables format — wraps output in :root {}, skips composite
- * typography objects (no CSS shorthand exists), adds inline comments.
- */
 StyleDictionary.registerFormat({
   name: 'css/idox-variables',
   format: ({ dictionary, options }) => {
@@ -78,12 +37,14 @@ StyleDictionary.registerFormat({
  */\n\n`;
 
     const vars = dictionary.allTokens
+      .filter(isNotComposite)
       .filter((token) => token.value !== null && token.value !== undefined)
-      .filter((token) => typeof token.value !== 'object')
       .map((token) => {
-        const comment = token.comment || token.$description || token.description;
+        const comment = token.$description || token.description || token.comment;
         const commentStr = comment ? ` /* ${comment} */` : '';
-        return `  --${token.name}: ${token.value};${commentStr}`;
+        // Build CSS variable name from path, joining with hyphens
+        const name = token.path.join('-');
+        return `  --${name}: ${token.value};${commentStr}`;
       })
       .join('\n');
 
@@ -92,11 +53,6 @@ StyleDictionary.registerFormat({
   },
 });
 
-/**
- * Tailwind theme extension — ESM object ready to spread into
- * tailwind.config.js theme.extend. Values reference CSS custom properties
- * so tokens.css must be imported in the global stylesheet.
- */
 StyleDictionary.registerFormat({
   name: 'tailwind/idox-theme',
   format: ({ dictionary }) => {
@@ -111,32 +67,32 @@ StyleDictionary.registerFormat({
     const letterSpacing = {};
 
     dictionary.allTokens
-      .filter((t) => t.value !== null && typeof t.value !== 'object')
+      .filter(isNotComposite)
+      .filter((token) => token.value !== null)
       .forEach((token) => {
-        const val = `var(--${token.name})`;
+        const cssVar = `var(--${token.path.join('-')})`;
         const type = token.$type || token.type;
-        const path = token.path;
+        const [group, ...rest] = token.path;
 
         if (type === 'color') {
-          const [group, ...rest] = path;
           if (!colors[group]) colors[group] = {};
-          colors[group][rest.join('-') || 'DEFAULT'] = val;
+          colors[group][rest.join('-') || 'DEFAULT'] = cssVar;
         } else if (type === 'spacing') {
-          spacing[path.join('-')] = val;
+          spacing[token.path.join('-')] = cssVar;
         } else if (type === 'borderRadius') {
-          borderRadius[path.join('-')] = val;
+          borderRadius[rest.join('-') || group] = cssVar;
         } else if (type === 'borderWidth') {
-          borderWidth[path.join('-')] = val;
+          borderWidth[rest.join('-') || group] = cssVar;
         } else if (type === 'boxShadow') {
-          boxShadow[path.join('-')] = val;
+          boxShadow[token.path.join('-')] = cssVar;
         } else if (type === 'fontSize') {
-          fontSize[path.join('-')] = val;
+          fontSize[rest.join('-') || group] = cssVar;
         } else if (type === 'fontWeight') {
-          fontWeight[path.join('-')] = val;
+          fontWeight[rest.join('-') || group] = cssVar;
         } else if (type === 'fontFamily') {
-          fontFamily[path.join('-')] = val;
+          fontFamily[rest.join('-') || group] = cssVar;
         } else if (type === 'letterSpacing') {
-          letterSpacing[path.join('-')] = val;
+          letterSpacing[rest.join('-') || group] = cssVar;
         }
       });
 
@@ -153,7 +109,6 @@ StyleDictionary.registerFormat({
  *   import idoxTokens from './tailwind-tokens.mjs';
  *   export default { theme: { extend: idoxTokens } };
  *
- * Note: Values reference CSS custom properties.
  * Ensure dist/tokens.css is imported in your global stylesheet.
  */
 
@@ -162,21 +117,18 @@ export default ${JSON.stringify(theme, null, 2)};
   },
 });
 
-/**
- * Flat JSON — resolved key:value map for non-web platforms (e.g. UNIFACE).
- * All references are fully resolved to their final values.
- */
 StyleDictionary.registerFormat({
   name: 'json/idox-flat',
   format: ({ dictionary }) => {
     const flat = {};
     dictionary.allTokens
-      .filter((t) => t.value !== null && typeof t.value !== 'object')
+      .filter(isNotComposite)
+      .filter((token) => token.value !== null)
       .forEach((token) => {
-        flat[token.name] = {
+        flat[token.path.join('-')] = {
           value: token.value,
           type: token.$type || token.type,
-          description: token.comment || token.$description || token.description || '',
+          description: token.$description || token.description || token.comment || '',
         };
       });
     return JSON.stringify(flat, null, 2) + '\n';
@@ -197,49 +149,34 @@ const sd = new StyleDictionary({
 
   platforms: {
 
-    // ------------------------------------------------------------------
-    // 1. CSS — semantic tokens only (for production use)
-    // ------------------------------------------------------------------
+    // 1. CSS — semantic tokens only (production)
     css: {
-      transformGroup: 'css',
-      transforms: ['name/halfstep-fix'],
+      transforms: ['attribute/cti', 'color/hex', 'size/rem'],
       files: [
         {
           destination: 'dist/tokens.css',
           format: 'css/idox-variables',
-          options: {
-            selector: ':root',
-            outputReferences: false,
-          },
+          options: { selector: ':root', outputReferences: false },
           filter: isSemantic,
         },
       ],
     },
 
-    // ------------------------------------------------------------------
-    // 2. CSS — full output including primitives (for debugging)
-    // ------------------------------------------------------------------
+    // 2. CSS — full output including primitives (debugging)
     'css-full': {
-      transformGroup: 'css',
-      transforms: ['name/halfstep-fix'],
+      transforms: ['attribute/cti', 'color/hex', 'size/rem'],
       files: [
         {
           destination: 'dist/tokens-full.css',
           format: 'css/idox-variables',
-          options: {
-            selector: ':root',
-            outputReferences: false,
-          },
+          options: { selector: ':root', outputReferences: false },
         },
       ],
     },
 
-    // ------------------------------------------------------------------
-    // 3. Tailwind theme extension (semantic only)
-    // ------------------------------------------------------------------
+    // 3. Tailwind theme extension
     tailwind: {
-      transformGroup: 'js',
-      transforms: ['name/halfstep-fix'],
+      transforms: ['attribute/cti', 'color/hex', 'size/rem'],
       files: [
         {
           destination: 'dist/tailwind-tokens.mjs',
@@ -249,12 +186,9 @@ const sd = new StyleDictionary({
       ],
     },
 
-    // ------------------------------------------------------------------
-    // 4. Flat JSON — resolved values for non-web platforms (semantic only)
-    // ------------------------------------------------------------------
+    // 4. Flat JSON for non-web platforms (e.g. UNIFACE)
     json: {
-      transformGroup: 'js',
-      transforms: ['name/halfstep-fix'],
+      transforms: ['attribute/cti', 'color/hex'],
       files: [
         {
           destination: 'dist/tokens-flat.json',
