@@ -1,0 +1,104 @@
+/**
+ * Idox Design System — Typography Utility Classes
+ * Auto-generated from primitive.json + semantic.json. Do not edit manually.
+ *
+ * Import in your global stylesheet alongside tokens.css:
+ *   @import './dist/typography.css';
+ *
+ * Usage:
+ *   <h1 class="type-h1">Heading</h1>
+ *   <p class="type-body">Body copy</p>
+ *   <span class="type-caption">Caption text</span>
+ */
+
+@layer components {
+
+.type-body {
+  font-family: DM Sans, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0em;
+}
+
+.type-subtitle {
+  font-family: DM Sans, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0em;
+}
+
+.type-caption {
+  font-family: DM Sans, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0em;
+}
+
+.type-overline {
+  font-family: DM Sans, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.type-button {
+  font-family: DM Sans, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.025em;
+}
+
+.type-h1 {
+  font-family: DM Sans, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.type-h2 {
+  font-family: DM Sans, sans-serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.type-h3 {
+  font-family: DM Sans, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.type-h4 {
+  font-family: DM Sans, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.type-h5 {
+  font-family: DM Sans, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.type-h6 {
+  font-family: DM Sans, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+}
