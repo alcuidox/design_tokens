@@ -371,7 +371,7 @@
     "type": "lineHeight",
     "description": "Line height for code blocks"
   },
-  "typography-weight-regular": {
+  "typography-weight-normal": {
     "type": "fontWeight",
     "description": ""
   },
