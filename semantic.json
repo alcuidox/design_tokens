@@ -488,7 +488,7 @@
         }
       },
       "weight": {
-        "regular": {
+        "normal": {
           "$value": "{primitive.typography.fontWeight.normal}",
           "$type": "fontWeight"
         },
