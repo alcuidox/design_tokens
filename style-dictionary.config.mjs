@@ -191,7 +191,7 @@ StyleDictionary.registerFormat({
 const sd = new StyleDictionary({
   // Point at both layers; primitive must come first so references resolve
   source: [
-    'idox-design-system-tokens.json',
+    'primitive.json', 'semantic.json'
   ],
 
   // Unwrap the top-level 'primitive' and 'semantic' namespaces so that

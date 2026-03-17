@@ -3,7 +3,8 @@ name: Build Design Tokens
 on:
   push:
     paths:
-      - 'idox-design-system-tokens.json'
+      - 'primitive.json'
+      - 'semantic.json'
     branches:
       - main
   # Allow manual trigger from the Actions tab
