@@ -1,481 +1,481 @@
 {
-  "Spacing2xl": {
+  "spacing-2xl": {
     "type": "spacing",
     "description": "2XL spacing (48px)"
   },
-  "Spacing3xl": {
+  "spacing-3xl": {
     "type": "spacing",
     "description": "3XL spacing (64px)"
   },
-  "Spacing4xl": {
+  "spacing-4xl": {
     "type": "spacing",
     "description": "4XL spacing (96px)"
   },
-  "Spacing5xl": {
+  "spacing-5xl": {
     "type": "spacing",
     "description": "5XL spacing (128px)"
   },
-  "Spacing6xl": {
+  "spacing-6xl": {
     "type": "spacing",
     "description": "6XL spacing (192px)"
   },
-  "Spacing7xl": {
+  "spacing-7xl": {
     "type": "spacing",
     "description": "7XL spacing (256px)"
   },
-  "Spacing8xl": {
+  "spacing-8xl": {
     "type": "spacing",
     "description": "8XL spacing (320px)"
   },
-  "Spacing9xl": {
+  "spacing-9xl": {
     "type": "spacing",
     "description": "9XL spacing (384px)"
   },
-  "SpacingNone": {
+  "spacing-none": {
     "type": "spacing",
     "description": "Zero spacing"
   },
-  "SpacingXs": {
+  "spacing-xs": {
     "type": "spacing",
     "description": "Extra small spacing (4px)"
   },
-  "SpacingSm": {
+  "spacing-sm": {
     "type": "spacing",
     "description": "Small spacing (8px)"
   },
-  "SpacingMd": {
+  "spacing-md": {
     "type": "spacing",
     "description": "Medium spacing (16px)"
   },
-  "SpacingLg": {
+  "spacing-lg": {
     "type": "spacing",
     "description": "Large spacing (24px)"
   },
-  "SpacingXl": {
+  "spacing-xl": {
     "type": "spacing",
     "description": "Extra large spacing (32px)"
   },
-  "BrandDefault": {
+  "brand-default": {
     "type": "color",
     "description": "Primary brand colour"
   },
-  "InteractiveDefault": {
+  "interactive-default": {
     "type": "color",
     "description": "Default state — buttons, links, active nav"
   },
-  "InteractiveHovered": {
+  "interactive-hovered": {
     "type": "color",
     "description": "Hovered state — steps lighter from brand 800"
   },
-  "InteractivePressed": {
+  "interactive-pressed": {
     "type": "color",
     "description": "Pressed / active state — steps darker for tactile feedback"
   },
-  "InteractiveFocused": {
+  "interactive-focused": {
     "type": "color",
     "description": "Focused state fill — pair with border-focus ring"
   },
-  "InteractiveDisabled": {
+  "interactive-disabled": {
     "type": "color",
     "description": "Disabled interactive fill"
   },
-  "InteractiveSubtle": {
+  "interactive-subtle": {
     "type": "color",
     "description": "Tinted background — selected rows, active sidebar"
   },
-  "InteractiveSubtleHovered": {
+  "interactive-subtle-hovered": {
     "type": "color",
     "description": "Hovered tinted background"
   },
-  "InteractiveSubtleBorder": {
+  "interactive-subtle-border": {
     "type": "color",
     "description": "Border on subtle interactive areas"
   },
-  "InteractiveOnInteractive": {
+  "interactive-on-interactive": {
     "type": "color",
     "description": "Text / icons sitting on any Blue interactive fill"
   },
-  "InteractiveBorderFocus": {
+  "interactive-border-focus": {
     "type": "color",
     "description": "Focus ring colour"
   },
-  "SurfacePage": {
+  "surface-page": {
     "type": "color",
     "description": "App / page background"
   },
-  "SurfaceDefault": {
+  "surface-default": {
     "type": "color",
     "description": "Card and panel backgrounds"
   },
-  "SurfaceRaised": {
+  "surface-raised": {
     "type": "color",
     "description": "Slightly elevated surfaces"
   },
-  "SurfaceOverlay": {
+  "surface-overlay": {
     "type": "color",
     "description": "Modal scrim — use with semantic.opacity.overlay token"
   },
-  "SurfaceInverse": {
+  "surface-inverse": {
     "type": "color",
     "description": "Dark surfaces — tooltips, dark mode panels"
   },
-  "SurfaceDisabled": {
+  "surface-disabled": {
     "type": "color",
     "description": "Disabled component fill"
   },
-  "BorderDefault": {
+  "border-default": {
     "type": "color",
     "description": "Default dividers and input borders"
   },
-  "BorderStrong": {
+  "border-strong": {
     "type": "color",
     "description": "Strong separators"
   },
-  "BorderDisabled": {
+  "border-disabled": {
     "type": "color",
     "description": "Borders on disabled elements"
   },
-  "TextPrimary": {
+  "text-primary": {
     "type": "color",
     "description": "Body copy and labels"
   },
-  "TextSecondary": {
+  "text-secondary": {
     "type": "color",
     "description": "Subtext, meta information"
   },
-  "TextTertiary": {
+  "text-tertiary": {
     "type": "color",
     "description": "Hints and timestamps"
   },
-  "TextDisabled": {
+  "text-disabled": {
     "type": "color",
     "description": "Disabled text"
   },
-  "TextInverse": {
+  "text-inverse": {
     "type": "color",
     "description": "Text on dark / inverse surfaces"
   },
-  "TextBrand": {
+  "text-brand": {
     "type": "color",
     "description": "Brand-coloured text — links, highlights"
   },
-  "SuccessDefault": {
+  "success-default": {
     "type": "color",
     "description": "Success badges, positive indicators"
   },
-  "SuccessHovered": {
+  "success-hovered": {
     "type": "color",
     "description": "Hovered success action"
   },
-  "SuccessPressed": {
+  "success-pressed": {
     "type": "color",
     "description": "Pressed success action"
   },
-  "SuccessSubtle": {
+  "success-subtle": {
     "type": "color",
     "description": "Success alert background"
   },
-  "SuccessSubtleHovered": {
+  "success-subtle-hovered": {
     "type": "color",
     "description": "Hovered success alert background"
   },
-  "SuccessBorder": {
+  "success-border": {
     "type": "color",
     "description": "Success alert border"
   },
-  "SuccessText": {
+  "success-text": {
     "type": "color",
     "description": "Inline success text on light backgrounds"
   },
-  "SuccessOnSuccess": {
+  "success-on-success": {
     "type": "color",
     "description": "Text / icons on Green fills"
   },
-  "DangerDefault": {
+  "danger-default": {
     "type": "color",
     "description": "Destructive buttons, error states"
   },
-  "DangerHovered": {
+  "danger-hovered": {
     "type": "color",
     "description": "Hovered destructive action"
   },
-  "DangerPressed": {
+  "danger-pressed": {
     "type": "color",
     "description": "Pressed destructive action"
   },
-  "DangerDisabled": {
+  "danger-disabled": {
     "type": "color",
     "description": "Disabled danger fill"
   },
-  "DangerSubtle": {
+  "danger-subtle": {
     "type": "color",
     "description": "Error alert background"
   },
-  "DangerSubtleHovered": {
+  "danger-subtle-hovered": {
     "type": "color",
     "description": "Hovered error alert background"
   },
-  "DangerBorder": {
+  "danger-border": {
     "type": "color",
     "description": "Error input border and alert border"
   },
-  "DangerText": {
+  "danger-text": {
     "type": "color",
     "description": "Inline error messages"
   },
-  "DangerOnDanger": {
+  "danger-on-danger": {
     "type": "color",
     "description": "Text / icons on Red fills"
   },
-  "WarningDefault": {
+  "warning-default": {
     "type": "color",
     "description": "Warning badges, caution highlights"
   },
-  "WarningHovered": {
+  "warning-hovered": {
     "type": "color",
     "description": "Hovered warning action"
   },
-  "WarningPressed": {
+  "warning-pressed": {
     "type": "color",
     "description": "Pressed warning action"
   },
-  "WarningSubtle": {
+  "warning-subtle": {
     "type": "color",
     "description": "Warning alert background"
   },
-  "WarningSubtleHovered": {
+  "warning-subtle-hovered": {
     "type": "color",
     "description": "Hovered warning alert background"
   },
-  "WarningBorder": {
+  "warning-border": {
     "type": "color",
     "description": "Warning alert border"
   },
-  "WarningText": {
+  "warning-text": {
     "type": "color",
     "description": "Inline warning text — dark for contrast on light bg"
   },
-  "WarningOnWarning": {
+  "warning-on-warning": {
     "type": "color",
     "description": "Text / icons on Amber fills — dark not white for contrast"
   },
-  "InfoDefault": {
+  "info-default": {
     "type": "color",
     "description": "Informational badges and indicators"
   },
-  "InfoHovered": {
+  "info-hovered": {
     "type": "color",
     "description": "Hovered info action"
   },
-  "InfoPressed": {
+  "info-pressed": {
     "type": "color",
     "description": "Pressed info action"
   },
-  "InfoSubtle": {
+  "info-subtle": {
     "type": "color",
     "description": "Info alert background"
   },
-  "InfoSubtleHovered": {
+  "info-subtle-hovered": {
     "type": "color",
     "description": "Hovered info alert background"
   },
-  "InfoBorder": {
+  "info-border": {
     "type": "color",
     "description": "Info alert border"
   },
-  "InfoText": {
+  "info-text": {
     "type": "color",
     "description": "Inline info text on light backgrounds"
   },
-  "InfoOnInfo": {
+  "info-on-info": {
     "type": "color",
     "description": "Text and icons on blue info fills"
   },
-  "OpacityOverlay": {
+  "opacity-overlay": {
     "type": "opacity",
     "description": "Modal scrim opacity"
   },
-  "OpacityDisabled": {
+  "opacity-disabled": {
     "type": "opacity",
     "description": "Disabled element opacity"
   },
-  "OpacitySubtle": {
+  "opacity-subtle": {
     "type": "opacity",
     "description": "Subtle tinted backgrounds"
   },
-  "TypographyFontFamilyDefault": {
+  "typography-fontFamily-default": {
     "type": "fontFamily",
     "description": "Default UI font family"
   },
-  "TypographyFontFamilyCode": {
+  "typography-fontFamily-code": {
     "type": "fontFamily",
     "description": "Monospace for code"
   },
-  "TypographySizeBody": {
+  "typography-size-body": {
     "type": "fontSize",
     "description": "Body text"
   },
-  "TypographySizeSmall": {
+  "typography-size-small": {
     "type": "fontSize",
     "description": "Small text"
   },
-  "TypographySizeCaption": {
+  "typography-size-caption": {
     "type": "fontSize",
     "description": "Caption text"
   },
-  "TypographySizeH1": {
+  "typography-size-h1": {
     "type": "fontSize",
     "description": ""
   },
-  "TypographySizeH2": {
+  "typography-size-h2": {
     "type": "fontSize",
     "description": ""
   },
-  "TypographySizeH3": {
+  "typography-size-h3": {
     "type": "fontSize",
     "description": ""
   },
-  "TypographySizeH4": {
+  "typography-size-h4": {
     "type": "fontSize",
     "description": ""
   },
-  "TypographySizeH5": {
+  "typography-size-h5": {
     "type": "fontSize",
     "description": ""
   },
-  "TypographySizeH6": {
+  "typography-size-h6": {
     "type": "fontSize",
     "description": ""
   },
-  "TypographyLetterSpacingBody": {
+  "typography-letterSpacing-body": {
     "type": "letterSpacing",
     "description": ""
   },
-  "TypographyLetterSpacingCaps": {
+  "typography-letterSpacing-caps": {
     "type": "letterSpacing",
     "description": ""
   },
-  "TypographyLineHeightBody": {
+  "typography-lineHeight-body": {
     "type": "lineHeight",
     "description": "Line height for body text"
   },
-  "TypographyLineHeightHeading": {
+  "typography-lineHeight-heading": {
     "type": "lineHeight",
     "description": "Line height for headings"
   },
-  "TypographyLineHeightCaption": {
+  "typography-lineHeight-caption": {
     "type": "lineHeight",
     "description": "Line height for captions"
   },
-  "TypographyLineHeightCode": {
+  "typography-lineHeight-code": {
     "type": "lineHeight",
     "description": "Line height for code blocks"
   },
-  "TypographyWeightRegular": {
+  "typography-weight-regular": {
     "type": "fontWeight",
     "description": ""
   },
-  "TypographyWeightMedium": {
+  "typography-weight-medium": {
     "type": "fontWeight",
     "description": ""
   },
-  "TypographyWeightSemibold": {
+  "typography-weight-semibold": {
     "type": "fontWeight",
     "description": ""
   },
-  "TypographyWeightBold": {
+  "typography-weight-bold": {
     "type": "fontWeight",
     "description": ""
   },
-  "TypographyStyleBody": {
+  "typography-style-body": {
     "type": "typography",
     "description": "Body copy — regular"
   },
-  "TypographyStyleSubtitle": {
+  "typography-style-subtitle": {
     "type": "typography",
     "description": "Subtitle — regular"
   },
-  "TypographyStyleCaption": {
+  "typography-style-caption": {
     "type": "typography",
     "description": "Caption — regular"
   },
-  "TypographyStyleOverline": {
+  "typography-style-overline": {
     "type": "typography",
     "description": "Overline — bold"
   },
-  "TypographyStyleButton": {
+  "typography-style-button": {
     "type": "typography",
     "description": "Button text — bold"
   },
-  "TypographyStyleH1": {
+  "typography-style-h1": {
     "type": "typography",
     "description": "Title H1 — bold"
   },
-  "TypographyStyleH2": {
+  "typography-style-h2": {
     "type": "typography",
     "description": "Title H2 — bold"
   },
-  "TypographyStyleH3": {
+  "typography-style-h3": {
     "type": "typography",
     "description": "Title H3 — bold"
   },
-  "TypographyStyleH4": {
+  "typography-style-h4": {
     "type": "typography",
     "description": "Title H4 — bold"
   },
-  "TypographyStyleH5": {
+  "typography-style-h5": {
     "type": "typography",
     "description": "Title H5 — bold"
   },
-  "TypographyStyleH6": {
+  "typography-style-h6": {
     "type": "typography",
     "description": "Title H6 — bold"
   },
-  "EffectsShadowSubtle": {
+  "effects-shadow-subtle": {
     "type": "boxShadow",
     "description": ""
   },
-  "EffectsShadowDefault": {
+  "effects-shadow-default": {
     "type": "boxShadow",
     "description": ""
   },
-  "EffectsShadowRaised": {
+  "effects-shadow-raised": {
     "type": "boxShadow",
     "description": ""
   },
-  "EffectsShadowOverlay": {
+  "effects-shadow-overlay": {
     "type": "boxShadow",
     "description": ""
   },
-  "BorderRadiusNone": {
+  "borderRadius-none": {
     "type": "borderRadius",
     "description": ""
   },
-  "BorderRadiusSm": {
+  "borderRadius-sm": {
     "type": "borderRadius",
     "description": ""
   },
-  "BorderRadiusMd": {
+  "borderRadius-md": {
     "type": "borderRadius",
     "description": ""
   },
-  "BorderRadiusLg": {
+  "borderRadius-lg": {
     "type": "borderRadius",
     "description": ""
   },
-  "BorderRadiusPill": {
+  "borderRadius-pill": {
     "type": "borderRadius",
     "description": ""
   },
-  "BorderWidthHairline": {
+  "borderWidth-hairline": {
     "type": "borderWidth",
     "description": ""
   },
-  "BorderWidthThin": {
+  "borderWidth-thin": {
     "type": "borderWidth",
     "description": ""
   },
-  "BorderWidthThick": {
+  "borderWidth-thick": {
     "type": "borderWidth",
     "description": ""
   }

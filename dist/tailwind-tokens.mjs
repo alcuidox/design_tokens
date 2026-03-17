@@ -6,147 +6,146 @@
  *   import idoxTokens from './tailwind-tokens.mjs';
  *   export default { theme: { extend: idoxTokens } };
  *
- * Note: Values reference CSS custom properties.
  * Ensure dist/tokens.css is imported in your global stylesheet.
  */
 
 export default {
   "colors": {
     "brand": {
-      "default": "var(--BrandDefault)"
+      "default": "var(--brand-default)"
     },
     "interactive": {
-      "default": "var(--InteractiveDefault)",
-      "hovered": "var(--InteractiveHovered)",
-      "pressed": "var(--InteractivePressed)",
-      "focused": "var(--InteractiveFocused)",
-      "disabled": "var(--InteractiveDisabled)",
-      "subtle": "var(--InteractiveSubtle)",
-      "subtle-hovered": "var(--InteractiveSubtleHovered)",
-      "subtle-border": "var(--InteractiveSubtleBorder)",
-      "on-interactive": "var(--InteractiveOnInteractive)",
-      "border-focus": "var(--InteractiveBorderFocus)"
+      "default": "var(--interactive-default)",
+      "hovered": "var(--interactive-hovered)",
+      "pressed": "var(--interactive-pressed)",
+      "focused": "var(--interactive-focused)",
+      "disabled": "var(--interactive-disabled)",
+      "subtle": "var(--interactive-subtle)",
+      "subtle-hovered": "var(--interactive-subtle-hovered)",
+      "subtle-border": "var(--interactive-subtle-border)",
+      "on-interactive": "var(--interactive-on-interactive)",
+      "border-focus": "var(--interactive-border-focus)"
     },
     "surface": {
-      "page": "var(--SurfacePage)",
-      "default": "var(--SurfaceDefault)",
-      "raised": "var(--SurfaceRaised)",
-      "overlay": "var(--SurfaceOverlay)",
-      "inverse": "var(--SurfaceInverse)",
-      "disabled": "var(--SurfaceDisabled)"
+      "page": "var(--surface-page)",
+      "default": "var(--surface-default)",
+      "raised": "var(--surface-raised)",
+      "overlay": "var(--surface-overlay)",
+      "inverse": "var(--surface-inverse)",
+      "disabled": "var(--surface-disabled)"
     },
     "border": {
-      "default": "var(--BorderDefault)",
-      "strong": "var(--BorderStrong)",
-      "disabled": "var(--BorderDisabled)"
+      "default": "var(--border-default)",
+      "strong": "var(--border-strong)",
+      "disabled": "var(--border-disabled)"
     },
     "text": {
-      "primary": "var(--TextPrimary)",
-      "secondary": "var(--TextSecondary)",
-      "tertiary": "var(--TextTertiary)",
-      "disabled": "var(--TextDisabled)",
-      "inverse": "var(--TextInverse)",
-      "brand": "var(--TextBrand)"
+      "primary": "var(--text-primary)",
+      "secondary": "var(--text-secondary)",
+      "tertiary": "var(--text-tertiary)",
+      "disabled": "var(--text-disabled)",
+      "inverse": "var(--text-inverse)",
+      "brand": "var(--text-brand)"
     },
     "success": {
-      "default": "var(--SuccessDefault)",
-      "hovered": "var(--SuccessHovered)",
-      "pressed": "var(--SuccessPressed)",
-      "subtle": "var(--SuccessSubtle)",
-      "subtle-hovered": "var(--SuccessSubtleHovered)",
-      "border": "var(--SuccessBorder)",
-      "text": "var(--SuccessText)",
-      "on-success": "var(--SuccessOnSuccess)"
+      "default": "var(--success-default)",
+      "hovered": "var(--success-hovered)",
+      "pressed": "var(--success-pressed)",
+      "subtle": "var(--success-subtle)",
+      "subtle-hovered": "var(--success-subtle-hovered)",
+      "border": "var(--success-border)",
+      "text": "var(--success-text)",
+      "on-success": "var(--success-on-success)"
     },
     "danger": {
-      "default": "var(--DangerDefault)",
-      "hovered": "var(--DangerHovered)",
-      "pressed": "var(--DangerPressed)",
-      "disabled": "var(--DangerDisabled)",
-      "subtle": "var(--DangerSubtle)",
-      "subtle-hovered": "var(--DangerSubtleHovered)",
-      "border": "var(--DangerBorder)",
-      "text": "var(--DangerText)",
-      "on-danger": "var(--DangerOnDanger)"
+      "default": "var(--danger-default)",
+      "hovered": "var(--danger-hovered)",
+      "pressed": "var(--danger-pressed)",
+      "disabled": "var(--danger-disabled)",
+      "subtle": "var(--danger-subtle)",
+      "subtle-hovered": "var(--danger-subtle-hovered)",
+      "border": "var(--danger-border)",
+      "text": "var(--danger-text)",
+      "on-danger": "var(--danger-on-danger)"
     },
     "warning": {
-      "default": "var(--WarningDefault)",
-      "hovered": "var(--WarningHovered)",
-      "pressed": "var(--WarningPressed)",
-      "subtle": "var(--WarningSubtle)",
-      "subtle-hovered": "var(--WarningSubtleHovered)",
-      "border": "var(--WarningBorder)",
-      "text": "var(--WarningText)",
-      "on-warning": "var(--WarningOnWarning)"
+      "default": "var(--warning-default)",
+      "hovered": "var(--warning-hovered)",
+      "pressed": "var(--warning-pressed)",
+      "subtle": "var(--warning-subtle)",
+      "subtle-hovered": "var(--warning-subtle-hovered)",
+      "border": "var(--warning-border)",
+      "text": "var(--warning-text)",
+      "on-warning": "var(--warning-on-warning)"
     },
     "info": {
-      "default": "var(--InfoDefault)",
-      "hovered": "var(--InfoHovered)",
-      "pressed": "var(--InfoPressed)",
-      "subtle": "var(--InfoSubtle)",
-      "subtle-hovered": "var(--InfoSubtleHovered)",
-      "border": "var(--InfoBorder)",
-      "text": "var(--InfoText)",
-      "on-info": "var(--InfoOnInfo)"
+      "default": "var(--info-default)",
+      "hovered": "var(--info-hovered)",
+      "pressed": "var(--info-pressed)",
+      "subtle": "var(--info-subtle)",
+      "subtle-hovered": "var(--info-subtle-hovered)",
+      "border": "var(--info-border)",
+      "text": "var(--info-text)",
+      "on-info": "var(--info-on-info)"
     }
   },
   "spacing": {
-    "spacing-2xl": "var(--Spacing2xl)",
-    "spacing-3xl": "var(--Spacing3xl)",
-    "spacing-4xl": "var(--Spacing4xl)",
-    "spacing-5xl": "var(--Spacing5xl)",
-    "spacing-6xl": "var(--Spacing6xl)",
-    "spacing-7xl": "var(--Spacing7xl)",
-    "spacing-8xl": "var(--Spacing8xl)",
-    "spacing-9xl": "var(--Spacing9xl)",
-    "spacing-none": "var(--SpacingNone)",
-    "spacing-xs": "var(--SpacingXs)",
-    "spacing-sm": "var(--SpacingSm)",
-    "spacing-md": "var(--SpacingMd)",
-    "spacing-lg": "var(--SpacingLg)",
-    "spacing-xl": "var(--SpacingXl)"
+    "spacing-2xl": "var(--spacing-2xl)",
+    "spacing-3xl": "var(--spacing-3xl)",
+    "spacing-4xl": "var(--spacing-4xl)",
+    "spacing-5xl": "var(--spacing-5xl)",
+    "spacing-6xl": "var(--spacing-6xl)",
+    "spacing-7xl": "var(--spacing-7xl)",
+    "spacing-8xl": "var(--spacing-8xl)",
+    "spacing-9xl": "var(--spacing-9xl)",
+    "spacing-none": "var(--spacing-none)",
+    "spacing-xs": "var(--spacing-xs)",
+    "spacing-sm": "var(--spacing-sm)",
+    "spacing-md": "var(--spacing-md)",
+    "spacing-lg": "var(--spacing-lg)",
+    "spacing-xl": "var(--spacing-xl)"
   },
   "borderRadius": {
-    "borderRadius-none": "var(--BorderRadiusNone)",
-    "borderRadius-sm": "var(--BorderRadiusSm)",
-    "borderRadius-md": "var(--BorderRadiusMd)",
-    "borderRadius-lg": "var(--BorderRadiusLg)",
-    "borderRadius-pill": "var(--BorderRadiusPill)"
+    "none": "var(--borderRadius-none)",
+    "sm": "var(--borderRadius-sm)",
+    "md": "var(--borderRadius-md)",
+    "lg": "var(--borderRadius-lg)",
+    "pill": "var(--borderRadius-pill)"
   },
   "borderWidth": {
-    "borderWidth-hairline": "var(--BorderWidthHairline)",
-    "borderWidth-thin": "var(--BorderWidthThin)",
-    "borderWidth-thick": "var(--BorderWidthThick)"
+    "hairline": "var(--borderWidth-hairline)",
+    "thin": "var(--borderWidth-thin)",
+    "thick": "var(--borderWidth-thick)"
   },
   "boxShadow": {
-    "effects-shadow-subtle": "var(--EffectsShadowSubtle)",
-    "effects-shadow-default": "var(--EffectsShadowDefault)",
-    "effects-shadow-raised": "var(--EffectsShadowRaised)",
-    "effects-shadow-overlay": "var(--EffectsShadowOverlay)"
+    "effects-shadow-subtle": "var(--effects-shadow-subtle)",
+    "effects-shadow-default": "var(--effects-shadow-default)",
+    "effects-shadow-raised": "var(--effects-shadow-raised)",
+    "effects-shadow-overlay": "var(--effects-shadow-overlay)"
   },
   "fontSize": {
-    "typography-size-body": "var(--TypographySizeBody)",
-    "typography-size-small": "var(--TypographySizeSmall)",
-    "typography-size-caption": "var(--TypographySizeCaption)",
-    "typography-size-h1": "var(--TypographySizeH1)",
-    "typography-size-h2": "var(--TypographySizeH2)",
-    "typography-size-h3": "var(--TypographySizeH3)",
-    "typography-size-h4": "var(--TypographySizeH4)",
-    "typography-size-h5": "var(--TypographySizeH5)",
-    "typography-size-h6": "var(--TypographySizeH6)"
+    "size-body": "var(--typography-size-body)",
+    "size-small": "var(--typography-size-small)",
+    "size-caption": "var(--typography-size-caption)",
+    "size-h1": "var(--typography-size-h1)",
+    "size-h2": "var(--typography-size-h2)",
+    "size-h3": "var(--typography-size-h3)",
+    "size-h4": "var(--typography-size-h4)",
+    "size-h5": "var(--typography-size-h5)",
+    "size-h6": "var(--typography-size-h6)"
   },
   "fontWeight": {
-    "typography-weight-regular": "var(--TypographyWeightRegular)",
-    "typography-weight-medium": "var(--TypographyWeightMedium)",
-    "typography-weight-semibold": "var(--TypographyWeightSemibold)",
-    "typography-weight-bold": "var(--TypographyWeightBold)"
+    "weight-regular": "var(--typography-weight-regular)",
+    "weight-medium": "var(--typography-weight-medium)",
+    "weight-semibold": "var(--typography-weight-semibold)",
+    "weight-bold": "var(--typography-weight-bold)"
   },
   "fontFamily": {
-    "typography-fontFamily-default": "var(--TypographyFontFamilyDefault)",
-    "typography-fontFamily-code": "var(--TypographyFontFamilyCode)"
+    "fontFamily-default": "var(--typography-fontFamily-default)",
+    "fontFamily-code": "var(--typography-fontFamily-code)"
   },
   "letterSpacing": {
-    "typography-letterSpacing-body": "var(--TypographyLetterSpacingBody)",
-    "typography-letterSpacing-caps": "var(--TypographyLetterSpacingCaps)"
+    "letterSpacing-body": "var(--typography-letterSpacing-body)",
+    "letterSpacing-caps": "var(--typography-letterSpacing-caps)"
   }
 };
