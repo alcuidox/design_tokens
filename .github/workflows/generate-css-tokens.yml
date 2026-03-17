@@ -37,7 +37,7 @@ jobs:
         id: verify-changed-files
         run: |
           git add dist/
-          if git diff --quiet dist/; then
+          if git diff --cached --quiet dist/; then
             echo "changed=false" >> $GITHUB_OUTPUT
             echo "No token changes detected."
           else
