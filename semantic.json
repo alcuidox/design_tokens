@@ -522,7 +522,7 @@
             "fontFamily": "{primitive.typography.fontFamily.sans}",
             "fontWeight": "{primitive.typography.fontWeight.normal}",
             "fontSize": "{primitive.typography.fontSize.xl}",
-            "letterSpacing": "{tprimitive.ypography.letterSpacing.normal}",
+            "letterSpacing": "{primitive.typography.letterSpacing.normal}",
             "lineHeight": "{primitive.typography.lineHeight.normal}"
           },
           "$type": "typography",
