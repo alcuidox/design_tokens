@@ -4,8 +4,8 @@
   "description": "Idox Design System — Design Token Pipeline",
   "type": "module",
   "scripts": {
-    "build:tokens": "node build-tokens.mjs",
-    "build:tokens:watch": "nodemon --watch idox-design-system-tokens.json --exec 'node build-tokens.mjs'"
+    "build:tokens": "node generate-tokens.mjs",
+    "build:tokens:watch": "nodemon --watch primitive.json --watch semantic.json --exec 'node generate-tokens.mjs'"
   },
   "dependencies": {
     "style-dictionary": "^4.0.0"
