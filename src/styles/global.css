@@ -1,11 +1,11 @@
+/* Idox Design System tokens */
+@import '@tokens/tokens.css';
+@import '@tokens/typography.css';
+
 /* Tailwind base layers */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Idox Design System tokens */
-@import '@tokens/tokens.css';
-@import '@tokens/typography.css';
 
 /* Base styles using semantic tokens */
 @layer base {
