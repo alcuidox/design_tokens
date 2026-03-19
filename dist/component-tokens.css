@@ -1,0 +1,88 @@
+/**
+ * Idox Design System — Component Tokens
+ * Auto-generated from primitive.json + semantic.json. Do not edit manually.
+ *
+ * Import in your global stylesheet after tokens.css:
+ *   @import '@tokens/component-tokens.css';
+ */
+
+/* ============================================================
+   BUTTON
+   ============================================================
+
+   Usage in component:
+     background-color: var(--btn-primary-bg);
+     color:            var(--btn-primary-text);
+
+   Override example (e.g. in a marketing context):
+     .marketing-page {
+       --btn-primary-bg: var(--brand-default);
+     }
+   ============================================================ */
+
+:root {
+
+  /* --- Shared button tokens (size-independent) --- */
+  --btn-font-family:      var(--typography-fontFamily-default);
+  --btn-font-weight:      var(--typography-weight-bold);
+  --btn-letter-spacing:   var(--typography-letterSpacing-caps);
+  --btn-line-height:      var(--typography-lineHeight-body);
+  --btn-border-radius:    var(--borderRadius-md);
+  --btn-border-width:     var(--borderWidth-hairline);
+  --btn-focus-ring:       var(--interactive-border-focus);
+
+  /* --- Size: small --- */
+  --btn-sm-font-size:     var(--typography-size-small);
+  --btn-sm-padding-x:     var(--spacing-sm);
+  --btn-sm-padding-y:     var(--spacing-xs);
+  --btn-sm-height:        2rem;
+
+  /* --- Size: medium (default) --- */
+  --btn-md-font-size:     var(--typography-size-body);
+  --btn-md-padding-x:     var(--spacing-md);
+  --btn-md-padding-y:     var(--spacing-xs);
+  --btn-md-height:        2.5rem;
+
+  /* --- Size: large --- */
+  --btn-lg-font-size:     var(--typography-size-body);
+  --btn-lg-padding-x:     var(--spacing-lg);
+  --btn-lg-padding-y:     var(--spacing-sm);
+  --btn-lg-height:        3rem;
+
+  /* --- Variant: primary --- */
+  --btn-primary-bg:          var(--interactive-default);
+  --btn-primary-bg-hover:    var(--interactive-hovered);
+  --btn-primary-bg-active:   var(--interactive-pressed);
+  --btn-primary-bg-disabled: var(--interactive-disabled);
+  --btn-primary-text:        var(--interactive-on-interactive);
+  --btn-primary-border:      transparent;
+
+  /* --- Variant: secondary --- */
+  --btn-secondary-bg:          transparent;
+  --btn-secondary-bg-hover:    var(--interactive-subtle-hovered);
+  --btn-secondary-bg-active:   var(--interactive-subtle);
+  --btn-secondary-bg-disabled: transparent;
+  --btn-secondary-text:        var(--interactive-default);
+  --btn-secondary-border:      var(--interactive-default);
+
+  /* --- Variant: danger --- */
+  --btn-danger-bg:          var(--danger-default);
+  --btn-danger-bg-hover:    var(--danger-hovered);
+  --btn-danger-bg-active:   var(--danger-pressed);
+  --btn-danger-bg-disabled: var(--danger-disabled);
+  --btn-danger-text:        var(--danger-on-danger);
+  --btn-danger-border:      transparent;
+
+  /* --- Variant: ghost --- */
+  --btn-ghost-bg:          transparent;
+  --btn-ghost-bg-hover:    var(--interactive-subtle);
+  --btn-ghost-bg-active:   var(--interactive-subtle-hovered);
+  --btn-ghost-bg-disabled: transparent;
+  --btn-ghost-text:        var(--interactive-default);
+  --btn-ghost-border:      transparent;
+
+  /* --- Disabled state (shared across all variants) --- */
+  --btn-disabled-text:     var(--text-disabled);
+  --btn-disabled-opacity:  var(--opacity-disabled);
+
+}
