@@ -4,8 +4,8 @@
 @tailwind utilities;
 
 /* Idox Design System tokens */
-@import '../../dist/tokens.css';
-@import '../../dist/typography.css';
+@import '@tokens/tokens.css';
+@import '@tokens/typography.css';
 
 /* Base styles using semantic tokens */
 @layer base {
