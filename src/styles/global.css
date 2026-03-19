@@ -1,5 +1,6 @@
 /* Idox Design System tokens */
 @import '@tokens/tokens.css';
+@import '@tokens/component-tokens.css';
 @import '@tokens/typography.css';
 
 /* Tailwind base layers */
