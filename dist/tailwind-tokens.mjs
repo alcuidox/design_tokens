@@ -10,6 +10,7 @@
  * also import dist/typography.css in your global stylesheet.
  *
  * Tokens excluded (already covered by Tailwind defaults):
+ *   - fontWeight.normal (400)
  *   - fontWeight.medium (500)
  *   - fontWeight.semibold (600)
  *   - fontWeight.bold (700)
@@ -139,9 +140,6 @@ export default {
     "h4": "1.25rem",
     "h5": "1.125rem",
     "h6": "1rem"
-  },
-  "fontWeight": {
-    "regular": "400"
   },
   "fontFamily": {
     "default": "DM Sans, sans-serif",
