@@ -1,0 +1,29 @@
+/* Tailwind base layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Idox Design System tokens */
+@import '../../dist/tokens.css';
+@import '../../dist/typography.css';
+
+/* Base styles using semantic tokens */
+@layer base {
+  html {
+    font-family: var(--typography-fontFamily-default, 'DM Sans', sans-serif);
+    color: var(--text-primary);
+    background-color: var(--surface-page);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Focus ring — applied globally using semantic focus token */
+  *:focus-visible {
+    outline: 2px solid var(--interactive-border-focus);
+    outline-offset: 2px;
+  }
+}

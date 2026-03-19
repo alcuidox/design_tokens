@@ -1,0 +1,84 @@
+name: Build Design System
+
+on:
+  push:
+    paths:
+      - 'primitive.json'
+      - 'semantic.json'
+      - 'src/**'
+      - '.storybook/**'
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  # ------------------------------------------------------------------
+  # Job 1 — Build tokens
+  # ------------------------------------------------------------------
+  build-tokens:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build tokens
+        run: npm run build:tokens
+
+      - name: Check for token changes
+        id: token-changes
+        run: |
+          git add dist/
+          if git diff --cached --quiet dist/; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            git diff --cached --stat dist/
+          fi
+
+      - name: Commit and push updated tokens
+        if: steps.token-changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --local user.name 'github-actions[bot]'
+          git commit -m 'chore: regenerate design tokens [skip ci]'
+          git push origin main
+
+  # ------------------------------------------------------------------
+  # Job 2 — Verify Storybook builds cleanly
+  # Netlify handles the actual deployment — this job just ensures
+  # the build does not break on every push to main.
+  # ------------------------------------------------------------------
+  verify-storybook:
+    needs: build-tokens
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build tokens
+        run: npm run build:tokens
+
+      - name: Build Storybook
+        run: npm run build:storybook
