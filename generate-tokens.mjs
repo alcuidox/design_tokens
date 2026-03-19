@@ -298,104 +298,100 @@ console.log('✔︎  dist/typography.css');
 
 // ---------------------------------------------------------------------------
 // 5. dist/component-tokens.css
-//    Each component gets its own block of CSS custom properties that
-//    reference semantic tokens. These are the component's theming API —
-//    consumers can override individual component tokens without touching
-//    the semantic layer.
+//    Read from component.json (DTCG format), resolve all references against
+//    the semantic layer, and output CSS custom properties.
 //
-//    Naming convention: --{component}-{variant}-{property}-{state}
-//    e.g. --btn-primary-bg-hover
+//    Reference resolution order:
+//      component.json refs → semantic tokens → primitive tokens
+//
+//    Naming convention: --{component}-{path...}
+//    e.g. button.variant.primary.bg → --btn-variant-primary-bg
+//         button.shared.font-weight → --btn-shared-font-weight
 // ---------------------------------------------------------------------------
 
-const componentTokens = `/**
+const component = JSON.parse(readFileSync('./component.json', 'utf8'));
+const compFlat  = flatten(component);
+
+// Build a combined lookup for resolving component refs:
+// component refs can point to semantic tokens, which can point to primitives
+const semResolved = {};
+for (const [path, token] of Object.entries(semFlat)) {
+  semResolved[path] = resolveToken(token.value);
+}
+
+function resolveComponentValue(value) {
+  if (typeof value !== 'string') return value;
+  if (value.startsWith('{') && value.endsWith('}')) {
+    const ref = value.slice(1, -1);
+    // Try semantic layer first, then primitive
+    if (semResolved[ref] !== undefined) return semResolved[ref];
+    if (primFlat[ref]?.value !== undefined) return primFlat[ref].value;
+    return value; // unresolved
+  }
+  return value;
+}
+
+// Generate CSS variable name from component token path
+// button.variant.primary.bg → --btn-variant-primary-bg
+function compCssVarName(path) {
+  const parts = path.split('.');
+  const component = parts[0]; // e.g. 'button'
+  const rest = parts.slice(1); // e.g. ['variant', 'primary', 'bg']
+
+  // Abbreviate known component names
+  const abbrev = { button: 'btn' };
+  const prefix = abbrev[component] ?? component;
+
+  return `--${prefix}-${rest.join('-')}`;
+}
+
+// Build component CSS vars grouped by component
+const componentGroups = {};
+
+for (const [path, token] of Object.entries(compFlat)) {
+  const resolvedValue = resolveComponentValue(token.value);
+  if (resolvedValue === null || typeof resolvedValue === 'object') continue;
+
+  const topLevel = path.split('.')[0]; // 'button'
+  if (!componentGroups[topLevel]) componentGroups[topLevel] = [];
+
+  componentGroups[topLevel].push({
+    name: compCssVarName(path),
+    value: resolvedValue,
+    description: token.description,
+  });
+}
+
+// Render component token CSS
+const componentBlockHeader = (name) => {
+  const bar = '='.repeat(60);
+  const upper = name.toUpperCase();
+  return `/* ${bar}\n   ${upper}\n   ${bar} */`;
+};
+
+const componentCSS = Object.entries(componentGroups)
+  .map(([name, vars]) => {
+    const varLines = vars
+      .map(({ name: n, value, description }) =>
+        `  ${n}: ${value};${description ? ` /* ${description} */` : ''}`
+      )
+      .join('\n');
+    return `${componentBlockHeader(name)}\n\n:root {\n${varLines}\n}`;
+  })
+  .join('\n\n');
+
+writeFileSync('./dist/component-tokens.css', `/**
  * Idox Design System — Component Tokens
- * Auto-generated from primitive.json + semantic.json. Do not edit manually.
+ * Auto-generated from component.json. Do not edit manually.
+ * Source of truth: component.json
  *
  * Import in your global stylesheet after tokens.css:
  *   @import '@tokens/component-tokens.css';
+ *
+ * To override a component token in a specific context:
+ *   .my-context { --btn-variant-primary-bg: var(--brand-default); }
  */
 
-/* ============================================================
-   BUTTON
-   ============================================================
-
-   Usage in component:
-     background-color: var(--btn-primary-bg);
-     color:            var(--btn-primary-text);
-
-   Override example (e.g. in a marketing context):
-     .marketing-page {
-       --btn-primary-bg: var(--brand-default);
-     }
-   ============================================================ */
-
-:root {
-
-  /* --- Shared button tokens (size-independent) --- */
-  --btn-font-family:      var(--typography-fontFamily-default);
-  --btn-font-weight:      var(--typography-weight-bold);
-  --btn-letter-spacing:   var(--typography-letterSpacing-caps);
-  --btn-line-height:      var(--typography-lineHeight-body);
-  --btn-border-radius:    var(--borderRadius-md);
-  --btn-border-width:     var(--borderWidth-hairline);
-  --btn-focus-ring:       var(--interactive-border-focus);
-
-  /* --- Size: small --- */
-  --btn-sm-font-size:     var(--typography-size-small);
-  --btn-sm-padding-x:     var(--spacing-sm);
-  --btn-sm-padding-y:     var(--spacing-xs);
-  --btn-sm-height:        2rem;
-
-  /* --- Size: medium (default) --- */
-  --btn-md-font-size:     var(--typography-size-body);
-  --btn-md-padding-x:     var(--spacing-md);
-  --btn-md-padding-y:     var(--spacing-xs);
-  --btn-md-height:        2.5rem;
-
-  /* --- Size: large --- */
-  --btn-lg-font-size:     var(--typography-size-body);
-  --btn-lg-padding-x:     var(--spacing-lg);
-  --btn-lg-padding-y:     var(--spacing-sm);
-  --btn-lg-height:        3rem;
-
-  /* --- Variant: primary --- */
-  --btn-primary-bg:          var(--interactive-default);
-  --btn-primary-bg-hover:    var(--interactive-hovered);
-  --btn-primary-bg-active:   var(--interactive-pressed);
-  --btn-primary-bg-disabled: var(--interactive-disabled);
-  --btn-primary-text:        var(--interactive-on-interactive);
-  --btn-primary-border:      transparent;
-
-  /* --- Variant: secondary --- */
-  --btn-secondary-bg:          transparent;
-  --btn-secondary-bg-hover:    var(--interactive-subtle-hovered);
-  --btn-secondary-bg-active:   var(--interactive-subtle);
-  --btn-secondary-bg-disabled: transparent;
-  --btn-secondary-text:        var(--interactive-default);
-  --btn-secondary-border:      var(--interactive-default);
-
-  /* --- Variant: danger --- */
-  --btn-danger-bg:          var(--danger-default);
-  --btn-danger-bg-hover:    var(--danger-hovered);
-  --btn-danger-bg-active:   var(--danger-pressed);
-  --btn-danger-bg-disabled: var(--danger-disabled);
-  --btn-danger-text:        var(--danger-on-danger);
-  --btn-danger-border:      transparent;
-
-  /* --- Variant: ghost --- */
-  --btn-ghost-bg:          transparent;
-  --btn-ghost-bg-hover:    var(--interactive-subtle);
-  --btn-ghost-bg-active:   var(--interactive-subtle-hovered);
-  --btn-ghost-bg-disabled: transparent;
-  --btn-ghost-text:        var(--interactive-default);
-  --btn-ghost-border:      transparent;
-
-  /* --- Disabled state (shared across all variants) --- */
-  --btn-disabled-text:     var(--text-disabled);
-  --btn-disabled-opacity:  var(--opacity-disabled);
-
-}
-`;
-
-writeFileSync('./dist/component-tokens.css', componentTokens, 'utf8');
+${componentCSS}
+`, 'utf8');
 console.log('✔︎  dist/component-tokens.css');

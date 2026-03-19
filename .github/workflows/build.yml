@@ -5,6 +5,7 @@ on:
     paths:
       - 'primitive.json'
       - 'semantic.json'
+      - 'component.json'
       - 'src/**'
       - '.storybook/**'
     branches:

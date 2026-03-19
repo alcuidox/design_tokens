@@ -1,0 +1,265 @@
+{
+  "button": {
+
+    "$description": "Button component tokens. All values reference semantic tokens, which in turn reference primitives. Override any token here to retheme the button without touching the semantic layer.",
+
+    "shared": {
+      "$description": "Tokens shared across all button variants and sizes",
+
+      "font-family": {
+        "$value": "{typography.fontFamily.default}",
+        "$type": "fontFamily",
+        "$description": "Button font family"
+      },
+      "font-weight": {
+        "$value": "{typography.weight.bold}",
+        "$type": "fontWeight",
+        "$description": "Button font weight"
+      },
+      "letter-spacing": {
+        "$value": "{typography.letterSpacing.caps}",
+        "$type": "letterSpacing",
+        "$description": "Button letter spacing — wide to suit uppercase/bold labels"
+      },
+      "line-height": {
+        "$value": "{typography.lineHeight.body}",
+        "$type": "lineHeight",
+        "$description": "Button line height"
+      },
+      "border-radius": {
+        "$value": "{borderRadius.md}",
+        "$type": "borderRadius",
+        "$description": "Button corner radius"
+      },
+      "border-width": {
+        "$value": "{borderWidth.hairline}",
+        "$type": "borderWidth",
+        "$description": "Button border width"
+      },
+      "focus-ring": {
+        "$value": "{interactive.border-focus}",
+        "$type": "color",
+        "$description": "Focus ring colour applied to all button variants"
+      },
+      "disabled-text": {
+        "$value": "{text.disabled}",
+        "$type": "color",
+        "$description": "Text colour for all disabled button variants"
+      },
+      "disabled-opacity": {
+        "$value": "{opacity.disabled}",
+        "$type": "opacity",
+        "$description": "Opacity applied to all disabled button variants"
+      }
+    },
+
+    "size": {
+      "$description": "Size-specific button tokens",
+
+      "sm": {
+        "font-size": {
+          "$value": "{typography.size.small}",
+          "$type": "fontSize",
+          "$description": "Font size for small buttons"
+        },
+        "padding-x": {
+          "$value": "{spacing.sm}",
+          "$type": "spacing",
+          "$description": "Horizontal padding for small buttons"
+        },
+        "padding-y": {
+          "$value": "{spacing.xs}",
+          "$type": "spacing",
+          "$description": "Vertical padding for small buttons"
+        },
+        "height": {
+          "$value": "2rem",
+          "$type": "sizing",
+          "$description": "Height for small buttons"
+        }
+      },
+
+      "md": {
+        "font-size": {
+          "$value": "{typography.size.body}",
+          "$type": "fontSize",
+          "$description": "Font size for medium buttons"
+        },
+        "padding-x": {
+          "$value": "{spacing.md}",
+          "$type": "spacing",
+          "$description": "Horizontal padding for medium buttons"
+        },
+        "padding-y": {
+          "$value": "{spacing.xs}",
+          "$type": "spacing",
+          "$description": "Vertical padding for medium buttons"
+        },
+        "height": {
+          "$value": "2.5rem",
+          "$type": "sizing",
+          "$description": "Height for medium buttons"
+        }
+      },
+
+      "lg": {
+        "font-size": {
+          "$value": "{typography.size.body}",
+          "$type": "fontSize",
+          "$description": "Font size for large buttons"
+        },
+        "padding-x": {
+          "$value": "{spacing.lg}",
+          "$type": "spacing",
+          "$description": "Horizontal padding for large buttons"
+        },
+        "padding-y": {
+          "$value": "{spacing.sm}",
+          "$type": "spacing",
+          "$description": "Vertical padding for large buttons"
+        },
+        "height": {
+          "$value": "3rem",
+          "$type": "sizing",
+          "$description": "Height for large buttons"
+        }
+      }
+    },
+
+    "variant": {
+      "$description": "Variant-specific button tokens",
+
+      "primary": {
+        "bg": {
+          "$value": "{interactive.default}",
+          "$type": "color",
+          "$description": "Primary button background"
+        },
+        "bg-hover": {
+          "$value": "{interactive.hovered}",
+          "$type": "color",
+          "$description": "Primary button background on hover"
+        },
+        "bg-active": {
+          "$value": "{interactive.pressed}",
+          "$type": "color",
+          "$description": "Primary button background on press"
+        },
+        "bg-disabled": {
+          "$value": "{interactive.disabled}",
+          "$type": "color",
+          "$description": "Primary button background when disabled"
+        },
+        "text": {
+          "$value": "{interactive.on-interactive}",
+          "$type": "color",
+          "$description": "Primary button text and icon colour"
+        },
+        "border": {
+          "$value": "transparent",
+          "$type": "color",
+          "$description": "Primary button border — transparent as fill provides affordance"
+        }
+      },
+
+      "secondary": {
+        "bg": {
+          "$value": "transparent",
+          "$type": "color",
+          "$description": "Secondary button background — transparent to show surface beneath"
+        },
+        "bg-hover": {
+          "$value": "{interactive.subtle-hovered}",
+          "$type": "color",
+          "$description": "Secondary button background on hover"
+        },
+        "bg-active": {
+          "$value": "{interactive.subtle}",
+          "$type": "color",
+          "$description": "Secondary button background on press"
+        },
+        "bg-disabled": {
+          "$value": "transparent",
+          "$type": "color",
+          "$description": "Secondary button background when disabled"
+        },
+        "text": {
+          "$value": "{interactive.default}",
+          "$type": "color",
+          "$description": "Secondary button text and icon colour"
+        },
+        "border": {
+          "$value": "{interactive.default}",
+          "$type": "color",
+          "$description": "Secondary button border — provides affordance in place of fill"
+        }
+      },
+
+      "danger": {
+        "bg": {
+          "$value": "{danger.default}",
+          "$type": "color",
+          "$description": "Danger button background"
+        },
+        "bg-hover": {
+          "$value": "{danger.hovered}",
+          "$type": "color",
+          "$description": "Danger button background on hover"
+        },
+        "bg-active": {
+          "$value": "{danger.pressed}",
+          "$type": "color",
+          "$description": "Danger button background on press"
+        },
+        "bg-disabled": {
+          "$value": "{danger.disabled}",
+          "$type": "color",
+          "$description": "Danger button background when disabled"
+        },
+        "text": {
+          "$value": "{danger.on-danger}",
+          "$type": "color",
+          "$description": "Danger button text and icon colour"
+        },
+        "border": {
+          "$value": "transparent",
+          "$type": "color",
+          "$description": "Danger button border — transparent as fill provides affordance"
+        }
+      },
+
+      "ghost": {
+        "bg": {
+          "$value": "transparent",
+          "$type": "color",
+          "$description": "Ghost button background — fully transparent"
+        },
+        "bg-hover": {
+          "$value": "{interactive.subtle}",
+          "$type": "color",
+          "$description": "Ghost button background on hover"
+        },
+        "bg-active": {
+          "$value": "{interactive.subtle-hovered}",
+          "$type": "color",
+          "$description": "Ghost button background on press"
+        },
+        "bg-disabled": {
+          "$value": "transparent",
+          "$type": "color",
+          "$description": "Ghost button background when disabled"
+        },
+        "text": {
+          "$value": "{interactive.default}",
+          "$type": "color",
+          "$description": "Ghost button text and icon colour"
+        },
+        "border": {
+          "$value": "transparent",
+          "$type": "color",
+          "$description": "Ghost button border — transparent, relies on text for affordance"
+        }
+      }
+    }
+  }
+}

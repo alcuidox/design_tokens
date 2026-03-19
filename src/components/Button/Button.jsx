@@ -1,54 +1,62 @@
 /**
  * Button
  *
- * Uses component tokens from component-tokens.css exclusively.
- * Component tokens reference semantic tokens, which reference primitives —
- * so the full token chain is maintained while keeping the component clean.
+ * Consumes component tokens from component-tokens.css, which are
+ * generated from component.json — the source of truth for all
+ * button token decisions. The full chain is:
  *
- * To customise the button for a specific context, override component tokens:
- *   .my-context { --btn-primary-bg: var(--brand-default); }
+ *   component.json → semantic tokens → primitive tokens
+ *       ↓
+ *   dist/component-tokens.css
+ *       ↓
+ *   Button.jsx (this file)
+ *
+ * To retheme the button in a specific context, override component tokens:
+ *   .my-context { --btn-variant-primary-bg: var(--brand-default); }
  */
 
 import React from 'react';
 
 // ---------------------------------------------------------------------------
-// Variant maps — set the active component token vars for this variant
+// Variant maps — assign the active slot tokens from the variant-specific
+// component tokens. The component itself only ever reads --btn-bg,
+// --btn-text etc.; the variant determines what those resolve to.
 // ---------------------------------------------------------------------------
 const VARIANT_CLASSES = {
   primary: [
-    '[--btn-bg:var(--btn-primary-bg)]',
-    '[--btn-bg-hover:var(--btn-primary-bg-hover)]',
-    '[--btn-bg-active:var(--btn-primary-bg-active)]',
-    '[--btn-bg-disabled:var(--btn-primary-bg-disabled)]',
-    '[--btn-text:var(--btn-primary-text)]',
-    '[--btn-border:var(--btn-primary-border)]',
+    '[--btn-bg:var(--btn-variant-primary-bg)]',
+    '[--btn-bg-hover:var(--btn-variant-primary-bg-hover)]',
+    '[--btn-bg-active:var(--btn-variant-primary-bg-active)]',
+    '[--btn-bg-disabled:var(--btn-variant-primary-bg-disabled)]',
+    '[--btn-text:var(--btn-variant-primary-text)]',
+    '[--btn-border:var(--btn-variant-primary-border)]',
   ].join(' '),
 
   secondary: [
-    '[--btn-bg:var(--btn-secondary-bg)]',
-    '[--btn-bg-hover:var(--btn-secondary-bg-hover)]',
-    '[--btn-bg-active:var(--btn-secondary-bg-active)]',
-    '[--btn-bg-disabled:var(--btn-secondary-bg-disabled)]',
-    '[--btn-text:var(--btn-secondary-text)]',
-    '[--btn-border:var(--btn-secondary-border)]',
+    '[--btn-bg:var(--btn-variant-secondary-bg)]',
+    '[--btn-bg-hover:var(--btn-variant-secondary-bg-hover)]',
+    '[--btn-bg-active:var(--btn-variant-secondary-bg-active)]',
+    '[--btn-bg-disabled:var(--btn-variant-secondary-bg-disabled)]',
+    '[--btn-text:var(--btn-variant-secondary-text)]',
+    '[--btn-border:var(--btn-variant-secondary-border)]',
   ].join(' '),
 
   danger: [
-    '[--btn-bg:var(--btn-danger-bg)]',
-    '[--btn-bg-hover:var(--btn-danger-bg-hover)]',
-    '[--btn-bg-active:var(--btn-danger-bg-active)]',
-    '[--btn-bg-disabled:var(--btn-danger-bg-disabled)]',
-    '[--btn-text:var(--btn-danger-text)]',
-    '[--btn-border:var(--btn-danger-border)]',
+    '[--btn-bg:var(--btn-variant-danger-bg)]',
+    '[--btn-bg-hover:var(--btn-variant-danger-bg-hover)]',
+    '[--btn-bg-active:var(--btn-variant-danger-bg-active)]',
+    '[--btn-bg-disabled:var(--btn-variant-danger-bg-disabled)]',
+    '[--btn-text:var(--btn-variant-danger-text)]',
+    '[--btn-border:var(--btn-variant-danger-border)]',
   ].join(' '),
 
   ghost: [
-    '[--btn-bg:var(--btn-ghost-bg)]',
-    '[--btn-bg-hover:var(--btn-ghost-bg-hover)]',
-    '[--btn-bg-active:var(--btn-ghost-bg-active)]',
-    '[--btn-bg-disabled:var(--btn-ghost-bg-disabled)]',
-    '[--btn-text:var(--btn-ghost-text)]',
-    '[--btn-border:var(--btn-ghost-border)]',
+    '[--btn-bg:var(--btn-variant-ghost-bg)]',
+    '[--btn-bg-hover:var(--btn-variant-ghost-bg-hover)]',
+    '[--btn-bg-active:var(--btn-variant-ghost-bg-active)]',
+    '[--btn-bg-disabled:var(--btn-variant-ghost-bg-disabled)]',
+    '[--btn-text:var(--btn-variant-ghost-text)]',
+    '[--btn-border:var(--btn-variant-ghost-border)]',
   ].join(' '),
 };
 
@@ -57,24 +65,24 @@ const VARIANT_CLASSES = {
 // ---------------------------------------------------------------------------
 const SIZE_CLASSES = {
   sm: [
-    'px-[var(--btn-sm-padding-x)]',
-    'py-[var(--btn-sm-padding-y)]',
-    'text-[length:var(--btn-sm-font-size)]',
-    'h-[var(--btn-sm-height)]',
+    'px-[var(--btn-size-sm-padding-x)]',
+    'py-[var(--btn-size-sm-padding-y)]',
+    'text-[length:var(--btn-size-sm-font-size)]',
+    'h-[var(--btn-size-sm-height)]',
   ].join(' '),
 
   md: [
-    'px-[var(--btn-md-padding-x)]',
-    'py-[var(--btn-md-padding-y)]',
-    'text-[length:var(--btn-md-font-size)]',
-    'h-[var(--btn-md-height)]',
+    'px-[var(--btn-size-md-padding-x)]',
+    'py-[var(--btn-size-md-padding-y)]',
+    'text-[length:var(--btn-size-md-font-size)]',
+    'h-[var(--btn-size-md-height)]',
   ].join(' '),
 
   lg: [
-    'px-[var(--btn-lg-padding-x)]',
-    'py-[var(--btn-lg-padding-y)]',
-    'text-[length:var(--btn-lg-font-size)]',
-    'h-[var(--btn-lg-height)]',
+    'px-[var(--btn-size-lg-padding-x)]',
+    'py-[var(--btn-size-lg-padding-y)]',
+    'text-[length:var(--btn-size-lg-font-size)]',
+    'h-[var(--btn-size-lg-height)]',
   ].join(' '),
 };
 
@@ -99,28 +107,28 @@ export function Button({
       disabled={isDisabled}
       onClick={onClick}
       className={[
-        // 1. Variant token assignments
+        // 1. Variant — assigns --btn-bg, --btn-text, --btn-border slot tokens
         VARIANT_CLASSES[variant] ?? VARIANT_CLASSES.primary,
 
         // 2. Layout
         'inline-flex items-center justify-center',
         'gap-[var(--spacing-xs)]',
 
-        // 3. Shape
-        'rounded-[var(--btn-border-radius)]',
+        // 3. Shape — shared component tokens
+        'rounded-[var(--btn-shared-border-radius)]',
         'border border-[var(--btn-border)]',
 
-        // 4. Typography
-        'font-[family-name:var(--btn-font-family)]',
-        'font-[var(--btn-font-weight)]',
-        'tracking-[var(--btn-letter-spacing)]',
-        'leading-[var(--btn-line-height)]',
+        // 4. Typography — shared component tokens
+        'font-[family-name:var(--btn-shared-font-family)]',
+        'font-[var(--btn-shared-font-weight)]',
+        'tracking-[var(--btn-shared-letter-spacing)]',
+        'leading-[var(--btn-shared-line-height)]',
 
-        // 5. Colour
+        // 5. Colour — active slot tokens (set by variant above)
         'bg-[var(--btn-bg)]',
         'text-[var(--btn-text)]',
 
-        // 6. Size
+        // 6. Size — size-specific component tokens
         SIZE_CLASSES[size] ?? SIZE_CLASSES.md,
 
         // 7. Transition
@@ -132,15 +140,15 @@ export function Button({
           'active:bg-[var(--btn-bg-active)]',
           'focus-visible:outline-2',
           'focus-visible:outline-offset-2',
-          'focus-visible:outline-[var(--btn-focus-ring)]',
+          'focus-visible:outline-[var(--btn-shared-focus-ring)]',
           'cursor-pointer',
         ].join(' '),
 
-        // 9. Disabled state
+        // 9. Disabled state — shared component tokens
         isDisabled && [
           'bg-[var(--btn-bg-disabled)]',
-          'text-[var(--btn-disabled-text)]',
-          'opacity-[var(--btn-disabled-opacity)]',
+          'text-[var(--btn-shared-disabled-text)]',
+          'opacity-[var(--btn-shared-disabled-opacity)]',
           'cursor-not-allowed',
         ].join(' '),
 
