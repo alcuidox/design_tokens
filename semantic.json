@@ -1,688 +1,688 @@
 {
-    "spacing": {
-      "2xl": {
-        "$value": "{primitive.spacing.12}",
-        "$type": "spacing",
-        "$description": "2XL spacing (48px)"
-      },
-      "3xl": {
-        "$value": "{primitive.spacing.16}",
-        "$type": "spacing",
-        "$description": "3XL spacing (64px)"
-      },
-      "4xl": {
-        "$value": "{primitive.spacing.24}",
-        "$type": "spacing",
-        "$description": "4XL spacing (96px)"
-      },
-      "5xl": {
-        "$value": "{primitive.spacing.32}",
-        "$type": "spacing",
-        "$description": "5XL spacing (128px)"
-      },
-      "6xl": {
-        "$value": "{primitive.spacing.48}",
-        "$type": "spacing",
-        "$description": "6XL spacing (192px)"
-      },
-      "7xl": {
-        "$value": "{primitive.spacing.64}",
-        "$type": "spacing",
-        "$description": "7XL spacing (256px)"
-      },
-      "8xl": {
-        "$value": "{primitive.spacing.80}",
-        "$type": "spacing",
-        "$description": "8XL spacing (320px)"
-      },
-      "9xl": {
-        "$value": "{primitive.spacing.96}",
-        "$type": "spacing",
-        "$description": "9XL spacing (384px)"
-      },
-      "none": {
-        "$value": "{primitive.spacing.0}",
-        "$type": "spacing",
-        "$description": "Zero spacing"
-      },
-      "xs": {
-        "$value": "{primitive.spacing.1}",
-        "$type": "spacing",
-        "$description": "Extra small spacing (4px)"
-      },
-      "sm": {
-        "$value": "{primitive.spacing.2}",
-        "$type": "spacing",
-        "$description": "Small spacing (8px)"
-      },
-      "md": {
-        "$value": "{primitive.spacing.4}",
-        "$type": "spacing",
-        "$description": "Medium spacing (16px)"
-      },
-      "lg": {
-        "$value": "{primitive.spacing.6}",
-        "$type": "spacing",
-        "$description": "Large spacing (24px)"
-      },
-      "xl": {
-        "$value": "{primitive.spacing.8}",
-        "$type": "spacing",
-        "$description": "Extra large spacing (32px)"
-      }
+  "spacing": {
+    "2xl": {
+      "$value": "{primitive.spacing.12}",
+      "$type": "spacing",
+      "$description": "2XL spacing (48px)"
+    },
+    "3xl": {
+      "$value": "{primitive.spacing.16}",
+      "$type": "spacing",
+      "$description": "3XL spacing (64px)"
+    },
+    "4xl": {
+      "$value": "{primitive.spacing.24}",
+      "$type": "spacing",
+      "$description": "4XL spacing (96px)"
+    },
+    "5xl": {
+      "$value": "{primitive.spacing.32}",
+      "$type": "spacing",
+      "$description": "5XL spacing (128px)"
+    },
+    "6xl": {
+      "$value": "{primitive.spacing.48}",
+      "$type": "spacing",
+      "$description": "6XL spacing (192px)"
+    },
+    "7xl": {
+      "$value": "{primitive.spacing.64}",
+      "$type": "spacing",
+      "$description": "7XL spacing (256px)"
+    },
+    "8xl": {
+      "$value": "{primitive.spacing.80}",
+      "$type": "spacing",
+      "$description": "8XL spacing (320px)"
+    },
+    "9xl": {
+      "$value": "{primitive.spacing.96}",
+      "$type": "spacing",
+      "$description": "9XL spacing (384px)"
+    },
+    "none": {
+      "$value": "{primitive.spacing.0}",
+      "$type": "spacing",
+      "$description": "Zero spacing"
+    },
+    "xs": {
+      "$value": "{primitive.spacing.1}",
+      "$type": "spacing",
+      "$description": "Extra small spacing (4px)"
+    },
+    "sm": {
+      "$value": "{primitive.spacing.2}",
+      "$type": "spacing",
+      "$description": "Small spacing (8px)"
+    },
+    "md": {
+      "$value": "{primitive.spacing.4}",
+      "$type": "spacing",
+      "$description": "Medium spacing (16px)"
+    },
+    "lg": {
+      "$value": "{primitive.spacing.6}",
+      "$type": "spacing",
+      "$description": "Large spacing (24px)"
+    },
+    "xl": {
+      "$value": "{primitive.spacing.8}",
+      "$type": "spacing",
+      "$description": "Extra large spacing (32px)"
+    }
+  },
+  "brand": {
+    "default": {
+      "$value": "{primitive.blue.800}",
+      "$type": "color",
+      "$description": "Primary brand colour"
+    }
+  },
+  "interactive": {
+    "default": {
+      "$value": "{primitive.blue.600}",
+      "$type": "color",
+      "$description": "Default state \u2014 buttons, links, active nav"
+    },
+    "hovered": {
+      "$value": "{primitive.blue.700}",
+      "$type": "color",
+      "$description": "Hovered state \u2014 steps darker from default"
+    },
+    "pressed": {
+      "$value": "{primitive.blue.800}",
+      "$type": "color",
+      "$description": "Pressed / active state \u2014 steps darker for tactile feedback"
+    },
+    "focused": {
+      "$value": "{primitive.blue.600}",
+      "$type": "color",
+      "$description": "Focused state fill \u2014 pair with border-focus ring"
+    },
+    "disabled": {
+      "$value": "{primitive.slate.100}",
+      "$type": "color",
+      "$description": "Disabled interactive fill"
+    },
+    "subtle": {
+      "$value": "{primitive.blue.50}",
+      "$type": "color",
+      "$description": "Tinted background \u2014 selected rows, active sidebar"
+    },
+    "subtle-hovered": {
+      "$value": "{primitive.blue.100}",
+      "$type": "color",
+      "$description": "Hovered tinted background"
+    },
+    "subtle-border": {
+      "$value": "{primitive.blue.300}",
+      "$type": "color",
+      "$description": "Border on subtle interactive areas"
+    },
+    "on-interactive": {
+      "$value": "{primitive.white}",
+      "$type": "color",
+      "$description": "Text / icons sitting on any Blue interactive fill"
+    },
+    "border-focus": {
+      "$value": "{primitive.blue.300}",
+      "$type": "color",
+      "$description": "Focus ring colour"
+    }
+  },
+  "surface": {
+    "page": {
+      "$value": "{primitive.slate.50}",
+      "$type": "color",
+      "$description": "App / page background"
+    },
+    "default": {
+      "$value": "{primitive.white}",
+      "$type": "color",
+      "$description": "Card and panel backgrounds"
+    },
+    "raised": {
+      "$value": "{primitive.slate.50}",
+      "$type": "color",
+      "$description": "Slightly elevated surfaces"
+    },
+    "overlay": {
+      "$value": "{primitive.slate.900}",
+      "$type": "color",
+      "$description": "Modal scrim \u2014 use with semantic.opacity.overlay token"
+    },
+    "inverse": {
+      "$value": "{primitive.slate.900}",
+      "$type": "color",
+      "$description": "Dark surfaces \u2014 tooltips, dark mode panels"
+    },
+    "disabled": {
+      "$value": "{primitive.slate.100}",
+      "$type": "color",
+      "$description": "Disabled component fill"
+    }
+  },
+  "border": {
+    "default": {
+      "$value": "{primitive.slate.200}",
+      "$type": "color",
+      "$description": "Default dividers and input borders"
+    },
+    "strong": {
+      "$value": "{primitive.slate.400}",
+      "$type": "color",
+      "$description": "Strong separators"
+    },
+    "disabled": {
+      "$value": "{primitive.slate.200}",
+      "$type": "color",
+      "$description": "Borders on disabled elements"
+    }
+  },
+  "text": {
+    "primary": {
+      "$value": "{primitive.slate.900}",
+      "$type": "color",
+      "$description": "Body copy and labels"
+    },
+    "secondary": {
+      "$value": "{primitive.slate.600}",
+      "$type": "color",
+      "$description": "Subtext, meta information"
+    },
+    "tertiary": {
+      "$value": "{primitive.slate.400}",
+      "$type": "color",
+      "$description": "Hints and timestamps"
+    },
+    "disabled": {
+      "$value": "{primitive.slate.500}",
+      "$type": "color",
+      "$description": "Disabled text \u2014 slate.500 for sufficient contrast"
+    },
+    "inverse": {
+      "$value": "{primitive.slate.50}",
+      "$type": "color",
+      "$description": "Text on dark / inverse surfaces"
     },
     "brand": {
-      "default": {
-        "$value": "{primitive.blue.800}",
-        "$type": "color",
-        "$description": "Primary brand colour"
-      }
+      "$value": "{primitive.blue.800}",
+      "$type": "color",
+      "$description": "Brand-coloured text \u2014 links, highlights"
+    }
+  },
+  "success": {
+    "default": {
+      "$value": "{primitive.green.600}",
+      "$type": "color",
+      "$description": "Success badges, positive indicators"
     },
-    "interactive": {
-      "default": {
-        "$value": "{primitive.blue.800}",
-        "$type": "color",
-        "$description": "Default state — buttons, links, active nav"
-      },
-      "hovered": {
-        "$value": "{primitive.blue.700}",
-        "$type": "color",
-        "$description": "Hovered state — steps lighter from brand 800"
-      },
-      "pressed": {
-        "$value": "{primitive.blue.900}",
-        "$type": "color",
-        "$description": "Pressed / active state — steps darker for tactile feedback"
-      },
-      "focused": {
-        "$value": "{primitive.blue.800}",
-        "$type": "color",
-        "$description": "Focused state fill — pair with border-focus ring"
-      },
-      "disabled": {
-        "$value": "{primitive.slate.100}",
-        "$type": "color",
-        "$description": "Disabled interactive fill"
-      },
-      "subtle": {
-        "$value": "{primitive.blue.50}",
-        "$type": "color",
-        "$description": "Tinted background — selected rows, active sidebar"
-      },
-      "subtle-hovered": {
-        "$value": "{primitive.blue.100}",
-        "$type": "color",
-        "$description": "Hovered tinted background"
-      },
-      "subtle-border": {
-        "$value": "{primitive.blue.300}",
-        "$type": "color",
-        "$description": "Border on subtle interactive areas"
-      },
-      "on-interactive": {
-        "$value": "{primitive.white}",
-        "$type": "color",
-        "$description": "Text / icons sitting on any Blue interactive fill"
-      },
-      "border-focus": {
-        "$value": "{primitive.blue.300}",
-        "$type": "color",
-        "$description": "Focus ring colour"
-      }
+    "hovered": {
+      "$value": "{primitive.green.700}",
+      "$type": "color",
+      "$description": "Hovered success action"
     },
-    "surface": {
-      "page": {
-        "$value": "{primitive.slate.50}",
-        "$type": "color",
-        "$description": "App / page background"
-      },
-      "default": {
-        "$value": "{primitive.white}",
-        "$type": "color",
-        "$description": "Card and panel backgrounds"
-      },
-      "raised": {
-        "$value": "{primitive.slate.50}",
-        "$type": "color",
-        "$description": "Slightly elevated surfaces"
-      },
-      "overlay": {
-        "$value": "{primitive.slate.900}",
-        "$type": "color",
-        "$description": "Modal scrim — use with semantic.opacity.overlay token"
-      },
-      "inverse": {
-        "$value": "{primitive.slate.900}",
-        "$type": "color",
-        "$description": "Dark surfaces — tooltips, dark mode panels"
-      },
-      "disabled": {
-        "$value": "{primitive.slate.100}",
-        "$type": "color",
-        "$description": "Disabled component fill"
-      }
+    "pressed": {
+      "$value": "{primitive.green.800}",
+      "$type": "color",
+      "$description": "Pressed success action"
+    },
+    "subtle": {
+      "$value": "{primitive.green.50}",
+      "$type": "color",
+      "$description": "Success alert background"
+    },
+    "subtle-hovered": {
+      "$value": "{primitive.green.100}",
+      "$type": "color",
+      "$description": "Hovered success alert background"
     },
     "border": {
-      "default": {
-        "$value": "{primitive.slate.200}",
-        "$type": "color",
-        "$description": "Default dividers and input borders"
-      },
-      "strong": {
-        "$value": "{primitive.slate.400}",
-        "$type": "color",
-        "$description": "Strong separators"
-      },
-      "disabled": {
-        "$value": "{primitive.slate.200}",
-        "$type": "color",
-        "$description": "Borders on disabled elements"
-      }
+      "$value": "{primitive.green.300}",
+      "$type": "color",
+      "$description": "Success alert border"
     },
     "text": {
-      "primary": {
-        "$value": "{primitive.slate.900}",
-        "$type": "color",
-        "$description": "Body copy and labels"
-      },
-      "secondary": {
-        "$value": "{primitive.slate.600}",
-        "$type": "color",
-        "$description": "Subtext, meta information"
-      },
-      "tertiary": {
-        "$value": "{primitive.slate.400}",
-        "$type": "color",
-        "$description": "Hints and timestamps"
-      },
-      "disabled": {
-        "$value": "{primitive.slate.400}",
-        "$type": "color",
-        "$description": "Disabled text"
-      },
-      "inverse": {
-        "$value": "{primitive.slate.50}",
-        "$type": "color",
-        "$description": "Text on dark / inverse surfaces"
-      },
-      "brand": {
-        "$value": "{primitive.blue.800}",
-        "$type": "color",
-        "$description": "Brand-coloured text — links, highlights"
-      }
+      "$value": "{primitive.green.700}",
+      "$type": "color",
+      "$description": "Inline success text on light backgrounds"
     },
-    "success": {
+    "on-success": {
+      "$value": "{primitive.green.50}",
+      "$type": "color",
+      "$description": "Text / icons on Green fills"
+    }
+  },
+  "danger": {
+    "default": {
+      "$value": "{primitive.red.600}",
+      "$type": "color",
+      "$description": "Destructive buttons, error states"
+    },
+    "hovered": {
+      "$value": "{primitive.red.700}",
+      "$type": "color",
+      "$description": "Hovered destructive action"
+    },
+    "pressed": {
+      "$value": "{primitive.red.800}",
+      "$type": "color",
+      "$description": "Pressed destructive action"
+    },
+    "disabled": {
+      "$value": "{primitive.red.200}",
+      "$type": "color",
+      "$description": "Disabled danger fill"
+    },
+    "subtle": {
+      "$value": "{primitive.red.50}",
+      "$type": "color",
+      "$description": "Error alert background"
+    },
+    "subtle-hovered": {
+      "$value": "{primitive.red.100}",
+      "$type": "color",
+      "$description": "Hovered error alert background"
+    },
+    "border": {
+      "$value": "{primitive.red.300}",
+      "$type": "color",
+      "$description": "Error input border and alert border"
+    },
+    "text": {
+      "$value": "{primitive.red.700}",
+      "$type": "color",
+      "$description": "Inline error messages"
+    },
+    "on-danger": {
+      "$value": "{primitive.red.50}",
+      "$type": "color",
+      "$description": "Text / icons on Red fills"
+    }
+  },
+  "warning": {
+    "default": {
+      "$value": "{primitive.amber.500}",
+      "$type": "color",
+      "$description": "Warning badges, caution highlights"
+    },
+    "hovered": {
+      "$value": "{primitive.amber.600}",
+      "$type": "color",
+      "$description": "Hovered warning action"
+    },
+    "pressed": {
+      "$value": "{primitive.amber.700}",
+      "$type": "color",
+      "$description": "Pressed warning action"
+    },
+    "subtle": {
+      "$value": "{primitive.amber.50}",
+      "$type": "color",
+      "$description": "Warning alert background"
+    },
+    "subtle-hovered": {
+      "$value": "{primitive.amber.100}",
+      "$type": "color",
+      "$description": "Hovered warning alert background"
+    },
+    "border": {
+      "$value": "{primitive.amber.300}",
+      "$type": "color",
+      "$description": "Warning alert border"
+    },
+    "text": {
+      "$value": "{primitive.amber.800}",
+      "$type": "color",
+      "$description": "Inline warning text \u2014 dark for contrast on light bg"
+    },
+    "on-warning": {
+      "$value": "{primitive.amber.950}",
+      "$type": "color",
+      "$description": "Text / icons on Amber fills \u2014 dark not white for contrast"
+    }
+  },
+  "info": {
+    "default": {
+      "$value": "{primitive.blue.600}",
+      "$type": "color",
+      "$description": "Informational badges and indicators"
+    },
+    "hovered": {
+      "$value": "{primitive.blue.700}",
+      "$type": "color",
+      "$description": "Hovered info action"
+    },
+    "pressed": {
+      "$value": "{primitive.blue.800}",
+      "$type": "color",
+      "$description": "Pressed info action"
+    },
+    "subtle": {
+      "$value": "{primitive.blue.50}",
+      "$type": "color",
+      "$description": "Info alert background"
+    },
+    "subtle-hovered": {
+      "$value": "{primitive.blue.100}",
+      "$type": "color",
+      "$description": "Hovered info alert background"
+    },
+    "border": {
+      "$value": "{primitive.blue.300}",
+      "$type": "color",
+      "$description": "Info alert border"
+    },
+    "text": {
+      "$value": "{primitive.blue.700}",
+      "$type": "color",
+      "$description": "Inline info text on light backgrounds"
+    },
+    "on-info": {
+      "$value": "{primitive.white}",
+      "$type": "color",
+      "$description": "Text and icons on blue info fills"
+    }
+  },
+  "opacity": {
+    "overlay": {
+      "$value": "{primitive.opacity.50}",
+      "$type": "opacity",
+      "$description": "Modal scrim opacity"
+    },
+    "disabled": {
+      "$value": "{primitive.opacity.38}",
+      "$type": "opacity",
+      "$description": "Disabled element opacity"
+    },
+    "subtle": {
+      "$value": "{primitive.opacity.8}",
+      "$type": "opacity",
+      "$description": "Subtle tinted backgrounds"
+    }
+  },
+  "typography": {
+    "fontFamily": {
       "default": {
-        "$value": "{primitive.green.600}",
-        "$type": "color",
-        "$description": "Success badges, positive indicators"
+        "$value": "{primitive.typography.fontFamily.sans}",
+        "$type": "fontFamily",
+        "$description": "Default UI font family"
       },
-      "hovered": {
-        "$value": "{primitive.green.700}",
-        "$type": "color",
-        "$description": "Hovered success action"
-      },
-      "pressed": {
-        "$value": "{primitive.green.800}",
-        "$type": "color",
-        "$description": "Pressed success action"
-      },
-      "subtle": {
-        "$value": "{primitive.green.50}",
-        "$type": "color",
-        "$description": "Success alert background"
-      },
-      "subtle-hovered": {
-        "$value": "{primitive.green.100}",
-        "$type": "color",
-        "$description": "Hovered success alert background"
-      },
-      "border": {
-        "$value": "{primitive.green.300}",
-        "$type": "color",
-        "$description": "Success alert border"
-      },
-      "text": {
-        "$value": "{primitive.green.700}",
-        "$type": "color",
-        "$description": "Inline success text on light backgrounds"
-      },
-      "on-success": {
-        "$value": "{primitive.green.50}",
-        "$type": "color",
-        "$description": "Text / icons on Green fills"
+      "code": {
+        "$value": "{primitive.typography.fontFamily.mono}",
+        "$type": "fontFamily",
+        "$description": "Monospace for code"
       }
     },
-    "danger": {
-      "default": {
-        "$value": "{primitive.red.600}",
-        "$type": "color",
-        "$description": "Destructive buttons, error states"
+    "size": {
+      "body": {
+        "$value": "{primitive.typography.fontSize.base}",
+        "$type": "fontSize",
+        "$description": "Body text"
       },
-      "hovered": {
-        "$value": "{primitive.red.700}",
-        "$type": "color",
-        "$description": "Hovered destructive action"
+      "small": {
+        "$value": "{primitive.typography.fontSize.sm}",
+        "$type": "fontSize",
+        "$description": "Small text"
       },
-      "pressed": {
-        "$value": "{primitive.red.800}",
-        "$type": "color",
-        "$description": "Pressed destructive action"
+      "caption": {
+        "$value": "{primitive.typography.fontSize.xs}",
+        "$type": "fontSize",
+        "$description": "Caption text"
       },
-      "disabled": {
-        "$value": "{primitive.red.200}",
-        "$type": "color",
-        "$description": "Disabled danger fill"
+      "h1": {
+        "$value": "{primitive.typography.fontSize.4xl}",
+        "$type": "fontSize"
       },
-      "subtle": {
-        "$value": "{primitive.red.50}",
-        "$type": "color",
-        "$description": "Error alert background"
+      "h2": {
+        "$value": "{primitive.typography.fontSize.3xl}",
+        "$type": "fontSize"
       },
-      "subtle-hovered": {
-        "$value": "{primitive.red.100}",
-        "$type": "color",
-        "$description": "Hovered error alert background"
+      "h3": {
+        "$value": "{primitive.typography.fontSize.2xl}",
+        "$type": "fontSize"
       },
-      "border": {
-        "$value": "{primitive.red.300}",
-        "$type": "color",
-        "$description": "Error input border and alert border"
+      "h4": {
+        "$value": "{primitive.typography.fontSize.xl}",
+        "$type": "fontSize"
       },
-      "text": {
-        "$value": "{primitive.red.700}",
-        "$type": "color",
-        "$description": "Inline error messages"
+      "h5": {
+        "$value": "{primitive.typography.fontSize.lg}",
+        "$type": "fontSize"
       },
-      "on-danger": {
-        "$value": "{primitive.red.50}",
-        "$type": "color",
-        "$description": "Text / icons on Red fills"
+      "h6": {
+        "$value": "{primitive.typography.fontSize.base}",
+        "$type": "fontSize"
       }
     },
-    "warning": {
-      "default": {
-        "$value": "{primitive.amber.500}",
-        "$type": "color",
-        "$description": "Warning badges, caution highlights"
+    "letterSpacing": {
+      "body": {
+        "$value": "{primitive.typography.letterSpacing.normal}",
+        "$type": "letterSpacing"
       },
-      "hovered": {
-        "$value": "{primitive.amber.600}",
-        "$type": "color",
-        "$description": "Hovered warning action"
-      },
-      "pressed": {
-        "$value": "{primitive.amber.700}",
-        "$type": "color",
-        "$description": "Pressed warning action"
-      },
-      "subtle": {
-        "$value": "{primitive.amber.50}",
-        "$type": "color",
-        "$description": "Warning alert background"
-      },
-      "subtle-hovered": {
-        "$value": "{primitive.amber.100}",
-        "$type": "color",
-        "$description": "Hovered warning alert background"
-      },
-      "border": {
-        "$value": "{primitive.amber.300}",
-        "$type": "color",
-        "$description": "Warning alert border"
-      },
-      "text": {
-        "$value": "{primitive.amber.800}",
-        "$type": "color",
-        "$description": "Inline warning text — dark for contrast on light bg"
-      },
-      "on-warning": {
-        "$value": "{primitive.amber.950}",
-        "$type": "color",
-        "$description": "Text / icons on Amber fills — dark not white for contrast"
+      "caps": {
+        "$value": "{primitive.typography.letterSpacing.wide}",
+        "$type": "letterSpacing"
       }
     },
-    "info": {
-      "default": {
-        "$value": "{primitive.blue.600}",
-        "$type": "color",
-        "$description": "Informational badges and indicators"
+    "lineHeight": {
+      "body": {
+        "$value": "{primitive.typography.lineHeight.normal}",
+        "$type": "lineHeight",
+        "$description": "Line height for body text"
       },
-      "hovered": {
-        "$value": "{primitive.blue.700}",
-        "$type": "color",
-        "$description": "Hovered info action"
+      "heading": {
+        "$value": "{primitive.typography.lineHeight.tight}",
+        "$type": "lineHeight",
+        "$description": "Line height for headings"
       },
-      "pressed": {
-        "$value": "{primitive.blue.800}",
-        "$type": "color",
-        "$description": "Pressed info action"
+      "caption": {
+        "$value": "{primitive.typography.lineHeight.normal}",
+        "$type": "lineHeight",
+        "$description": "Line height for captions"
       },
-      "subtle": {
-        "$value": "{primitive.blue.50}",
-        "$type": "color",
-        "$description": "Info alert background"
-      },
-      "subtle-hovered": {
-        "$value": "{primitive.blue.100}",
-        "$type": "color",
-        "$description": "Hovered info alert background"
-      },
-      "border": {
-        "$value": "{primitive.blue.300}",
-        "$type": "color",
-        "$description": "Info alert border"
-      },
-      "text": {
-        "$value": "{primitive.blue.700}",
-        "$type": "color",
-        "$description": "Inline info text on light backgrounds"
-      },
-      "on-info": {
-        "$value": "{primitive.white}",
-        "$type": "color",
-        "$description": "Text and icons on blue info fills"
+      "code": {
+        "$value": "{primitive.typography.lineHeight.relaxed}",
+        "$type": "lineHeight",
+        "$description": "Line height for code blocks"
       }
     },
-    "opacity": {
-      "overlay": {
-        "$value": "{primitive.opacity.50}",
-        "$type": "opacity",
-        "$description": "Modal scrim opacity"
+    "weight": {
+      "regular": {
+        "$value": "{primitive.typography.fontWeight.normal}",
+        "$type": "fontWeight"
       },
-      "disabled": {
-        "$value": "{primitive.opacity.38}",
-        "$type": "opacity",
-        "$description": "Disabled element opacity"
+      "medium": {
+        "$value": "{primitive.typography.fontWeight.medium}",
+        "$type": "fontWeight"
       },
-      "subtle": {
-        "$value": "{primitive.opacity.8}",
-        "$type": "opacity",
-        "$description": "Subtle tinted backgrounds"
+      "semibold": {
+        "$value": "{primitive.typography.fontWeight.semibold}",
+        "$type": "fontWeight"
+      },
+      "bold": {
+        "$value": "{primitive.typography.fontWeight.bold}",
+        "$type": "fontWeight"
       }
     },
-    "typography": {
-      "fontFamily": {
-        "default": {
-          "$value": "{primitive.typography.fontFamily.sans}",
-          "$type": "fontFamily",
-          "$description": "Default UI font family"
+    "style": {
+      "body": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.normal}",
+          "fontSize": "{primitive.typography.fontSize.base}",
+          "letterSpacing": "{primitive.typography.letterSpacing.normal}",
+          "lineHeight": "{primitive.typography.lineHeight.normal}"
         },
-        "code": {
-          "$value": "{primitive.typography.fontFamily.mono}",
-          "$type": "fontFamily",
-          "$description": "Monospace for code"
-        }
+        "$type": "typography",
+        "$description": "Body copy \u2014 regular"
       },
-      "size": {
-        "body": {
-          "$value": "{primitive.typography.fontSize.base}",
-          "$type": "fontSize",
-          "$description": "Body text"
+      "subtitle": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.normal}",
+          "fontSize": "{primitive.typography.fontSize.xl}",
+          "letterSpacing": "{primitive.typography.letterSpacing.normal}",
+          "lineHeight": "{primitive.typography.lineHeight.normal}"
         },
-        "small": {
-          "$value": "{primitive.typography.fontSize.sm}",
-          "$type": "fontSize",
-          "$description": "Small text"
-        },
-        "caption": {
-          "$value": "{primitive.typography.fontSize.xs}",
-          "$type": "fontSize",
-          "$description": "Caption text"
-        },
-        "h1": {
-          "$value": "{primitive.typography.fontSize.4xl}",
-          "$type": "fontSize"
-        },
-        "h2": {
-          "$value": "{primitive.typography.fontSize.3xl}",
-          "$type": "fontSize"
-        },
-        "h3": {
-          "$value": "{primitive.typography.fontSize.2xl}",
-          "$type": "fontSize"
-        },
-        "h4": {
-          "$value": "{primitive.typography.fontSize.xl}",
-          "$type": "fontSize"
-        },
-        "h5": {
-          "$value": "{primitive.typography.fontSize.lg}",
-          "$type": "fontSize"
-        },
-        "h6": {
-          "$value": "{primitive.typography.fontSize.base}",
-          "$type": "fontSize"
-        }
+        "$type": "typography",
+        "$description": "Subtitle \u2014 regular"
       },
-      "letterSpacing": {
-        "body": {
-          "$value": "{primitive.typography.letterSpacing.normal}",
-          "$type": "letterSpacing"
+      "caption": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.normal}",
+          "fontSize": "{primitive.typography.fontSize.sm}",
+          "letterSpacing": "{primitive.typography.letterSpacing.normal}",
+          "lineHeight": "{primitive.typography.lineHeight.normal}"
         },
-        "caps": {
-          "$value": "{primitive.typography.letterSpacing.wide}",
-          "$type": "letterSpacing"
-        }
+        "$type": "typography",
+        "$description": "Caption \u2014 regular"
       },
-      "lineHeight": {
-        "body": {
-          "$value": "{primitive.typography.lineHeight.normal}",
-          "$type": "lineHeight",
-          "$description": "Line height for body text"
+      "overline": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.bold}",
+          "fontSize": "{primitive.typography.fontSize.xs}",
+          "letterSpacing": "{primitive.typography.letterSpacing.wide}",
+          "lineHeight": "{primitive.typography.lineHeight.normal}"
         },
-        "heading": {
-          "$value": "{primitive.typography.lineHeight.tight}",
-          "$type": "lineHeight",
-          "$description": "Line height for headings"
-        },
-        "caption": {
-          "$value": "{primitive.typography.lineHeight.normal}",
-          "$type": "lineHeight",
-          "$description": "Line height for captions"
-        },
-        "code": {
-          "$value": "{primitive.typography.lineHeight.relaxed}",
-          "$type": "lineHeight",
-          "$description": "Line height for code blocks"
-        }
+        "$type": "typography",
+        "$description": "Overline \u2014 bold"
       },
-      "weight": {
-        "normal": {
-          "$value": "{primitive.typography.fontWeight.normal}",
-          "$type": "fontWeight"
+      "button": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.bold}",
+          "fontSize": "{primitive.typography.fontSize.sm}",
+          "letterSpacing": "{primitive.typography.letterSpacing.wide}",
+          "lineHeight": "{primitive.typography.lineHeight.normal}"
         },
-        "medium": {
-          "$value": "{primitive.typography.fontWeight.medium}",
-          "$type": "fontWeight"
-        },
-        "semibold": {
-          "$value": "{primitive.typography.fontWeight.semibold}",
-          "$type": "fontWeight"
-        },
-        "bold": {
-          "$value": "{primitive.typography.fontWeight.bold}",
-          "$type": "fontWeight"
-        }
+        "$type": "typography",
+        "$description": "Button text \u2014 bold"
       },
-      "style": {
-        "body": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.normal}",
-            "fontSize": "{primitive.typography.fontSize.base}",
-            "letterSpacing": "{primitive.typography.letterSpacing.normal}",
-            "lineHeight": "{primitive.typography.lineHeight.normal}"
-          },
-          "$type": "typography",
-          "$description": "Body copy — regular"
+      "h1": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.bold}",
+          "fontSize": "{primitive.typography.fontSize.4xl}",
+          "letterSpacing": "{primitive.typography.letterSpacing.tight}",
+          "lineHeight": "{primitive.typography.lineHeight.tight}"
         },
-        "subtitle": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.normal}",
-            "fontSize": "{primitive.typography.fontSize.xl}",
-            "letterSpacing": "{primitive.typography.letterSpacing.normal}",
-            "lineHeight": "{primitive.typography.lineHeight.normal}"
-          },
-          "$type": "typography",
-          "$description": "Subtitle — regular"
-        },
-        "caption": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.normal}",
-            "fontSize": "{primitive.typography.fontSize.sm}",
-            "letterSpacing": "{primitive.typography.letterSpacing.normal}",
-            "lineHeight": "{primitive.typography.lineHeight.normal}"
-          },
-          "$type": "typography",
-          "$description": "Caption — regular"
-        },
-        "overline": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.bold}",
-            "fontSize": "{primitive.typography.fontSize.xs}",
-            "letterSpacing": "{primitive.typography.letterSpacing.wide}",
-            "lineHeight": "{primitive.typography.lineHeight.normal}"
-          },
-          "$type": "typography",
-          "$description": "Overline — bold"
-        },
-        "button": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.bold}",
-            "fontSize": "{primitive.typography.fontSize.sm}",
-            "letterSpacing": "{primitive.typography.letterSpacing.wide}",
-            "lineHeight": "{primitive.typography.lineHeight.normal}"
-          },
-          "$type": "typography",
-          "$description": "Button text — bold"
-        },
-        "h1": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.bold}",
-            "fontSize": "{primitive.typography.fontSize.4xl}",
-            "letterSpacing": "{primitive.typography.letterSpacing.tight}",
-            "lineHeight": "{primitive.typography.lineHeight.tight}"
-          },
-          "$type": "typography",
-          "$description": "Title H1 — bold"
-        },
-        "h2": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.bold}",
-            "fontSize": "{primitive.typography.fontSize.3xl}",
-            "letterSpacing": "{primitive.typography.letterSpacing.tight}",
-            "lineHeight": "{primitive.typography.lineHeight.tight}"
-          },
-          "$type": "typography",
-          "$description": "Title H2 — bold"
-        },
-        "h3": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.bold}",
-            "fontSize": "{primitive.typography.fontSize.2xl}",
-            "letterSpacing": "{primitive.typography.letterSpacing.tight}",
-            "lineHeight": "{primitive.typography.lineHeight.tight}"
-          },
-          "$type": "typography",
-          "$description": "Title H3 — bold"
-        },
-        "h4": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.bold}",
-            "fontSize": "{primitive.typography.fontSize.xl}",
-            "letterSpacing": "{primitive.typography.letterSpacing.tight}",
-            "lineHeight": "{primitive.typography.lineHeight.tight}"
-          },
-          "$type": "typography",
-          "$description": "Title H4 — bold"
-        },
-        "h5": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.bold}",
-            "fontSize": "{primitive.typography.fontSize.lg}",
-            "letterSpacing": "{primitive.typography.letterSpacing.tight}",
-            "lineHeight": "{primitive.typography.lineHeight.tight}"
-          },
-          "$type": "typography",
-          "$description": "Title H5 — bold"
-        },
-        "h6": {
-          "$value": {
-            "fontFamily": "{primitive.typography.fontFamily.sans}",
-            "fontWeight": "{primitive.typography.fontWeight.bold}",
-            "fontSize": "{primitive.typography.fontSize.base}",
-            "letterSpacing": "{primitive.typography.letterSpacing.tight}",
-            "lineHeight": "{primitive.typography.lineHeight.tight}"
-          },
-          "$type": "typography",
-          "$description": "Title H6 — bold"
-        }
-      }
-    },
-    "effects": {
-      "shadow": {
-        "subtle": {
-          "$value": "{primitive.effects.shadow.sm}",
-          "$type": "boxShadow"
-        },
-        "default": {
-          "$value": "{primitive.effects.shadow.default}",
-          "$type": "boxShadow"
-        },
-        "raised": {
-          "$value": "{primitive.effects.shadow.md}",
-          "$type": "boxShadow"
-        },
-        "overlay": {
-          "$value": "{primitive.effects.shadow.lg}",
-          "$type": "boxShadow"
-        }
-      }
-    },
-    "borderRadius": {
-      "none": {
-        "$value": "{primitive.border.radius.none}",
-        "$type": "borderRadius"
+        "$type": "typography",
+        "$description": "Title H1 \u2014 bold"
       },
-      "sm": {
-        "$value": "{primitive.border.radius.sm}",
-        "$type": "borderRadius"
+      "h2": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.bold}",
+          "fontSize": "{primitive.typography.fontSize.3xl}",
+          "letterSpacing": "{primitive.typography.letterSpacing.tight}",
+          "lineHeight": "{primitive.typography.lineHeight.tight}"
+        },
+        "$type": "typography",
+        "$description": "Title H2 \u2014 bold"
       },
-      "md": {
-        "$value": "{primitive.border.radius.md}",
-        "$type": "borderRadius"
+      "h3": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.bold}",
+          "fontSize": "{primitive.typography.fontSize.2xl}",
+          "letterSpacing": "{primitive.typography.letterSpacing.tight}",
+          "lineHeight": "{primitive.typography.lineHeight.tight}"
+        },
+        "$type": "typography",
+        "$description": "Title H3 \u2014 bold"
       },
-      "lg": {
-        "$value": "{primitive.border.radius.lg}",
-        "$type": "borderRadius"
+      "h4": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.bold}",
+          "fontSize": "{primitive.typography.fontSize.xl}",
+          "letterSpacing": "{primitive.typography.letterSpacing.tight}",
+          "lineHeight": "{primitive.typography.lineHeight.tight}"
+        },
+        "$type": "typography",
+        "$description": "Title H4 \u2014 bold"
       },
-      "pill": {
-        "$value": "{primitive.border.radius.full}",
-        "$type": "borderRadius"
-      }
-    },
-    "borderWidth": {
-      "hairline": {
-        "$value": "{primitive.border.width.1}",
-        "$type": "borderWidth"
+      "h5": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.bold}",
+          "fontSize": "{primitive.typography.fontSize.lg}",
+          "letterSpacing": "{primitive.typography.letterSpacing.tight}",
+          "lineHeight": "{primitive.typography.lineHeight.tight}"
+        },
+        "$type": "typography",
+        "$description": "Title H5 \u2014 bold"
       },
-      "thin": {
-        "$value": "{primitive.border.width.2}",
-        "$type": "borderWidth"
-      },
-      "thick": {
-        "$value": "{primitive.border.width.4}",
-        "$type": "borderWidth"
+      "h6": {
+        "$value": {
+          "fontFamily": "{primitive.typography.fontFamily.sans}",
+          "fontWeight": "{primitive.typography.fontWeight.bold}",
+          "fontSize": "{primitive.typography.fontSize.base}",
+          "letterSpacing": "{primitive.typography.letterSpacing.tight}",
+          "lineHeight": "{primitive.typography.lineHeight.tight}"
+        },
+        "$type": "typography",
+        "$description": "Title H6 \u2014 bold"
       }
     }
+  },
+  "effects": {
+    "shadow": {
+      "subtle": {
+        "$value": "{primitive.effects.shadow.sm}",
+        "$type": "boxShadow"
+      },
+      "default": {
+        "$value": "{primitive.effects.shadow.default}",
+        "$type": "boxShadow"
+      },
+      "raised": {
+        "$value": "{primitive.effects.shadow.md}",
+        "$type": "boxShadow"
+      },
+      "overlay": {
+        "$value": "{primitive.effects.shadow.lg}",
+        "$type": "boxShadow"
+      }
+    }
+  },
+  "borderRadius": {
+    "none": {
+      "$value": "{primitive.border.radius.none}",
+      "$type": "borderRadius"
+    },
+    "sm": {
+      "$value": "{primitive.border.radius.sm}",
+      "$type": "borderRadius"
+    },
+    "md": {
+      "$value": "{primitive.border.radius.md}",
+      "$type": "borderRadius"
+    },
+    "lg": {
+      "$value": "{primitive.border.radius.lg}",
+      "$type": "borderRadius"
+    },
+    "pill": {
+      "$value": "{primitive.border.radius.full}",
+      "$type": "borderRadius"
+    }
+  },
+  "borderWidth": {
+    "hairline": {
+      "$value": "{primitive.border.width.1}",
+      "$type": "borderWidth"
+    },
+    "thin": {
+      "$value": "{primitive.border.width.2}",
+      "$type": "borderWidth"
+    },
+    "thick": {
+      "$value": "{primitive.border.width.4}",
+      "$type": "borderWidth"
+    }
   }
+}
