@@ -395,3 +395,356 @@ writeFileSync('./dist/component-tokens.css', `/**
 ${componentCSS}
 `, 'utf8');
 console.log('✔︎  dist/component-tokens.css');
+
+// ---------------------------------------------------------------------------
+// 6. dist/usys.ini
+//    UNIFACE system initialisation file fragment.
+//    Contains [application], [screen] (logical fonts), and a [widgets]
+//    skeleton pre-populated with design token values.
+//
+//    Colour conversion: web RGB hex → UNIFACE BGR hex
+//    Font size conversion: rem × 12 = pt (rounded to nearest 0.5)
+//
+//    IMPORTANT: This is a fragment — merge with your application's
+//    existing usys.ini. Widget names in [widgets] are placeholders;
+//    replace with your application's actual logical widget names.
+// ---------------------------------------------------------------------------
+
+// Convert RGB hex (#RRGGBB) to UNIFACE BGR hex (#BBGGRR)
+function rgbToBgr(hex) {
+  const h = hex.replace('#', '');
+  if (h.length !== 6) return hex; // pass through if not standard hex
+  const r = h.slice(0, 2);
+  const g = h.slice(2, 4);
+  const b = h.slice(4, 6);
+  return `0x${b}${g}${r}`.toUpperCase();
+}
+
+// Convert rem string to pt (rounded to nearest 0.5)
+function remToPt(rem) {
+  const value = parseFloat(rem);
+  const pt = value * 12;
+  return Math.round(pt * 2) / 2; // round to nearest 0.5
+}
+
+// Map font weight number to UNIFACE style string
+function weightToStyle(weight) {
+  const w = parseInt(weight);
+  if (w >= 700) return 'Bold';
+  if (w >= 600) return 'SemiBold';
+  if (w >= 500) return 'Medium';
+  return 'Regular';
+}
+
+// Get resolved semantic colour as BGR
+function semColourBgr(path) {
+  const token = semFlat[path];
+  if (!token) return null;
+  const resolved = resolveToken(token.value);
+  if (typeof resolved === 'string' && resolved.startsWith('#')) {
+    return rgbToBgr(resolved);
+  }
+  return null;
+}
+
+// Get resolved primitive font value
+function primFont(path) {
+  const token = primFlat[path];
+  return token ? token.value : null;
+}
+
+// Extract font family name (first value before comma)
+function fontName(fontStack) {
+  return fontStack ? fontStack.split(',')[0].trim() : 'DM Sans';
+}
+
+// Resolve font sizes
+const bodyPt    = remToPt(resolveToken(semFlat['typography.size.body']?.value    ?? '1rem'));
+const smallPt   = remToPt(resolveToken(semFlat['typography.size.small']?.value   ?? '0.875rem'));
+const captionPt = remToPt(resolveToken(semFlat['typography.size.caption']?.value ?? '0.75rem'));
+const h1Pt      = remToPt(resolveToken(semFlat['typography.size.h1']?.value      ?? '2.25rem'));
+const h2Pt      = remToPt(resolveToken(semFlat['typography.size.h2']?.value      ?? '1.875rem'));
+const h3Pt      = remToPt(resolveToken(semFlat['typography.size.h3']?.value      ?? '1.5rem'));
+const h4Pt      = remToPt(resolveToken(semFlat['typography.size.h4']?.value      ?? '1.25rem'));
+const h5Pt      = remToPt(resolveToken(semFlat['typography.size.h5']?.value      ?? '1.125rem'));
+const h6Pt      = remToPt(resolveToken(semFlat['typography.size.h6']?.value      ?? '1rem'));
+
+const sansFontStack = resolveToken(semFlat['typography.fontFamily.default']?.value ?? 'DM Sans, sans-serif');
+const sansFont      = fontName(sansFontStack);
+
+const weightBold     = weightToStyle(resolveToken(semFlat['typography.weight.bold']?.value     ?? '700'));
+const weightSemibold = weightToStyle(resolveToken(semFlat['typography.weight.semibold']?.value ?? '600'));
+const weightMedium   = weightToStyle(resolveToken(semFlat['typography.weight.medium']?.value   ?? '500'));
+const weightRegular  = weightToStyle(resolveToken(semFlat['typography.weight.regular']?.value  ?? '400'));
+
+// Colour values in BGR
+const colours = {
+  // Surfaces
+  surfacePage:     semColourBgr('surface.page'),
+  surfaceDefault:  semColourBgr('surface.default'),
+  surfaceDisabled: semColourBgr('surface.disabled'),
+  surfaceInverse:  semColourBgr('surface.inverse'),
+
+  // Text
+  textPrimary:   semColourBgr('text.primary'),
+  textSecondary: semColourBgr('text.secondary'),
+  textTertiary:  semColourBgr('text.tertiary'),
+  textDisabled:  semColourBgr('text.disabled'),
+  textInverse:   semColourBgr('text.inverse'),
+  textBrand:     semColourBgr('text.brand'),
+
+  // Interactive
+  interactiveDefault:  semColourBgr('interactive.default'),
+  interactiveHovered:  semColourBgr('interactive.hovered'),
+  interactivePressed:  semColourBgr('interactive.pressed'),
+  interactiveDisabled: semColourBgr('interactive.disabled'),
+  interactiveOnInt:    semColourBgr('interactive.on-interactive'),
+  interactiveFocus:    semColourBgr('interactive.border-focus'),
+  interactiveSubtle:   semColourBgr('interactive.subtle'),
+
+  // Borders
+  borderDefault: semColourBgr('border.default'),
+  borderStrong:  semColourBgr('border.strong'),
+  borderDisabled: semColourBgr('border.disabled'),
+
+  // Brand
+  brandDefault: semColourBgr('brand.default'),
+
+  // Status
+  successDefault: semColourBgr('success.default'),
+  successText:    semColourBgr('success.text'),
+  successSubtle:  semColourBgr('success.subtle'),
+  dangerDefault:  semColourBgr('danger.default'),
+  dangerText:     semColourBgr('danger.text'),
+  dangerSubtle:   semColourBgr('danger.subtle'),
+  warningDefault: semColourBgr('warning.default'),
+  warningText:    semColourBgr('warning.text'),
+  warningSubtle:  semColourBgr('warning.subtle'),
+  infoDefault:    semColourBgr('info.default'),
+  infoText:       semColourBgr('info.text'),
+  infoSubtle:     semColourBgr('info.subtle'),
+};
+
+const usysIni = `; =============================================================================
+; Idox Design System — UNIFACE usys.ini fragment
+; Auto-generated from semantic.json + component.json. Do not edit manually.
+;
+; USAGE:
+;   Merge this file into your application's usys.ini.
+;   Replace placeholder widget names (e.g. IDF_BUTTON_PRIMARY) with your
+;   application's actual logical widget names.
+;
+; COLOUR FORMAT: BGR hex (UNIFACE convention, reversed from web RGB)
+; FONT SIZES:    Points (pt), converted from rem at 16px base
+; =============================================================================
+
+; =============================================================================
+; [application]
+; Global application window background colour
+; =============================================================================
+[application]
+background=${colours.surfacePage}
+
+; =============================================================================
+; [screen]
+; Logical font definitions.
+; Format: name=Family,Charset,Size,Style
+; Charset: Western = standard Latin character set
+; =============================================================================
+[screen]
+; --- Body / UI fonts ---
+font.body=${sansFont},Western,${bodyPt},${weightRegular}
+font.body.medium=${sansFont},Western,${bodyPt},${weightMedium}
+font.body.semibold=${sansFont},Western,${bodyPt},${weightSemibold}
+font.body.bold=${sansFont},Western,${bodyPt},${weightBold}
+
+; --- Small / caption fonts ---
+font.small=${sansFont},Western,${smallPt},${weightRegular}
+font.small.bold=${sansFont},Western,${smallPt},${weightBold}
+font.caption=${sansFont},Western,${captionPt},${weightRegular}
+
+; --- Heading fonts ---
+font.h1=${sansFont},Western,${h1Pt},${weightBold}
+font.h2=${sansFont},Western,${h2Pt},${weightBold}
+font.h3=${sansFont},Western,${h3Pt},${weightBold}
+font.h4=${sansFont},Western,${h4Pt},${weightBold}
+font.h5=${sansFont},Western,${h5Pt},${weightBold}
+font.h6=${sansFont},Western,${h6Pt},${weightBold}
+
+; =============================================================================
+; [colours]
+; Named colour palette for reference in widget definitions below.
+; These map directly to semantic design tokens.
+; =============================================================================
+[colours]
+; --- Surfaces ---
+colour.surface.page=${colours.surfacePage}
+colour.surface.default=${colours.surfaceDefault}
+colour.surface.disabled=${colours.surfaceDisabled}
+colour.surface.inverse=${colours.surfaceInverse}
+
+; --- Text ---
+colour.text.primary=${colours.textPrimary}
+colour.text.secondary=${colours.textSecondary}
+colour.text.tertiary=${colours.textTertiary}
+colour.text.disabled=${colours.textDisabled}
+colour.text.inverse=${colours.textInverse}
+colour.text.brand=${colours.textBrand}
+
+; --- Interactive ---
+colour.interactive.default=${colours.interactiveDefault}
+colour.interactive.hovered=${colours.interactiveHovered}
+colour.interactive.pressed=${colours.interactivePressed}
+colour.interactive.disabled=${colours.interactiveDisabled}
+colour.interactive.on-interactive=${colours.interactiveOnInt}
+colour.interactive.focus=${colours.interactiveFocus}
+colour.interactive.subtle=${colours.interactiveSubtle}
+
+; --- Borders ---
+colour.border.default=${colours.borderDefault}
+colour.border.strong=${colours.borderStrong}
+colour.border.disabled=${colours.borderDisabled}
+
+; --- Brand ---
+colour.brand.default=${colours.brandDefault}
+
+; --- Status ---
+colour.success.default=${colours.successDefault}
+colour.success.text=${colours.successText}
+colour.success.subtle=${colours.successSubtle}
+colour.danger.default=${colours.dangerDefault}
+colour.danger.text=${colours.dangerText}
+colour.danger.subtle=${colours.dangerSubtle}
+colour.warning.default=${colours.warningDefault}
+colour.warning.text=${colours.warningText}
+colour.warning.subtle=${colours.warningSubtle}
+colour.info.default=${colours.infoDefault}
+colour.info.text=${colours.infoText}
+colour.info.subtle=${colours.infoSubtle}
+
+; =============================================================================
+; [widgets]
+; Widget style definitions.
+; IMPORTANT: Replace IDF_* placeholder names with your application's actual
+; logical widget names. Confirm exact property names with your developer
+; as these vary between UNIFACE versions.
+; =============================================================================
+[widgets]
+
+; --- Default text / label ---
+IDF_LABEL
+  forecolor=${colours.textPrimary}
+  backcolor=${colours.surfacePage}
+  font=font.body
+
+; --- Secondary / muted label ---
+IDF_LABEL_SECONDARY
+  forecolor=${colours.textSecondary}
+  backcolor=${colours.surfacePage}
+  font=font.body
+
+; --- Disabled label ---
+IDF_LABEL_DISABLED
+  forecolor=${colours.textDisabled}
+  backcolor=${colours.surfacePage}
+  font=font.body
+
+; --- Heading styles ---
+IDF_HEADING_1
+  forecolor=${colours.textPrimary}
+  backcolor=${colours.surfacePage}
+  font=font.h1
+
+IDF_HEADING_2
+  forecolor=${colours.textPrimary}
+  backcolor=${colours.surfacePage}
+  font=font.h2
+
+IDF_HEADING_3
+  forecolor=${colours.textPrimary}
+  backcolor=${colours.surfacePage}
+  font=font.h3
+
+; --- Input / edit field ---
+IDF_INPUT
+  forecolor=${colours.textPrimary}
+  backcolor=${colours.surfaceDefault}
+  bordercolor=${colours.borderStrong}
+  font=font.body
+
+IDF_INPUT_DISABLED
+  forecolor=${colours.textDisabled}
+  backcolor=${colours.surfaceDisabled}
+  bordercolor=${colours.borderDisabled}
+  font=font.body
+
+IDF_INPUT_FOCUS
+  forecolor=${colours.textPrimary}
+  backcolor=${colours.surfaceDefault}
+  bordercolor=${colours.interactiveFocus}
+  font=font.body
+
+; --- Primary button ---
+IDF_BUTTON_PRIMARY
+  forecolor=${colours.interactiveOnInt}
+  backcolor=${colours.interactiveDefault}
+  font=font.body.bold
+
+IDF_BUTTON_PRIMARY_HOVER
+  forecolor=${colours.interactiveOnInt}
+  backcolor=${colours.interactiveHovered}
+  font=font.body.bold
+
+IDF_BUTTON_PRIMARY_ACTIVE
+  forecolor=${colours.interactiveOnInt}
+  backcolor=${colours.interactivePressed}
+  font=font.body.bold
+
+IDF_BUTTON_PRIMARY_DISABLED
+  forecolor=${colours.textDisabled}
+  backcolor=${colours.borderDefault}
+  font=font.body.bold
+
+; --- Secondary button ---
+IDF_BUTTON_SECONDARY
+  forecolor=${colours.textPrimary}
+  backcolor=${colours.surfaceDisabled}
+  bordercolor=${colours.borderStrong}
+  font=font.body
+
+IDF_BUTTON_SECONDARY_HOVER
+  forecolor=${colours.textPrimary}
+  backcolor=${colours.interactiveSubtle}
+  bordercolor=${colours.borderStrong}
+  font=font.body
+
+IDF_BUTTON_SECONDARY_DISABLED
+  forecolor=${colours.textDisabled}
+  backcolor=${colours.surfaceDisabled}
+  bordercolor=${colours.borderDisabled}
+  font=font.body
+
+; --- Status colours (for badges, alerts, inline text) ---
+IDF_STATUS_SUCCESS
+  forecolor=${colours.successText}
+  backcolor=${colours.successSubtle}
+  font=font.body
+
+IDF_STATUS_DANGER
+  forecolor=${colours.dangerText}
+  backcolor=${colours.dangerSubtle}
+  font=font.body
+
+IDF_STATUS_WARNING
+  forecolor=${colours.warningText}
+  backcolor=${colours.warningSubtle}
+  font=font.body
+
+IDF_STATUS_INFO
+  forecolor=${colours.infoText}
+  backcolor=${colours.infoSubtle}
+  font=font.body
+`;
+
+writeFileSync('./dist/usys.ini', usysIni, 'utf8');
+console.log('✔︎  dist/usys.ini');
