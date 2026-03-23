@@ -178,10 +178,10 @@
   --spacing-lg: 1.5rem; /* Large spacing (24px) */
   --spacing-xl: 2rem; /* Extra large spacing (32px) */
   --brand-default: #0A1F8F; /* Primary brand colour */
-  --interactive-default: #0A1F8F; /* Default state — buttons, links, active nav */
-  --interactive-hovered: #1241B2; /* Hovered state — steps lighter from brand 800 */
-  --interactive-pressed: #050F48; /* Pressed / active state — steps darker for tactile feedback */
-  --interactive-focused: #0A1F8F; /* Focused state fill — pair with border-focus ring */
+  --interactive-default: #195FD2; /* Default state — buttons, links, active nav */
+  --interactive-hovered: #1241B2; /* Hovered state — steps darker from default */
+  --interactive-pressed: #0A1F8F; /* Pressed / active state — steps darker for tactile feedback */
+  --interactive-focused: #195FD2; /* Focused state fill — pair with border-focus ring */
   --interactive-disabled: #F1F5F9; /* Disabled interactive fill */
   --interactive-subtle: #f5f9fe; /* Tinted background — selected rows, active sidebar */
   --interactive-subtle-hovered: #ecf3fe; /* Hovered tinted background */
@@ -200,7 +200,7 @@
   --text-primary: #0F172A; /* Body copy and labels */
   --text-secondary: #475569; /* Subtext, meta information */
   --text-tertiary: #94A3B8; /* Hints and timestamps */
-  --text-disabled: #94A3B8; /* Disabled text */
+  --text-disabled: #627288; /* Disabled text — slate.500 for sufficient contrast */
   --text-inverse: #F8FAFC; /* Text on dark / inverse surfaces */
   --text-brand: #0A1F8F; /* Brand-coloured text — links, highlights */
   --success-default: #16A34A; /* Success badges, positive indicators */
@@ -256,7 +256,7 @@
   --typography-lineHeight-heading: 1.25; /* Line height for headings */
   --typography-lineHeight-caption: 1.5; /* Line height for captions */
   --typography-lineHeight-code: 1.625; /* Line height for code blocks */
-  --typography-weight-normal: 400;
+  --typography-weight-regular: 400;
   --typography-weight-medium: 500;
   --typography-weight-semibold: 600;
   --typography-weight-bold: 700;
