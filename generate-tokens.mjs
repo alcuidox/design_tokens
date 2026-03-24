@@ -207,13 +207,8 @@ function renderCSSVars(vars) {
 mkdirSync('./dist', { recursive: true });
 
 // ---------------------------------------------------------------------------
-// 1. dist/tokens.css — semantic layer only
+// 1. dist/tokens.css — written after component tokens are collected (see below)
 // ---------------------------------------------------------------------------
-writeFileSync('./dist/tokens.css',
-  `${CSS_HEADER('semantic')}:root {\n${renderCSSVars(semanticVars)}\n}\n`,
-  'utf8'
-);
-console.log('✔︎  dist/tokens.css');
 
 // ---------------------------------------------------------------------------
 // 2. dist/tokens-full.css — primitive + semantic
@@ -238,20 +233,32 @@ const skippedComment = skipped.length > 0
   ? ` *\n * Tokens excluded (already covered by Tailwind defaults):\n${skipped.map(s => ` *   - ${s}`).join('\n')}\n`
   : '';
 
-writeFileSync('./dist/tailwind-tokens.mjs', `/**
- * Idox Design System — Tailwind Theme Extension
+writeFileSync('./tailwind.config.js',
+`/**
+ * Idox Design System — Tailwind Configuration
  * Auto-generated from primitive.json + semantic.json. Do not edit manually.
- *
- * Usage in tailwind.config.js:
- *   import idoxTokens from './dist/tailwind-tokens.mjs';
- *   export default { theme: { extend: idoxTokens } };
+ * Regenerate by running: npm run build:tokens
  *
  * For typography utility classes (.type-h1, .type-body etc.)
- * also import dist/typography.css in your global stylesheet.
+ * import dist/tokens.css in your global stylesheet.
 ${skippedComment} */
 
-export default ${JSON.stringify(theme, null, 2)};
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './.storybook/**/*.{js,jsx,ts,tsx}',
+  ],
+  theme: {
+    extend: ${JSON.stringify(theme, null, 2)},
+  },
+  plugins: [],
+};
 `, 'utf8');
+// Also keep dist/tailwind-tokens.mjs for consumers who want just the theme object
+writeFileSync('./dist/tailwind-tokens.mjs', `export default ${JSON.stringify(theme, null, 2)};
+`, 'utf8');
+console.log('✔︎  tailwind.config.js');
 console.log('✔︎  dist/tailwind-tokens.mjs');
 if (skipped.length > 0) {
   console.log(`    ↳ Skipped ${skipped.length} redundant token(s) already in Tailwind defaults:`);
@@ -380,16 +387,44 @@ const componentCSS = Object.entries(componentGroups)
   })
   .join('\n\n');
 
+// Build component vars array for bundling into tokens.css
+const componentVars = [];
+for (const [topLevel, vars] of Object.entries(componentGroups)) {
+  for (const { name, value, description } of vars) {
+    componentVars.push([name, value, description]);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 1. dist/tokens.css — semantic + component tokens bundled together
+// ---------------------------------------------------------------------------
+writeFileSync('./dist/tokens.css', `/**
+ * Idox Design System — CSS Custom Properties
+ * Auto-generated from primitive.json + semantic.json + component.json. Do not edit manually.
+ *
+ * Contains:
+ *   - Semantic tokens  (colours, spacing, typography, effects)
+ *   - Component tokens (button variants, sizes, shared properties)
+ */
+
+:root {
+${renderCSSVars(semanticVars)}
+}
+
+/* Component tokens */
+:root {
+${renderCSSVars(componentVars)}
+}
+`, 'utf8');
+console.log('✔︎  dist/tokens.css');
+
+// Also keep dist/component-tokens.css as a standalone file for consumers
+// who only want component tokens (e.g. UNIFACE, partial adoption)
 writeFileSync('./dist/component-tokens.css', `/**
- * Idox Design System — Component Tokens
+ * Idox Design System — Component Tokens (standalone)
  * Auto-generated from component.json. Do not edit manually.
- * Source of truth: component.json
- *
- * Import in your global stylesheet after tokens.css:
- *   @import '@tokens/component-tokens.css';
- *
- * To override a component token in a specific context:
- *   .my-context { --btn-variant-primary-bg: var(--brand-default); }
+ * Note: These tokens are already bundled into dist/tokens.css.
+ * Only import this file if you need component tokens without semantic tokens.
  */
 
 ${componentCSS}
