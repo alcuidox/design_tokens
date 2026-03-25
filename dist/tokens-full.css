@@ -4,7 +4,6 @@
  */
 
 :root {
-  --primitive-blue-50: #f5f9fe;
   --primitive-blue-100: #ecf3fe;
   --primitive-blue-200: #D2E4FE;
   --primitive-blue-300: #9CC2FC;
@@ -15,6 +14,7 @@
   --primitive-blue-800: #0A1F8F;
   --primitive-blue-900: #050F48;
   --primitive-blue-950: #00050F;
+  --primitive-blue-5000: #f5f9fe;
   --primitive-green-50: #F0FDF4;
   --primitive-green-100: #DCFCE7;
   --primitive-green-200: #BBF7D0;
@@ -136,14 +136,14 @@
   --primitive-border-width-2: 2px;
   --primitive-border-width-4: 4px;
   --primitive-border-width-8: 8px;
-  --primitive-border-radius-2xl: 1rem;
-  --primitive-border-radius-3xl: 1.5rem;
   --primitive-border-radius-none: 0px;
-  --primitive-border-radius-sm: 0.125rem;
-  --primitive-border-radius-default: 0.25rem;
+  --primitive-border-radius-xs: 0.125rem;
+  --primitive-border-radius-sm: 0.25rem;
   --primitive-border-radius-md: 0.375rem;
   --primitive-border-radius-lg: 0.5rem;
   --primitive-border-radius-xl: 0.75rem;
+  --primitive-border-radius-2xl: 1rem;
+  --primitive-border-radius-3xl: 1.5rem;
   --primitive-border-radius-full: 9999px;
   --primitive-effects-shadow-none: none;
   --primitive-opacity-0: 0;
@@ -183,7 +183,7 @@
   --interactive-pressed: #0A1F8F; /* Pressed / active state — steps darker for tactile feedback */
   --interactive-focused: #195FD2; /* Focused state fill — pair with border-focus ring */
   --interactive-disabled: #F1F5F9; /* Disabled interactive fill */
-  --interactive-subtle: #f5f9fe; /* Tinted background — selected rows, active sidebar */
+  --interactive-subtle: {primitive.blue.50}; /* Tinted background — selected rows, active sidebar */
   --interactive-subtle-hovered: #ecf3fe; /* Hovered tinted background */
   --interactive-subtle-border: #9CC2FC; /* Border on subtle interactive areas */
   --interactive-on-interactive: #FFFFFF; /* Text / icons sitting on any Blue interactive fill */
@@ -231,7 +231,7 @@
   --info-default: #195FD2; /* Informational badges and indicators */
   --info-hovered: #1241B2; /* Hovered info action */
   --info-pressed: #0A1F8F; /* Pressed info action */
-  --info-subtle: #f5f9fe; /* Info alert background */
+  --info-subtle: {primitive.blue.50}; /* Info alert background */
   --info-subtle-hovered: #ecf3fe; /* Hovered info alert background */
   --info-border: #9CC2FC; /* Info alert border */
   --info-text: #1241B2; /* Inline info text on light backgrounds */
@@ -260,12 +260,12 @@
   --typography-weight-medium: 500;
   --typography-weight-semibold: 600;
   --typography-weight-bold: 700;
-  --effects-shadow-subtle: 0px 1px 2px 0px rgb(0 0 0 / 0.05);
-  --effects-shadow-default: 0px 1px 3px 0px rgb(0 0 0 / 0.1), 0px 1px 2px -1px rgb(0 0 0 / 0.1);
+  --effects-shadow-subtle: 0px 1px 3px 0px rgb(0 0 0 / 0.1), 0px 1px 2px -1px rgb(0 0 0 / 0.1);
+  --effects-shadow-default: 0px 0px 0px 0px transparent;
   --effects-shadow-raised: 0px 4px 6px -1px rgb(0 0 0 / 0.1), 0px 2px 4px -2px rgb(0 0 0 / 0.1);
   --effects-shadow-overlay: 0px 10px 15px -3px rgb(0 0 0 / 0.1), 0px 4px 6px -4px rgb(0 0 0 / 0.1);
   --borderRadius-none: 0px;
-  --borderRadius-sm: 0.125rem;
+  --borderRadius-sm: 0.25rem;
   --borderRadius-md: 0.375rem;
   --borderRadius-lg: 0.5rem;
   --borderRadius-pill: 9999px;

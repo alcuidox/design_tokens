@@ -1,13 +1,8 @@
 /**
- * Idox Design System — Component Tokens
+ * Idox Design System — Component Tokens (standalone)
  * Auto-generated from component.json. Do not edit manually.
- * Source of truth: component.json
- *
- * Import in your global stylesheet after tokens.css:
- *   @import '@tokens/component-tokens.css';
- *
- * To override a component token in a specific context:
- *   .my-context { --btn-variant-primary-bg: var(--brand-default); }
+ * Note: These tokens are already bundled into dist/tokens.css.
+ * Only import this file if you need component tokens without semantic tokens.
  */
 
 /* ============================================================
@@ -55,7 +50,7 @@
   --btn-variant-danger-text: #FEF2F2; /* Danger button text and icon colour — red.50 */
   --btn-variant-danger-border: transparent; /* Danger button border — transparent as fill provides affordance */
   --btn-variant-ghost-bg: transparent; /* Ghost button background — fully transparent */
-  --btn-variant-ghost-bg-hover: #f5f9fe; /* Ghost button background on hover — blue.50 */
+  --btn-variant-ghost-bg-hover: {primitive.blue.50}; /* Ghost button background on hover — blue.50 */
   --btn-variant-ghost-bg-active: #ecf3fe; /* Ghost button background on press — blue.100 */
   --btn-variant-ghost-bg-disabled: transparent; /* Ghost button background when disabled */
   --btn-variant-ghost-text: #195FD2; /* Ghost button text and icon colour — blue.600 */

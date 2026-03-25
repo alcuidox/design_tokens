@@ -1,24 +1,3 @@
-/**
- * Idox Design System — Tailwind Theme Extension
- * Auto-generated from primitive.json + semantic.json. Do not edit manually.
- *
- * Usage in tailwind.config.js:
- *   import idoxTokens from './dist/tailwind-tokens.mjs';
- *   export default { theme: { extend: idoxTokens } };
- *
- * For typography utility classes (.type-h1, .type-body etc.)
- * also import dist/typography.css in your global stylesheet.
- *
- * Tokens excluded (already covered by Tailwind defaults):
- *   - fontWeight.medium (500)
- *   - fontWeight.semibold (600)
- *   - fontWeight.bold (700)
- *   - borderRadius.none (0px)
- *   - borderRadius.sm (0.125rem)
- *   - borderRadius.md (0.375rem)
- *   - borderRadius.lg (0.5rem)
- */
-
 export default {
   "colors": {
     "brand": {
@@ -30,7 +9,7 @@ export default {
       "pressed": "#0A1F8F",
       "focused": "#195FD2",
       "disabled": "#F1F5F9",
-      "subtle": "#f5f9fe",
+      "subtle": "{primitive.blue.50}",
       "subtle-hovered": "#ecf3fe",
       "subtle-border": "#9CC2FC",
       "on-interactive": "#FFFFFF",
@@ -92,7 +71,7 @@ export default {
       "default": "#195FD2",
       "hovered": "#1241B2",
       "pressed": "#0A1F8F",
-      "subtle": "#f5f9fe",
+      "subtle": "{primitive.blue.50}",
       "subtle-hovered": "#ecf3fe",
       "border": "#9CC2FC",
       "text": "#1241B2",
@@ -116,6 +95,7 @@ export default {
     "xl": "2rem"
   },
   "borderRadius": {
+    "sm": "0.25rem",
     "pill": "9999px"
   },
   "borderWidth": {
@@ -124,8 +104,8 @@ export default {
     "thick": "4px"
   },
   "boxShadow": {
-    "subtle": "0px 1px 2px 0px rgb(0 0 0 / 0.05)",
-    "default": "0px 1px 3px 0px rgb(0 0 0 / 0.1), 0px 1px 2px -1px rgb(0 0 0 / 0.1)",
+    "subtle": "0px 1px 3px 0px rgb(0 0 0 / 0.1), 0px 1px 2px -1px rgb(0 0 0 / 0.1)",
+    "default": "0px 0px 0px 0px transparent",
     "raised": "0px 4px 6px -1px rgb(0 0 0 / 0.1), 0px 2px 4px -2px rgb(0 0 0 / 0.1)",
     "overlay": "0px 10px 15px -3px rgb(0 0 0 / 0.1), 0px 4px 6px -4px rgb(0 0 0 / 0.1)"
   },
