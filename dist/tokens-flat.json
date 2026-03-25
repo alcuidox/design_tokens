@@ -1,482 +1,920 @@
 {
   "spacing-2xl": {
+    "value": "3rem",
     "type": "spacing",
-    "description": "2XL spacing (48px)"
+    "description": "2XL spacing (48px)",
+    "layer": "semantic"
   },
   "spacing-3xl": {
+    "value": "4rem",
     "type": "spacing",
-    "description": "3XL spacing (64px)"
+    "description": "3XL spacing (64px)",
+    "layer": "semantic"
   },
   "spacing-4xl": {
+    "value": "6rem",
     "type": "spacing",
-    "description": "4XL spacing (96px)"
+    "description": "4XL spacing (96px)",
+    "layer": "semantic"
   },
   "spacing-5xl": {
+    "value": "8rem",
     "type": "spacing",
-    "description": "5XL spacing (128px)"
+    "description": "5XL spacing (128px)",
+    "layer": "semantic"
   },
   "spacing-6xl": {
+    "value": "12rem",
     "type": "spacing",
-    "description": "6XL spacing (192px)"
+    "description": "6XL spacing (192px)",
+    "layer": "semantic"
   },
   "spacing-7xl": {
+    "value": "16rem",
     "type": "spacing",
-    "description": "7XL spacing (256px)"
+    "description": "7XL spacing (256px)",
+    "layer": "semantic"
   },
   "spacing-8xl": {
+    "value": "20rem",
     "type": "spacing",
-    "description": "8XL spacing (320px)"
+    "description": "8XL spacing (320px)",
+    "layer": "semantic"
   },
   "spacing-9xl": {
+    "value": "24rem",
     "type": "spacing",
-    "description": "9XL spacing (384px)"
+    "description": "9XL spacing (384px)",
+    "layer": "semantic"
   },
   "spacing-none": {
+    "value": "0px",
     "type": "spacing",
-    "description": "Zero spacing"
+    "description": "Zero spacing",
+    "layer": "semantic"
   },
   "spacing-xs": {
+    "value": "0.25rem",
     "type": "spacing",
-    "description": "Extra small spacing (4px)"
+    "description": "Extra small spacing (4px)",
+    "layer": "semantic"
   },
   "spacing-sm": {
+    "value": "0.5rem",
     "type": "spacing",
-    "description": "Small spacing (8px)"
+    "description": "Small spacing (8px)",
+    "layer": "semantic"
   },
   "spacing-md": {
+    "value": "1rem",
     "type": "spacing",
-    "description": "Medium spacing (16px)"
+    "description": "Medium spacing (16px)",
+    "layer": "semantic"
   },
   "spacing-lg": {
+    "value": "1.5rem",
     "type": "spacing",
-    "description": "Large spacing (24px)"
+    "description": "Large spacing (24px)",
+    "layer": "semantic"
   },
   "spacing-xl": {
+    "value": "2rem",
     "type": "spacing",
-    "description": "Extra large spacing (32px)"
+    "description": "Extra large spacing (32px)",
+    "layer": "semantic"
   },
   "brand-default": {
+    "value": "#0A1F8F",
     "type": "color",
-    "description": "Primary brand colour"
+    "description": "Primary brand colour",
+    "layer": "semantic"
   },
   "interactive-default": {
+    "value": "#0A1F8F",
     "type": "color",
-    "description": "Default state — buttons, links, active nav"
+    "description": "Default state — buttons, links, active nav",
+    "layer": "semantic"
   },
   "interactive-hovered": {
+    "value": "#1241B2",
     "type": "color",
-    "description": "Hovered state — steps lighter from brand 800"
+    "description": "Hovered state — steps lighter from brand 800",
+    "layer": "semantic"
   },
   "interactive-pressed": {
+    "value": "#050F48",
     "type": "color",
-    "description": "Pressed / active state — steps darker for tactile feedback"
+    "description": "Pressed / active state — steps darker for tactile feedback",
+    "layer": "semantic"
   },
   "interactive-focused": {
+    "value": "#0A1F8F",
     "type": "color",
-    "description": "Focused state fill — pair with border-focus ring"
+    "description": "Focused state fill — pair with border-focus ring",
+    "layer": "semantic"
   },
   "interactive-disabled": {
+    "value": "#F1F5F9",
     "type": "color",
-    "description": "Disabled interactive fill"
+    "description": "Disabled interactive fill",
+    "layer": "semantic"
   },
   "interactive-subtle": {
+    "value": "#f5f9fe",
     "type": "color",
-    "description": "Tinted background — selected rows, active sidebar"
+    "description": "Tinted background — selected rows, active sidebar",
+    "layer": "semantic"
   },
   "interactive-subtle-hovered": {
+    "value": "#ecf3fe",
     "type": "color",
-    "description": "Hovered tinted background"
+    "description": "Hovered tinted background",
+    "layer": "semantic"
   },
   "interactive-subtle-border": {
+    "value": "#9CC2FC",
     "type": "color",
-    "description": "Border on subtle interactive areas"
+    "description": "Border on subtle interactive areas",
+    "layer": "semantic"
   },
   "interactive-on-interactive": {
+    "value": "#FFFFFF",
     "type": "color",
-    "description": "Text / icons sitting on any Blue interactive fill"
+    "description": "Text / icons sitting on any Blue interactive fill",
+    "layer": "semantic"
   },
   "interactive-border-focus": {
+    "value": "#9CC2FC",
     "type": "color",
-    "description": "Focus ring colour"
+    "description": "Focus ring colour",
+    "layer": "semantic"
   },
   "surface-page": {
+    "value": "#F8FAFC",
     "type": "color",
-    "description": "App / page background"
+    "description": "App / page background",
+    "layer": "semantic"
   },
   "surface-default": {
+    "value": "#FFFFFF",
     "type": "color",
-    "description": "Card and panel backgrounds"
+    "description": "Card and panel backgrounds",
+    "layer": "semantic"
   },
   "surface-raised": {
+    "value": "#F8FAFC",
     "type": "color",
-    "description": "Slightly elevated surfaces"
+    "description": "Slightly elevated surfaces",
+    "layer": "semantic"
   },
   "surface-overlay": {
+    "value": "#0F172A",
     "type": "color",
-    "description": "Modal scrim — use with semantic.opacity.overlay token"
+    "description": "Modal scrim — use with semantic.opacity.overlay token",
+    "layer": "semantic"
   },
   "surface-inverse": {
+    "value": "#0F172A",
     "type": "color",
-    "description": "Dark surfaces — tooltips, dark mode panels"
+    "description": "Dark surfaces — tooltips, dark mode panels",
+    "layer": "semantic"
   },
   "surface-disabled": {
+    "value": "#F1F5F9",
     "type": "color",
-    "description": "Disabled component fill"
+    "description": "Disabled component fill",
+    "layer": "semantic"
   },
   "border-default": {
+    "value": "#E2E8F0",
     "type": "color",
-    "description": "Default dividers and input borders"
+    "description": "Default dividers and input borders",
+    "layer": "semantic"
   },
   "border-strong": {
+    "value": "#94A3B8",
     "type": "color",
-    "description": "Strong separators"
+    "description": "Strong separators",
+    "layer": "semantic"
   },
   "border-disabled": {
+    "value": "#E2E8F0",
     "type": "color",
-    "description": "Borders on disabled elements"
+    "description": "Borders on disabled elements",
+    "layer": "semantic"
   },
   "text-primary": {
+    "value": "#0F172A",
     "type": "color",
-    "description": "Body copy and labels"
+    "description": "Body copy and labels",
+    "layer": "semantic"
   },
   "text-secondary": {
+    "value": "#475569",
     "type": "color",
-    "description": "Subtext, meta information"
+    "description": "Subtext, meta information",
+    "layer": "semantic"
   },
   "text-tertiary": {
+    "value": "#94A3B8",
     "type": "color",
-    "description": "Hints and timestamps"
+    "description": "Hints and timestamps",
+    "layer": "semantic"
   },
   "text-disabled": {
+    "value": "#94A3B8",
     "type": "color",
-    "description": "Disabled text"
+    "description": "Disabled text",
+    "layer": "semantic"
   },
   "text-inverse": {
+    "value": "#F8FAFC",
     "type": "color",
-    "description": "Text on dark / inverse surfaces"
+    "description": "Text on dark / inverse surfaces",
+    "layer": "semantic"
   },
   "text-brand": {
+    "value": "#0A1F8F",
     "type": "color",
-    "description": "Brand-coloured text — links, highlights"
+    "description": "Brand-coloured text — links, highlights",
+    "layer": "semantic"
   },
   "success-default": {
+    "value": "#16A34A",
     "type": "color",
-    "description": "Success badges, positive indicators"
+    "description": "Success badges, positive indicators",
+    "layer": "semantic"
   },
   "success-hovered": {
+    "value": "#15803D",
     "type": "color",
-    "description": "Hovered success action"
+    "description": "Hovered success action",
+    "layer": "semantic"
   },
   "success-pressed": {
+    "value": "#166534",
     "type": "color",
-    "description": "Pressed success action"
+    "description": "Pressed success action",
+    "layer": "semantic"
   },
   "success-subtle": {
+    "value": "#F0FDF4",
     "type": "color",
-    "description": "Success alert background"
+    "description": "Success alert background",
+    "layer": "semantic"
   },
   "success-subtle-hovered": {
+    "value": "#DCFCE7",
     "type": "color",
-    "description": "Hovered success alert background"
+    "description": "Hovered success alert background",
+    "layer": "semantic"
   },
   "success-border": {
+    "value": "#86EFAC",
     "type": "color",
-    "description": "Success alert border"
+    "description": "Success alert border",
+    "layer": "semantic"
   },
   "success-text": {
+    "value": "#15803D",
     "type": "color",
-    "description": "Inline success text on light backgrounds"
+    "description": "Inline success text on light backgrounds",
+    "layer": "semantic"
   },
   "success-on-success": {
+    "value": "#F0FDF4",
     "type": "color",
-    "description": "Text / icons on Green fills"
+    "description": "Text / icons on Green fills",
+    "layer": "semantic"
   },
   "danger-default": {
+    "value": "#DC2626",
     "type": "color",
-    "description": "Destructive buttons, error states"
+    "description": "Destructive buttons, error states",
+    "layer": "semantic"
   },
   "danger-hovered": {
+    "value": "#B91C1C",
     "type": "color",
-    "description": "Hovered destructive action"
+    "description": "Hovered destructive action",
+    "layer": "semantic"
   },
   "danger-pressed": {
+    "value": "#991B1B",
     "type": "color",
-    "description": "Pressed destructive action"
+    "description": "Pressed destructive action",
+    "layer": "semantic"
   },
   "danger-disabled": {
+    "value": "#FECACA",
     "type": "color",
-    "description": "Disabled danger fill"
+    "description": "Disabled danger fill",
+    "layer": "semantic"
   },
   "danger-subtle": {
+    "value": "#FEF2F2",
     "type": "color",
-    "description": "Error alert background"
+    "description": "Error alert background",
+    "layer": "semantic"
   },
   "danger-subtle-hovered": {
+    "value": "#FEE2E2",
     "type": "color",
-    "description": "Hovered error alert background"
+    "description": "Hovered error alert background",
+    "layer": "semantic"
   },
   "danger-border": {
+    "value": "#FCA5A5",
     "type": "color",
-    "description": "Error input border and alert border"
+    "description": "Error input border and alert border",
+    "layer": "semantic"
   },
   "danger-text": {
+    "value": "#B91C1C",
     "type": "color",
-    "description": "Inline error messages"
+    "description": "Inline error messages",
+    "layer": "semantic"
   },
   "danger-on-danger": {
+    "value": "#FEF2F2",
     "type": "color",
-    "description": "Text / icons on Red fills"
+    "description": "Text / icons on Red fills",
+    "layer": "semantic"
   },
   "warning-default": {
+    "value": "#F59E0B",
     "type": "color",
-    "description": "Warning badges, caution highlights"
+    "description": "Warning badges, caution highlights",
+    "layer": "semantic"
   },
   "warning-hovered": {
+    "value": "#D97706",
     "type": "color",
-    "description": "Hovered warning action"
+    "description": "Hovered warning action",
+    "layer": "semantic"
   },
   "warning-pressed": {
+    "value": "#B45309",
     "type": "color",
-    "description": "Pressed warning action"
+    "description": "Pressed warning action",
+    "layer": "semantic"
   },
   "warning-subtle": {
+    "value": "#FFFBEB",
     "type": "color",
-    "description": "Warning alert background"
+    "description": "Warning alert background",
+    "layer": "semantic"
   },
   "warning-subtle-hovered": {
+    "value": "#FEF3C7",
     "type": "color",
-    "description": "Hovered warning alert background"
+    "description": "Hovered warning alert background",
+    "layer": "semantic"
   },
   "warning-border": {
+    "value": "#FCD34D",
     "type": "color",
-    "description": "Warning alert border"
+    "description": "Warning alert border",
+    "layer": "semantic"
   },
   "warning-text": {
+    "value": "#92400E",
     "type": "color",
-    "description": "Inline warning text — dark for contrast on light bg"
+    "description": "Inline warning text — dark for contrast on light bg",
+    "layer": "semantic"
   },
   "warning-on-warning": {
+    "value": "#451A03",
     "type": "color",
-    "description": "Text / icons on Amber fills — dark not white for contrast"
+    "description": "Text / icons on Amber fills — dark not white for contrast",
+    "layer": "semantic"
   },
   "info-default": {
+    "value": "#195FD2",
     "type": "color",
-    "description": "Informational badges and indicators"
+    "description": "Informational badges and indicators",
+    "layer": "semantic"
   },
   "info-hovered": {
+    "value": "#1241B2",
     "type": "color",
-    "description": "Hovered info action"
+    "description": "Hovered info action",
+    "layer": "semantic"
   },
   "info-pressed": {
+    "value": "#0A1F8F",
     "type": "color",
-    "description": "Pressed info action"
+    "description": "Pressed info action",
+    "layer": "semantic"
   },
   "info-subtle": {
+    "value": "#f5f9fe",
     "type": "color",
-    "description": "Info alert background"
+    "description": "Info alert background",
+    "layer": "semantic"
   },
   "info-subtle-hovered": {
+    "value": "#ecf3fe",
     "type": "color",
-    "description": "Hovered info alert background"
+    "description": "Hovered info alert background",
+    "layer": "semantic"
   },
   "info-border": {
+    "value": "#9CC2FC",
     "type": "color",
-    "description": "Info alert border"
+    "description": "Info alert border",
+    "layer": "semantic"
   },
   "info-text": {
+    "value": "#1241B2",
     "type": "color",
-    "description": "Inline info text on light backgrounds"
+    "description": "Inline info text on light backgrounds",
+    "layer": "semantic"
   },
   "info-on-info": {
+    "value": "#FFFFFF",
     "type": "color",
-    "description": "Text and icons on blue info fills"
+    "description": "Text and icons on blue info fills",
+    "layer": "semantic"
   },
   "opacity-overlay": {
+    "value": "0.5",
     "type": "opacity",
-    "description": "Modal scrim opacity"
+    "description": "Modal scrim opacity",
+    "layer": "semantic"
   },
   "opacity-disabled": {
+    "value": "0.38",
     "type": "opacity",
-    "description": "Disabled element opacity"
+    "description": "Disabled element opacity",
+    "layer": "semantic"
   },
   "opacity-subtle": {
+    "value": "0.08",
     "type": "opacity",
-    "description": "Subtle tinted backgrounds"
+    "description": "Subtle tinted backgrounds",
+    "layer": "semantic"
   },
   "typography-fontFamily-default": {
+    "value": "DM Sans, sans-serif",
     "type": "fontFamily",
-    "description": "Default UI font family"
+    "description": "Default UI font family",
+    "layer": "semantic"
   },
   "typography-fontFamily-code": {
+    "value": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
     "type": "fontFamily",
-    "description": "Monospace for code"
+    "description": "Monospace for code",
+    "layer": "semantic"
   },
   "typography-size-body": {
+    "value": "1rem",
     "type": "fontSize",
-    "description": "Body text"
+    "description": "Body text",
+    "layer": "semantic"
   },
   "typography-size-small": {
+    "value": "0.875rem",
     "type": "fontSize",
-    "description": "Small text"
+    "description": "Small text",
+    "layer": "semantic"
   },
   "typography-size-caption": {
+    "value": "0.75rem",
     "type": "fontSize",
-    "description": "Caption text"
+    "description": "Caption text",
+    "layer": "semantic"
   },
   "typography-size-h1": {
+    "value": "2.25rem",
     "type": "fontSize",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-size-h2": {
+    "value": "1.875rem",
     "type": "fontSize",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-size-h3": {
+    "value": "1.5rem",
     "type": "fontSize",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-size-h4": {
+    "value": "1.25rem",
     "type": "fontSize",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-size-h5": {
+    "value": "1.125rem",
     "type": "fontSize",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-size-h6": {
+    "value": "1rem",
     "type": "fontSize",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-letterSpacing-body": {
+    "value": "0em",
     "type": "letterSpacing",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-letterSpacing-caps": {
+    "value": "0.025em",
     "type": "letterSpacing",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-lineHeight-body": {
+    "value": "1.5",
     "type": "lineHeight",
-    "description": "Line height for body text"
+    "description": "Line height for body text",
+    "layer": "semantic"
   },
   "typography-lineHeight-heading": {
+    "value": "1.25",
     "type": "lineHeight",
-    "description": "Line height for headings"
+    "description": "Line height for headings",
+    "layer": "semantic"
   },
   "typography-lineHeight-caption": {
+    "value": "1.5",
     "type": "lineHeight",
-    "description": "Line height for captions"
+    "description": "Line height for captions",
+    "layer": "semantic"
   },
   "typography-lineHeight-code": {
+    "value": "1.625",
     "type": "lineHeight",
-    "description": "Line height for code blocks"
+    "description": "Line height for code blocks",
+    "layer": "semantic"
   },
-  "typography-weight-normal": {
+  "typography-weight-regular": {
+    "value": "400",
     "type": "fontWeight",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-weight-medium": {
+    "value": "500",
     "type": "fontWeight",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-weight-semibold": {
+    "value": "600",
     "type": "fontWeight",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "typography-weight-bold": {
+    "value": "700",
     "type": "fontWeight",
-    "description": ""
-  },
-  "typography-style-body": {
-    "type": "typography",
-    "description": "Body copy — regular"
-  },
-  "typography-style-subtitle": {
-    "type": "typography",
-    "description": "Subtitle — regular"
-  },
-  "typography-style-caption": {
-    "type": "typography",
-    "description": "Caption — regular"
-  },
-  "typography-style-overline": {
-    "type": "typography",
-    "description": "Overline — bold"
-  },
-  "typography-style-button": {
-    "type": "typography",
-    "description": "Button text — bold"
-  },
-  "typography-style-h1": {
-    "type": "typography",
-    "description": "Title H1 — bold"
-  },
-  "typography-style-h2": {
-    "type": "typography",
-    "description": "Title H2 — bold"
-  },
-  "typography-style-h3": {
-    "type": "typography",
-    "description": "Title H3 — bold"
-  },
-  "typography-style-h4": {
-    "type": "typography",
-    "description": "Title H4 — bold"
-  },
-  "typography-style-h5": {
-    "type": "typography",
-    "description": "Title H5 — bold"
-  },
-  "typography-style-h6": {
-    "type": "typography",
-    "description": "Title H6 — bold"
-  },
-  "effects-shadow-subtle": {
-    "type": "boxShadow",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "effects-shadow-default": {
+    "value": "0px 1px 3px 0px rgb(0 0 0 / 0.1), 0px 1px 2px -1px rgb(0 0 0 / 0.1)",
     "type": "boxShadow",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "effects-shadow-raised": {
+    "value": "0px 4px 6px -1px rgb(0 0 0 / 0.1), 0px 2px 4px -2px rgb(0 0 0 / 0.1)",
     "type": "boxShadow",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "effects-shadow-overlay": {
+    "value": "0px 10px 15px -3px rgb(0 0 0 / 0.1), 0px 4px 6px -4px rgb(0 0 0 / 0.1)",
     "type": "boxShadow",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "borderRadius-none": {
+    "value": "0px",
     "type": "borderRadius",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "borderRadius-sm": {
+    "value": "0.125rem",
     "type": "borderRadius",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "borderRadius-md": {
+    "value": "0.375rem",
     "type": "borderRadius",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "borderRadius-lg": {
+    "value": "0.5rem",
     "type": "borderRadius",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "borderRadius-pill": {
+    "value": "9999px",
     "type": "borderRadius",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "borderWidth-hairline": {
+    "value": "1px",
     "type": "borderWidth",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "borderWidth-thin": {
+    "value": "2px",
     "type": "borderWidth",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
   },
   "borderWidth-thick": {
+    "value": "4px",
     "type": "borderWidth",
-    "description": ""
+    "description": "",
+    "layer": "semantic"
+  },
+  "btn-shared-font-family": {
+    "value": "DM Sans, sans-serif",
+    "type": "fontFamily",
+    "description": "Button font family",
+    "layer": "component"
+  },
+  "btn-shared-font-weight": {
+    "value": "700",
+    "type": "fontWeight",
+    "description": "Button font weight",
+    "layer": "component"
+  },
+  "btn-shared-letter-spacing": {
+    "value": "0.025em",
+    "type": "letterSpacing",
+    "description": "Button letter spacing — wide to suit uppercase/bold labels",
+    "layer": "component"
+  },
+  "btn-shared-line-height": {
+    "value": "1.5",
+    "type": "lineHeight",
+    "description": "Button line height",
+    "layer": "component"
+  },
+  "btn-shared-border-radius": {
+    "value": "0.375rem",
+    "type": "borderRadius",
+    "description": "Button corner radius",
+    "layer": "component"
+  },
+  "btn-shared-border-width": {
+    "value": "1px",
+    "type": "borderWidth",
+    "description": "Button border width",
+    "layer": "component"
+  },
+  "btn-shared-focus-ring": {
+    "value": "#9CC2FC",
+    "type": "color",
+    "description": "Focus ring colour applied to all button variants",
+    "layer": "component"
+  },
+  "btn-shared-disabled-text": {
+    "value": "#94A3B8",
+    "type": "color",
+    "description": "Text colour for all disabled button variants — slate.500",
+    "layer": "component"
+  },
+  "btn-shared-disabled-opacity": {
+    "value": "0.38",
+    "type": "opacity",
+    "description": "Opacity applied to all disabled button variants",
+    "layer": "component"
+  },
+  "btn-size-sm-font-size": {
+    "value": "0.875rem",
+    "type": "fontSize",
+    "description": "Font size for small buttons",
+    "layer": "component"
+  },
+  "btn-size-sm-padding-x": {
+    "value": "0.5rem",
+    "type": "spacing",
+    "description": "Horizontal padding for small buttons",
+    "layer": "component"
+  },
+  "btn-size-sm-padding-y": {
+    "value": "0.25rem",
+    "type": "spacing",
+    "description": "Vertical padding for small buttons",
+    "layer": "component"
+  },
+  "btn-size-sm-height": {
+    "value": "2rem",
+    "type": "sizing",
+    "description": "Height for small buttons",
+    "layer": "component"
+  },
+  "btn-size-md-font-size": {
+    "value": "1rem",
+    "type": "fontSize",
+    "description": "Font size for medium buttons",
+    "layer": "component"
+  },
+  "btn-size-md-padding-x": {
+    "value": "1rem",
+    "type": "spacing",
+    "description": "Horizontal padding for medium buttons",
+    "layer": "component"
+  },
+  "btn-size-md-padding-y": {
+    "value": "0.25rem",
+    "type": "spacing",
+    "description": "Vertical padding for medium buttons",
+    "layer": "component"
+  },
+  "btn-size-md-height": {
+    "value": "2.5rem",
+    "type": "sizing",
+    "description": "Height for medium buttons",
+    "layer": "component"
+  },
+  "btn-size-lg-font-size": {
+    "value": "1rem",
+    "type": "fontSize",
+    "description": "Font size for large buttons",
+    "layer": "component"
+  },
+  "btn-size-lg-padding-x": {
+    "value": "1.5rem",
+    "type": "spacing",
+    "description": "Horizontal padding for large buttons",
+    "layer": "component"
+  },
+  "btn-size-lg-padding-y": {
+    "value": "0.5rem",
+    "type": "spacing",
+    "description": "Vertical padding for large buttons",
+    "layer": "component"
+  },
+  "btn-size-lg-height": {
+    "value": "3rem",
+    "type": "sizing",
+    "description": "Height for large buttons",
+    "layer": "component"
+  },
+  "btn-variant-primary-bg": {
+    "value": "#0A1F8F",
+    "type": "color",
+    "description": "Primary button background — blue.600",
+    "layer": "component"
+  },
+  "btn-variant-primary-bg-hover": {
+    "value": "#1241B2",
+    "type": "color",
+    "description": "Primary button background on hover — blue.700",
+    "layer": "component"
+  },
+  "btn-variant-primary-bg-active": {
+    "value": "#050F48",
+    "type": "color",
+    "description": "Primary button background on press — blue.800",
+    "layer": "component"
+  },
+  "btn-variant-primary-bg-disabled": {
+    "value": "#E2E8F0",
+    "type": "color",
+    "description": "Primary button background when disabled — slate.200",
+    "layer": "component"
+  },
+  "btn-variant-primary-text": {
+    "value": "#FFFFFF",
+    "type": "color",
+    "description": "Primary button text and icon colour — white",
+    "layer": "component"
+  },
+  "btn-variant-primary-border": {
+    "value": "transparent",
+    "type": "color",
+    "description": "Primary button border — transparent as fill provides affordance",
+    "layer": "component"
+  },
+  "btn-variant-secondary-bg": {
+    "value": "#F1F5F9",
+    "type": "color",
+    "description": "Secondary button background — slate.100 light fill",
+    "layer": "component"
+  },
+  "btn-variant-secondary-bg-hover": {
+    "value": "#ecf3fe",
+    "type": "color",
+    "description": "Secondary button background on hover — blue.100",
+    "layer": "component"
+  },
+  "btn-variant-secondary-bg-active": {
+    "value": "#D2E4FE",
+    "type": "color",
+    "description": "Secondary button background on press — blue.200",
+    "layer": "component"
+  },
+  "btn-variant-secondary-bg-disabled": {
+    "value": "#F1F5F9",
+    "type": "color",
+    "description": "Secondary button background when disabled — slate.100",
+    "layer": "component"
+  },
+  "btn-variant-secondary-text": {
+    "value": "#0F172A",
+    "type": "color",
+    "description": "Secondary button text — slate.900, uses primary text not interactive colour",
+    "layer": "component"
+  },
+  "btn-variant-secondary-border": {
+    "value": "#94A3B8",
+    "type": "color",
+    "description": "Secondary button border — slate.400 strong border",
+    "layer": "component"
+  },
+  "btn-variant-danger-bg": {
+    "value": "#DC2626",
+    "type": "color",
+    "description": "Danger button background — red.600",
+    "layer": "component"
+  },
+  "btn-variant-danger-bg-hover": {
+    "value": "#B91C1C",
+    "type": "color",
+    "description": "Danger button background on hover — red.700",
+    "layer": "component"
+  },
+  "btn-variant-danger-bg-active": {
+    "value": "#991B1B",
+    "type": "color",
+    "description": "Danger button background on press — red.800",
+    "layer": "component"
+  },
+  "btn-variant-danger-bg-disabled": {
+    "value": "#FECACA",
+    "type": "color",
+    "description": "Danger button background when disabled — red.200",
+    "layer": "component"
+  },
+  "btn-variant-danger-text": {
+    "value": "#FEF2F2",
+    "type": "color",
+    "description": "Danger button text and icon colour — red.50",
+    "layer": "component"
+  },
+  "btn-variant-danger-border": {
+    "value": "transparent",
+    "type": "color",
+    "description": "Danger button border — transparent as fill provides affordance",
+    "layer": "component"
+  },
+  "btn-variant-ghost-bg": {
+    "value": "transparent",
+    "type": "color",
+    "description": "Ghost button background — fully transparent",
+    "layer": "component"
+  },
+  "btn-variant-ghost-bg-hover": {
+    "value": "#f5f9fe",
+    "type": "color",
+    "description": "Ghost button background on hover — blue.50",
+    "layer": "component"
+  },
+  "btn-variant-ghost-bg-active": {
+    "value": "#ecf3fe",
+    "type": "color",
+    "description": "Ghost button background on press — blue.100",
+    "layer": "component"
+  },
+  "btn-variant-ghost-bg-disabled": {
+    "value": "transparent",
+    "type": "color",
+    "description": "Ghost button background when disabled",
+    "layer": "component"
+  },
+  "btn-variant-ghost-text": {
+    "value": "#0A1F8F",
+    "type": "color",
+    "description": "Ghost button text and icon colour — blue.600",
+    "layer": "component"
+  },
+  "btn-variant-ghost-border": {
+    "value": "transparent",
+    "type": "color",
+    "description": "Ghost button border — transparent, relies on text for affordance",
+    "layer": "component"
   }
 }

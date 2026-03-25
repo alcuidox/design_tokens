@@ -783,3 +783,75 @@ IDF_STATUS_INFO
 
 writeFileSync('./dist/usys.ini', usysIni, 'utf8');
 console.log('✔︎  dist/usys.ini');
+
+// ---------------------------------------------------------------------------
+// 7a. dist/tokens-studio.json
+//     Combined token file in Tokens Studio format.
+//     Preserves layer structure and unresolved references so the file can
+//     be imported directly back into Figma via Tokens Studio.
+//     Structure: { primitive: {...}, semantic: {...}, component: {...}, $metadata }
+// ---------------------------------------------------------------------------
+
+const tokensStudio = {
+  primitive: primitive.primitive ?? primitive,
+  semantic:  semantic,
+  component: component,
+  $metadata: {
+    tokenSetOrder: ['primitive', 'semantic', 'component'],
+  },
+};
+
+writeFileSync('./dist/tokens-studio.json',
+  JSON.stringify(tokensStudio, null, 2) + '\n',
+  'utf8'
+);
+console.log('✔︎  dist/tokens-studio.json');
+
+// ---------------------------------------------------------------------------
+// 7b. dist/tokens-flat.json
+//     Fully resolved flat key:value map.
+//     All token references resolved to their final values.
+//     Intended for platform consumers (UNIFACE, native apps, etc.)
+//     that cannot process references or layered JSON.
+//
+//     Format:
+//     {
+//       "interactive-default": { "value": "#195FD2", "type": "color", "description": "..." },
+//       "btn-variant-primary-bg": { "value": "#195FD2", "type": "color", "description": "..." }
+//     }
+// ---------------------------------------------------------------------------
+
+// Combine semantic and component flat maps, resolving all values
+const allFlat = {};
+
+// Semantic tokens
+for (const [path, token] of Object.entries(semFlat)) {
+  const value = resolveToken(token.value);
+  if (typeof value === 'object' && !Array.isArray(value)) continue; // skip composite
+  const cssKey = path.replace(/\./g, '-');
+  allFlat[cssKey] = {
+    value: token.type === 'boxShadow' ? shadowToCSS(value) : value,
+    type: token.type,
+    description: token.description || '',
+    layer: 'semantic',
+  };
+}
+
+// Component tokens
+for (const [path, token] of Object.entries(compFlat)) {
+  const value = resolveComponentValue(token.value);
+  if (typeof value === 'object') continue;
+  const cssKey = compCssVarName(path).replace('--', '');
+  allFlat[cssKey] = {
+    value,
+    type: token.type,
+    description: token.description || '',
+    layer: 'component',
+  };
+}
+
+writeFileSync('./dist/tokens-flat.json',
+  JSON.stringify(allFlat, null, 2) + '\n',
+  'utf8'
+);
+console.log('✔︎  dist/tokens-flat.json');
