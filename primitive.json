@@ -1,7 +1,7 @@
 {
     "primitive": {
         "blue": {
-            "5000": {
+            "50": {
             "$value": "#f5f9fe",
             "$type": "color"
             },
