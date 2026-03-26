@@ -771,7 +771,7 @@
       }
     },
     "surface": {
-      "sublte": {
+      "subtle": {
         "$type": "color",
         "$value": "{slate.50}",
         "$description": "App background — lightest surface, page canvas"
