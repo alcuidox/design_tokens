@@ -831,7 +831,7 @@
       },
       "tertiary": {
         "$type": "color",
-        "$value": "{slate.400}",
+        "$value": "{slate.500}",
         "$description": "Hints and timestamps"
       },
       "disabled": {
@@ -1202,16 +1202,6 @@
         "$type": "opacity",
         "$value": "{opacity.50}",
         "$description": "Modal scrim opacity"
-      },
-      "disabled": {
-        "$type": "opacity",
-        "$value": "{opacity.38}",
-        "$description": "Disabled element opacity"
-      },
-      "subtle": {
-        "$type": "opacity",
-        "$value": "{opacity.8}",
-        "$description": "Subtle tinted backgrounds"
       }
     }
   },
