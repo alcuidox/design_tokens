@@ -241,7 +241,8 @@
           "$type": "spacing"
         },
         "$type": "spacing",
-        "$value": "0px"
+        "$value": "0px",
+        "$description": "..."
       },
       "1": {
         "5": {
