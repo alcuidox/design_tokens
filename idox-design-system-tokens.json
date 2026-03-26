@@ -890,75 +890,6 @@
           "$description": "Monospace for code"
         }
       },
-      "size": {
-        "body": {
-          "$type": "fontSize",
-          "$value": "{typography.fontSize.base}",
-          "$description": "Body text"
-        },
-        "small": {
-          "$type": "fontSize",
-          "$value": "{typography.fontSize.sm}",
-          "$description": "Small text"
-        },
-        "caption": {
-          "$type": "fontSize",
-          "$value": "{typography.fontSize.xs}",
-          "$description": "Caption text"
-        },
-        "h1": {
-          "$type": "fontSize",
-          "$value": "{typography.fontSize.4xl}"
-        },
-        "h2": {
-          "$type": "fontSize",
-          "$value": "{typography.fontSize.3xl}"
-        },
-        "h3": {
-          "$type": "fontSize",
-          "$value": "{typography.fontSize.2xl}"
-        },
-        "h4": {
-          "$type": "fontSize",
-          "$value": "{typography.fontSize.xl}"
-        },
-        "h5": {
-          "$type": "fontSize",
-          "$value": "{typography.fontSize.lg}"
-        },
-        "h6": {
-          "$type": "fontSize",
-          "$value": "{typography.fontSize.base}"
-        }
-      },
-      "letterSpacing": {
-        "body": {
-          "$type": "letterSpacing",
-          "$value": "{typography.letterSpacing.normal}"
-        },
-        "caps": {
-          "$type": "letterSpacing",
-          "$value": "{typography.letterSpacing.wide}"
-        }
-      },
-      "weight": {
-        "regular": {
-          "$type": "fontWeight",
-          "$value": "{typography.fontWeight.normal}"
-        },
-        "medium": {
-          "$type": "fontWeight",
-          "$value": "{typography.fontWeight.medium}"
-        },
-        "semibold": {
-          "$type": "fontWeight",
-          "$value": "{typography.fontWeight.semibold}"
-        },
-        "bold": {
-          "$type": "fontWeight",
-          "$value": "{typography.fontWeight.bold}"
-        }
-      },
       "style": {
         "body": {
           "$type": "typography",
@@ -1006,6 +937,16 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.sm}",
+            "letterSpacing": "{typography.letterSpacing.normal}"
+          },
+          "$description": "Button text — bold"
+        },
+        "button-small": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{typography.fontFamily.sans}",
+            "fontWeight": "{typography.fontWeight.bold}",
+            "fontSize": "{typography.fontSize.xs}",
             "letterSpacing": "{typography.letterSpacing.wide}"
           },
           "$description": "Button text — bold"
@@ -1150,62 +1091,6 @@
           },
           "$description": "Navigation items — medium"
         }
-      }
-    },
-    "effects": {
-      "shadow": {
-        "subtle": {
-          "$type": "boxShadow",
-          "$value": "{effects.shadow.sm}"
-        },
-        "primary": {
-          "$type": "boxShadow",
-          "$value": "{effects.shadow.default}"
-        },
-        "raised": {
-          "$type": "boxShadow",
-          "$value": "{effects.shadow.md}"
-        },
-        "overlay": {
-          "$type": "boxShadow",
-          "$value": "{effects.shadow.lg}"
-        }
-      }
-    },
-    "borderRadius": {
-      "none": {
-        "$type": "borderRadius",
-        "$value": "{border.radius.none}"
-      },
-      "sm": {
-        "$type": "borderRadius",
-        "$value": "{border.radius.sm}"
-      },
-      "md": {
-        "$type": "borderRadius",
-        "$value": "{border.radius.md}"
-      },
-      "lg": {
-        "$type": "borderRadius",
-        "$value": "{border.radius.lg}"
-      },
-      "pill": {
-        "$type": "borderRadius",
-        "$value": "{border.radius.full}"
-      }
-    },
-    "borderWidth": {
-      "hairline": {
-        "$type": "borderWidth",
-        "$value": "{border.width.1}"
-      },
-      "thin": {
-        "$type": "borderWidth",
-        "$value": "{border.width.2}"
-      },
-      "thick": {
-        "$type": "borderWidth",
-        "$value": "{border.width.4}"
       }
     }
   },
