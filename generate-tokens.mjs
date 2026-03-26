@@ -790,12 +790,34 @@ console.log('✔︎  dist/usys.ini');
 //     Preserves layer structure and unresolved references so the file can
 //     be imported directly back into Figma via Tokens Studio.
 //     Structure: { primitive: {...}, semantic: {...}, component: {...}, $metadata }
+//
+//     Important: Tokens Studio expects references WITHOUT the 'primitive.' prefix
+//     e.g. {blue.600} not {primitive.blue.600}
+//     We strip 'primitive.' from all $value strings in semantic and component layers.
 // ---------------------------------------------------------------------------
 
+// Deep clone and strip 'primitive.' prefix from all $value references
+function stripPrimitivePrefix(obj) {
+  if (typeof obj === 'string') {
+    return obj.replace(/\{primitive\./g, '{');
+  }
+  if (Array.isArray(obj)) {
+    return obj.map(stripPrimitivePrefix);
+  }
+  if (obj && typeof obj === 'object') {
+    return Object.fromEntries(
+      Object.entries(obj).map(([k, v]) => [k, stripPrimitivePrefix(v)])
+    );
+  }
+  return obj;
+}
+
 const tokensStudio = {
+  // Unwrap the 'primitive' wrapper key so tokens sit at root level
   primitive: primitive.primitive ?? primitive,
-  semantic:  semantic,
-  component: component,
+  // Strip 'primitive.' prefix from all references in semantic and component
+  semantic:  stripPrimitivePrefix(semantic),
+  component: stripPrimitivePrefix(component),
   $metadata: {
     tokenSetOrder: ['primitive', 'semantic', 'component'],
   },
@@ -805,7 +827,7 @@ writeFileSync('./dist/tokens-studio.json',
   JSON.stringify(tokensStudio, null, 2) + '\n',
   'utf8'
 );
-console.log('✔︎  dist/tokens-studio.json');
+console.log('\u2714\ufe0e  dist/tokens-studio.json');
 
 // ---------------------------------------------------------------------------
 // 7b. dist/tokens-flat.json
@@ -855,3 +877,106 @@ writeFileSync('./dist/tokens-flat.json',
   'utf8'
 );
 console.log('✔︎  dist/tokens-flat.json');
+
+// ---------------------------------------------------------------------------
+// 8. dist/tokens-mapped.css
+//    CSS custom properties with references preserved — semantic tokens
+//    reference primitive variables rather than resolved hex values.
+//    Primitive variables are declared first so the file is self-contained.
+//
+//    Example:
+//      --primitive-blue-600: #195FD2;
+//      --interactive-default: var(--primitive-blue-600);
+//
+//    Benefits:
+//      - Token relationships are visible in DevTools
+//      - Overriding a primitive cascades through all semantic tokens
+//      - Useful for theming and dark mode via primitive overrides
+// ---------------------------------------------------------------------------
+
+function primCssVarName(path) {
+  return `--${path.replace(/\./g, '-')}`;
+}
+
+// Primitive vars — raw values
+const primitiveVarsMapped = [];
+for (const [path, token] of Object.entries(primFlat)) {
+  if (token.type === 'typography' || typeof token.value === 'object') continue;
+  primitiveVarsMapped.push([primCssVarName(path), token.value, token.description]);
+}
+
+// Semantic vars — reference primitive vars where possible
+const semanticVarsMapped = [];
+for (const [path, token] of Object.entries(semFlat)) {
+  if (token.type === 'typography') continue;
+  let mappedValue;
+  if (typeof token.value === 'string' && token.value.startsWith('{') && token.value.endsWith('}')) {
+    const ref = token.value.slice(1, -1);
+    if (primFlat[ref]) {
+      mappedValue = `var(${primCssVarName(ref)})`;
+    } else if (semFlat[ref]) {
+      mappedValue = `var(--${ref.replace(/\./g, '-')})`;
+    } else {
+      mappedValue = token.value;
+    }
+  } else if (token.type === 'boxShadow') {
+    mappedValue = shadowToCSS(resolveToken(token.value));
+  } else {
+    mappedValue = token.value;
+  }
+  if (mappedValue === null || typeof mappedValue === 'object') continue;
+  semanticVarsMapped.push([`--${path.replace(/\./g, '-')}`, mappedValue, token.description]);
+}
+
+// Component vars — reference semantic vars where possible
+const componentVarsMapped = [];
+for (const [path, token] of Object.entries(compFlat)) {
+  if (typeof token.value === 'object') continue;
+  const varName = compCssVarName(path);
+  let mappedValue;
+  if (typeof token.value === 'string' && token.value.startsWith('{') && token.value.endsWith('}')) {
+    const ref = token.value.slice(1, -1);
+    if (semFlat[ref]) {
+      mappedValue = `var(--${ref.replace(/\./g, '-')})`;
+    } else if (primFlat[ref]) {
+      mappedValue = `var(${primCssVarName(ref)})`;
+    } else {
+      mappedValue = token.value;
+    }
+  } else {
+    mappedValue = token.value;
+  }
+  componentVarsMapped.push([varName, mappedValue, token.description]);
+}
+
+writeFileSync('./dist/tokens-mapped.css',
+  `/**
+ * Idox Design System — CSS Custom Properties (mapped)
+ * Auto-generated from primitive.json + semantic.json + component.json. Do not edit manually.
+ *
+ * Unlike tokens.css, values here reference CSS variables rather than resolved values.
+ * This preserves token relationships and allows primitive overrides to cascade
+ * through semantic and component tokens automatically.
+ *
+ * Example — change brand colour system-wide:
+ *   :root { --primitive-blue-600: #0066CC; }
+ */
+
+/* Primitive tokens — raw values */
+:root {
+${renderCSSVars(primitiveVarsMapped)}
+}
+
+/* Semantic tokens — reference primitive variables */
+:root {
+${renderCSSVars(semanticVarsMapped)}
+}
+
+/* Component tokens — reference semantic variables */
+:root {
+${renderCSSVars(componentVarsMapped)}
+}
+`,
+  'utf8'
+);
+console.log('\u2714\ufe0e  dist/tokens-mapped.css');
