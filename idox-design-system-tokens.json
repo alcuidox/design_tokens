@@ -508,27 +508,27 @@
       "lineHeight": {
         "none": {
           "$type": "lineHeight",
-          "$value": "1"
+          "$value": "1rem"
         },
         "tight": {
           "$type": "lineHeight",
-          "$value": "1.25"
+          "$value": "1.25rem"
         },
         "snug": {
           "$type": "lineHeight",
-          "$value": "1.375"
+          "$value": "1.375rem"
         },
         "normal": {
           "$type": "lineHeight",
-          "$value": "1.5"
+          "$value": "1.5rem"
         },
         "relaxed": {
           "$type": "lineHeight",
-          "$value": "1.625"
+          "$value": "1.625rem"
         },
         "loose": {
           "$type": "lineHeight",
-          "$value": "2"
+          "$value": "2rem"
         }
       }
     },
@@ -771,7 +771,7 @@
       }
     },
     "surface": {
-      "sublte": {
+      "subtle": {
         "$type": "color",
         "$value": "{slate.50}",
         "$description": "App background — lightest surface, page canvas"
@@ -1001,8 +1001,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.normal}",
             "fontSize": "{typography.fontSize.base}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Body copy — regular"
         },
@@ -1012,8 +1011,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.normal}",
             "fontSize": "{typography.fontSize.xl}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Subtitle — regular"
         },
@@ -1023,8 +1021,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.normal}",
             "fontSize": "{typography.fontSize.sm}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Caption — regular"
         },
@@ -1034,8 +1031,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.xs}",
-            "letterSpacing": "{typography.letterSpacing.wide}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.wide}"
           },
           "$description": "Overline — bold"
         },
@@ -1045,8 +1041,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.sm}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Button text — bold"
         },
@@ -1056,8 +1051,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.xs}",
-            "letterSpacing": "{typography.letterSpacing.wide}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.wide}"
           },
           "$description": "Button text small — bold"
         },
@@ -1067,8 +1061,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.4xl}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$description": "Title H1 — bold"
         },
@@ -1078,8 +1071,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.3xl}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$description": "Title H2 — bold"
         },
@@ -1089,8 +1081,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.2xl}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$description": "Title H3 — bold"
         },
@@ -1100,8 +1091,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.xl}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$description": "Title H4 — bold"
         },
@@ -1111,8 +1101,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.lg}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$description": "Title H5 — bold"
         },
@@ -1122,8 +1111,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.bold}",
             "fontSize": "{typography.fontSize.base}",
-            "letterSpacing": "{typography.letterSpacing.tight}",
-            "lineHeight": "{typography.lineHeight.tight}"
+            "letterSpacing": "{typography.letterSpacing.tight}"
           },
           "$description": "Title H6 — bold"
         },
@@ -1133,8 +1121,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.normal}",
             "fontSize": "{typography.fontSize.base}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Input field placeholder text — regular"
         },
@@ -1144,8 +1131,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.medium}",
             "fontSize": "{typography.fontSize.sm}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Form field labels — medium"
         },
@@ -1155,8 +1141,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.normal}",
             "fontSize": "{typography.fontSize.xs}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Helper / hint text below fields — regular"
         },
@@ -1166,8 +1151,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.semibold}",
             "fontSize": "{typography.fontSize.xs}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Badge and tag labels — semibold"
         },
@@ -1177,8 +1161,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.normal}",
             "fontSize": "{typography.fontSize.xs}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Tooltip content — regular"
         },
@@ -1188,8 +1171,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.medium}",
             "fontSize": "{typography.fontSize.base}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Inline links — inherits body size, medium weight"
         },
@@ -1199,8 +1181,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.semibold}",
             "fontSize": "{typography.fontSize.sm}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Table column headers — semibold"
         },
@@ -1210,8 +1191,7 @@
             "fontFamily": "{typography.fontFamily.sans}",
             "fontWeight": "{typography.fontWeight.medium}",
             "fontSize": "{typography.fontSize.sm}",
-            "letterSpacing": "{typography.letterSpacing.normal}",
-            "lineHeight": "{typography.lineHeight.normal}"
+            "letterSpacing": "{typography.letterSpacing.normal}"
           },
           "$description": "Navigation items — medium"
         }
